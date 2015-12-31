@@ -46,7 +46,7 @@
                 <form id="form-login" method="post">
                     <input id="log-email" name="email_usuario" placeholder="tu-correo@correo.cl" type="email">
                     <a id="log-email-error" href="#" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon color-boton-error-validacion" style="display:none">Ingrese un correo valido</a>
-                    <input id="log-password" name="password_usuario" placeholder="contraseña" type="password">
+                    <input id="log-password" name="pas446sword_usuario" placeholder="contraseña" type="password">
                     <a id="log-pass-error" href="#" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon color-boton-error-validacion" style="display:none">Ingrese una contraseña valida</a>
                     <a id="log-error" href="#" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon color-boton-error-validacion" style="display:none">Su combinación usuario/password es incorrecta</a>
                     <div class="ancho-botones">
@@ -64,18 +64,15 @@
                 </form>
             </div>
     		<div data-role="footer" data-position="fixed" style="background:inherit;">
-                <div style="margin: 10px 10px 5px 10px; text-align:center">
+                <div style="margin: 10px 10px 10px 17px; text-align:center;">
                     <a href="#" style="text-decoration:none">
                         <div style="display:inline-block"><div class="deporte-baloncesto"></div></div>
-                    </a>
-                    <a href="#" style="text-decoration:none">
-                        <div style="display:inline-block"><div class="deporte-rugby"></div></div>
                     </a>
                     <a href="#" style="text-decoration:none">
                         <div style="display:inline-block"><div class="deporte-voleyball"></div></div>
                     </a>
                     <a href="#" style="text-decoration:none">
-                        <div style="display:inline-block"><div class="deporte-handball"></div></div>
+                        <div style="display:inline-block"><div class="deporte-rugby"></div></div>
                     </a>
                     <a href="#" style="text-decoration:none">
                         <div style="display:inline-block"><div class="deporte-hockey"></div></div>
@@ -130,9 +127,8 @@
                 <div class="fl-izquierda"></div>
             </a>
             <h1>Crear Equipo</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
-        
         <div data-role="main" class="content" style="margin:20px">
             <form id="e-registro" method="post">           
                 <input id="reg-nequipo" name="equipo" placeholder="Nombre de tu equipo" type="text">
@@ -161,7 +157,7 @@
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#" data-transition="fade" class="saca-estilo-boton"></a>
             <h1><img src="jquerymobile/img-dportes/logo-dportes.svg" style="width:80px"></h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
 
         <div class="content centrado-iconos-inicio">
@@ -187,7 +183,7 @@
         <div data-role="header" data-position="fixed" class="color-encabezado">
         <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
         <h1>Mi Perfil</h1>
-        <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+        <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         <div class="content">
             <ul data-role="listview" data-inset="false">
@@ -235,14 +231,13 @@
     </div>
 
     <!-- ———— INGRESO EQUIPO ————— -->
-
     <div data-role="page" id="reg-equipo" data-title="Dportes">
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a data-rel="back" class="saca-estilo-boton">
                 <div class="fl-izquierda"></div>
             </a>
             <h1>Crear Equipo</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         
         <div data-role="main" class="content" style="margin:20px">
@@ -269,7 +264,7 @@
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a id="jg-rel-back" href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Agregar Jugadores</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         <div data-rol="main" class="content" style="margin:20px">  
         <form method="post">
@@ -343,72 +338,55 @@
 
     <!-- ———— FECHAS PASADAS ————— -->
     <div data-role="page" id="p-pro" class="jqm-demos" data-title="Dportes" data-theme="a">
-    
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Próximos Partidos</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
-        
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
-        
         <div class="content">
             <div data-role="tabs">
-        
-            <a href="#add-partido"><div class="agregar_nuevo_juego"></div></a><!--boton de agregar un nuevo juego-->
-            <div>
-                <h3 align="center">Partidos Programados</h3>
-                <ul id="pro-list" data-role="listview" data-inset="false" >
-                </ul>
-                <a id="p-pro-more" href="#" onclick="setMorePro();" class="ui-btn ui-icon-plus ui-btn-icon-left color-boton" style="display:none;">Mostrar Más</a>
-            </div>
-            
+                <a href="#add-partido"><div class="agregar_nuevo_juego"></div></a><!--boton de agregar un nuevo juego-->
+                <div>
+                    <h3 align="center">Partidos Programados</h3>
+                    <ul id="pro-list" data-role="listview" data-inset="false" >
+                    </ul>
+                    <a id="p-pro-more" href="#" onclick="setMorePro();" class="ui-btn ui-icon-plus ui-btn-icon-left color-boton" style="display:none;">Mostrar Más</a>
+                </div>
             </div><!--cierre de tabs-->
         </div><!--cierre de content-->      
     </div>
 
     <!-- ———— ELECCION DE TITULARES JUEGO NUEVO ————— -->
     <div data-role="page" id="seleccionar-titulares" class="jqm-demos" data-title="Dportes" data-theme="a">
-    
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#add-partido" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Titulares</h1>
             <a id="jg-valida-titulares" href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-derecha"></div></a>
         </div>
-        
         <div data-role="main" class="content">
-            <ul id="set-titulares" data-role="listview" data-inset="false">
-
-            </ul>
-
+            <ul id="set-titulares" data-role="listview" data-inset="false"></ul>
         </div>
     </div>
 
     <!-- ———— SELECCIONAR EL TIEMPO DEL JUEGO ————— -->
     <div data-role="page" id="panel-juego" class="jqm-demos" data-title="Dportes" data-theme="a" style="background-color:#6BC43C !important;">
-        
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#seleccionar-titulares" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Comenzar Juego</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
-
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
-        
-        
         <div class="content" style="margin:20px;">
-            <div id="set-periodos" class="alineacion-centro-vertical">
-            </div>
+            <div id="set-periodos" class="alineacion-centro-vertical"></div>
         </div>
     </div>
 
     <!-- ———— ACCION DE JUGADOR - JUGADAS REALIZADAS POR EL JUGADOR ————— -->
     <div data-role="page" id="acciones" class="jqm-demos" data-title="Dportes" data-theme="a">
-
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Acciones</h1>
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
-        
         <div class="content">
             <div class="contenedor-fechas">
                 <div class="row centrado-fechas">
@@ -522,13 +500,11 @@
 
     <!-- Estadisticas -->
     <div data-role="page" id="estadisticas" class="jqm-demos" data-title="Dportes" data-theme="a">
-
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a id="stat-back-rel" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Estadisticas</h1>
             <a id="stat-forward-rel" data-transition="fade" class="saca-estilo-boton ui-btn-icon-right"><div class="fl-derecha"></div></a>
         </div>
-        
         <div class="content">
             <div data-role="tabs" id="tabs">
                 <div data-role="navbar">
@@ -537,7 +513,6 @@
                         <li><a href="#dos" data-ajax="false" data-transition="slide">Detalles Jugadores</a></li>
                     </ul>
                 </div>
-
                 <div id="uno" class="ui-body-d ui-content">
                     <ul data-role="listview">
                         <div class="contenedor-fechas">
@@ -601,69 +576,46 @@
                 </div>
                 <div id="dos" class="ui-body-d ui-content">
                     <div class="content">
-
                         <ul id="stat-jg-list" data-role="listview" data-inset="false">
                         </ul>
-
                     </div><!--CIERRE DE CONTENIDO-->
                 </div>
             </div>
-            
-
         </div>
-
         <!--<div data-role="footer"><p align="center">© 2015 Derechos Reservados Dportes</p></div>-->
     </div>
 
     <!-- ———— FECHAS PASADAS ————— -->
     <div data-role="page" id="historial-stat" class="jqm-demos" data-title="Dportes" data-theme="a">
-    
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Fechas Jugadas</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
-        
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
-        
-        <div id="historial-content" class="content" style="margin-top:20px">
-        </div>
-
+        <div id="historial-content" class="content" style="margin-top:20px"></div>
         <!--<div data-role="footer"><p align="center">© 2015 Derechos Reservados Dportes</p></div>-->
     </div>
-
     <div data-role="page" id="cambio-jugador" class="jqm-demos" data-title="Dportes" data-theme="a">
-    
         <div data-role="header" data-position="fixed" data-tap-toggle="false" class="color-encabezado">
             <a href="#acciones" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Cambio de Jugador</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
-        
         <div class="content">
-            
-            <ul id="jg-reservas" data-role="listview" data-inset="false">
-            </ul>
-
-            </div>
-
+            <ul id="jg-reservas" data-role="listview" data-inset="false"></ul>
+        </div>
         <!--<div data-role="footer"><p align="center">© 2015 Derechos Reservados Dportes</p></div>-->
-        
-        <!-- CIERRE PANEL MENU -->
     </div>
 
     <!-- ———— PERFIL TITULAR ————— -->
     <div data-role="page" id="detalle-jugador" class="jqm-demos" data-title="Dportes" data-theme="a">
-    
         <div data-role="header" data-position="fixed" class="color-encabezado">
         <a href="#estadisticas" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
         <h1>Estadísticas Jugador</h1>
-        <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+        <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
-        
         <div class="content" style="margin:0px">
-    
             <ul data-role="listview" data-inset="false">
-            
                 <li data-icon="false">
                     <a href="#" class="color-boton-equipo-dark">
                         <img src="jquerymobile/img-dportes/foto.png">
@@ -671,7 +623,6 @@
                         <p id="dt-posicion"></p>
                     </a>
                 </li>
-                
             <h4 align="center">Datos Estadísticos:</h4>
                 <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="" data-column-popup-theme="a">
                     <thead>
@@ -739,11 +690,10 @@
 
     <!-- ———— LISTA DE ESTADISTICAS DE JUGADORES EQUIPO TITULAR ————— -->
     <div data-role="page" id="jugadores-equipo" class="jqm-demos" data-title="Dportes" data-theme="a">
-    
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Equipo <span id="jug-nom-eq"></span></h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
             <!--<div class="tarro-basura"><a id="jug-borrar" href="#"><img src="jquerymobile/img-dportes/iconos/borrar.png"></a></div> -->
         </div>
         <a href="#add-jugadores"><div class="agregar_jugador"></div></a>
@@ -755,56 +705,46 @@
 
     <!-- ———— EDITAR JUGADOR ————— -->
     <div data-role="page" id="editar-jugador" class="jqm-demos" data-title="Dportes" data-theme="a">
-    
         <div data-role="header" data-position="fixed" class="color-encabezado">
-        <a data-rel="back" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
-        <h1>Jugador</h1>
-        <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a data-rel="back" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <h1>Jugador</h1>
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
-        
         <div class="content" style="margin:0px">
-    
             <ul data-role="listview" data-inset="false">
-            
                 <li data-icon="false">
-                <a href="#" class="color-boton-equipo-dark">
-                    <img src="jquerymobile/img-dportes/foto.png">
-                    <h2 id="edit-jg"></h2>
-                    <p id="edit-jg-posicion"></p>
-                </a>
+                    <a href="#" class="color-boton-equipo-dark">
+                        <img src="jquerymobile/img-dportes/foto.png">
+                        <h2 id="edit-jg"></h2>
+                        <p id="edit-jg-posicion"></p>
+                    </a>
                 </li>
-                
                 <div style="margin:20px">
-                <form action="" method="post">
+                    <form action="" method="post">
                         <label><strong>Tu Nombre:</strong></label>
                         <input id="edit-jg-nombre" name="nombre" value="" type="text">
                         <label><strong>Tu Correo:</strong></label>
                         <input id="edit-jg-correo" name="correo" value="" type="text">
-                
                         <fieldset data-role="collapsible" data-collapsed="true" >
                             <legend>Tu Posición Actual</legend>
                             <div id="edit-jg-posiciones" data-role="controlgroup">
                             </div>
                         </fieldset>
-                            
                         <br><br>
                         <a id="edit-jg-save" class="color-boton" data-transition="fade"><button class="ui-btn btn-input">Guardar</button></a>
                     </form>
                 </div>
-
             </ul>
-
         </div>
     </div>
+
     <!-- ————— MIS EQUIPOS ————— -->
     <div data-role="page" id="mis-equipos" data-url="mis_equipos" class="jqm-demos" data-title="Dportes" data-theme="a">
-    
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Mis Equipos</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
-        
         <div role="main" class="ui-content">
             <ul id="eq-list" class="touch" data-role="listview" data-icon="false" data-split-icon="delete" data-inset="false">
             </ul>
@@ -814,17 +754,13 @@
 
     <!-- ————— EDITAR EQUIPOS ————— -->
     <div data-role="page" id="editar-equipo" class="jqm-demos" data-title="Dportes" data-theme="a">
-    
         <div data-role="header" data-position="fixed" class="color-encabezado">
-        <a href="#mis-equipos" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
-        <h1>Editar Equipo</h1>
-        <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#mis-equipos" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <h1>Editar Equipo</h1>
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
-        
         <div class="content" style="margin:0px">
-    
             <ul data-role="listview" data-inset="false">
-            
                 <li data-icon="false">
                 <a href="#" class="color-boton-equipo-dark">
                     <img src="jquerymobile/img-dportes/logo-encuentro.png">
@@ -832,7 +768,6 @@
                     <p id="edit-ubicacion">No disponible</p>
                 </a>
                 </li>
-                
                 <div style="margin:20px">
                 <form method="post">
                         <label><strong>Nombre del equipo:</strong></label>
@@ -841,54 +776,20 @@
                         <input name="comuna_equipo" id="edir-eq-region" value="" type="text">
                         <label><strong>Comuna:</strong></label>
                         <input name="clave" id="edit-eq-comuna" value="" type="text" maxlength="100">
-                
-                        <!--<div style="margin-bottom:10px">
-                        <fieldset data-role="collapsible">
-                            <legend>Categoria</legend>
-                            <div data-role="controlgroup">
-                                <input name="categoria_equipo" id="infantil" type="radio">
-                                <label for="infantil">Infantil</label>
-                                <input name="categoria_equipo" id="juvenil" type="radio">
-                                <label for="juvenil">Juvenil</label>
-                                <input name="categoria_equipo" id="adulta" type="radio" checked>
-                                <label for="adulta">Adulta</label>
-                                <input name="categoria_equipo" id="senior" type="radio">
-                                <label for="senior">Senior</label>
-                            </div>
-                        </fieldset>
-                        </div>
-                        
-                        <div style="margin-bottom:10px">
-                        <fieldset data-role="collapsible">
-                            <legend>Genero</legend>
-                            <div data-role="controlgroup">
-                                <input name="genero" id="masculino" type="radio" checked>
-                                <label for="masculino">Masculino</label>
-                                <input name="genero" id="femenino" type="radio">
-                                <label for="femenino">Femenino</label>
-                            </div>
-                        </fieldset>
-                        </div>
-                            
-                        <label for="foto_perfil">Cambiar Foto de Perfil:</label>
-                        <input name="foto_perfil" id="foto_perfil" value="" type="file">-->
                         <a onclick="setEquipo()" data-rel="popup" data-position-to="window" data-transition="pop" class="color-boton"><button class="ui-btn btn-input" type="submit">Guardar</button></a>
                     </form>
                 </div>
-
             </ul>
-
         </div>
     </div>
 
     <!-- Acerde de -->
     <div data-role="page" id="acerca" class="jqm-demos background-login" data-title="Dportes" data-theme="a">
-
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#home" data-transition="fade" class="saca-estilo-boton">
                 <div class="fl-izquierda"></div>
             </a>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         
         <div class="content" style="margin:20px;">       
@@ -910,7 +811,7 @@
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a data-rel="back" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Como se Usa</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         
         <div class="content" style="margin:20px">
@@ -980,7 +881,7 @@
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a id="tyc-back" href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Términos Servicios</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         
         <div class="content" style="margin:20px">
@@ -997,7 +898,7 @@
     <div data-role="page" id="notificaciones" class="jqm-demos" style="background:#6BC43C;">
     
         <div data-role="header" data-position="fixed" class="color-encabezado">
-          <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a><!--ABRE MENU-->
+          <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
           <h1>Notificaciones</h1>
           <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
@@ -1013,7 +914,7 @@
     <div data-role="page" id="estadisticas-nuevas" class="jqm-demos">
     
         <div data-role="header" data-position="fixed" class="color-encabezado">
-            <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a><!--ABRE MENU-->
+            <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Estadísticas</h1>
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
@@ -1152,7 +1053,7 @@
     <!-- resumen partido -->
     <div data-role="page" id="resumen-partido" class="jqm-demos">
         <div data-role="header" data-position="fixed" class="color-encabezado">
-            <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a><!--ABRE MENU-->
+            <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Estadísticas</h1>
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
@@ -1397,7 +1298,7 @@
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         <div data-role="main">
-            <canvas id="canvas" height="450" width="600"></canvas>
+            <canvas id="canvas" height="450" width="600"></canvas>           
         </div>
     </div>
     
@@ -1406,7 +1307,7 @@
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Equipo Real Madrid</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
             <div class="tarro-basura"><a href="#" id="tarro"><img src="jquerymobile/img-dportes/iconos/borrar.png"></a></div>
         </div>
         <div class="content">

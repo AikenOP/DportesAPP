@@ -865,30 +865,63 @@ a.color-boton-presionado {
 	left: 0px;
 	bottom: 10px; }
 .agregar_nuevo_equipo {
-                position: fixed;
-                bottom: 15px;
-                right: 15px;
-                width: 51px;
-                height: 51px;
-                background-image:url("img-dportes/iconos/icono_nuevo_equipo.svg");
-                z-index: 3;
-}
-
-
-.deporte-baloncesto { background-image:url(img-dportes/iconos_de_deportes/baloncesto.svg); width:30px; height:30px; display:inline-block; background-size:contain; background-repeat:no-repeat;}
-.deporte-rugby { background-image:url(img-dportes/iconos_de_deportes/rugby.svg); width:30px; height:30px;display:inline-block; background-size:contain; background-repeat:no-repeat;}
-.deporte-voleyball { background-image:url(img-dportes/iconos_de_deportes/voleyball.svg); width:30px; height:30px;display:inline-block; background-size:contain; background-repeat:no-repeat;}
-.deporte-handball { background-image:url(img-dportes/iconos_de_deportes/handball.svg); width:30px; height:30px;display:inline-block; background-size:contain; background-repeat:no-repeat;}
-.deporte-hockey { background-image:url(img-dportes/iconos_de_deportes/hockey.svg); width:30px; height:30px;display:inline-block; background-size:contain; background-repeat:no-repeat;}
-.deporte-futbol { background-image:url(img-dportes/iconos_de_deportes/futbol.svg); width:30px; height:30px;display:inline-block; background-size:contain; background-repeat:no-repeat;}
-
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 51px;
+    height: 51px;
+    background-image:url("img-dportes/iconos/icono_nuevo_equipo.svg");
+    z-index: 3; }
+.deporte-baloncesto { 
+	background-image:url(img-dportes/iconos_de_deportes/baloncesto.svg); 
+	width:40px; 
+	height:30px; 
+	display:inline-block;
+	background-size:contain;
+	background-repeat:no-repeat; }
+.deporte-rugby { 
+	background-image:url(img-dportes/iconos_de_deportes/rugby.svg); 
+	width:40px; 
+	height:30px;
+	display:inline-block; 
+	background-size:contain;
+	background-repeat:no-repeat; }
+.deporte-voleyball {
+	background-image:url(img-dportes/iconos_de_deportes/voleyball.svg); 
+	width:40px; 
+	height:30px;
+	display:inline-block;
+	background-size:contain;
+	background-repeat:no-repeat; }
+.deporte-handball {
+	background-image:url(img-dportes/iconos_de_deportes/handball.svg); 
+	width:40px; 
+	height:30px;
+	display:inline-block;
+	background-size:contain;
+	background-repeat:no-repeat; }
+.deporte-hockey {
+	background-image:url(img-dportes/iconos_de_deportes/hockey.svg); 
+	width:40px; 
+	height:30px;
+	display:inline-block;
+	background-size:contain;
+	background-repeat:no-repeat; }
+.deporte-futbol {
+	background-image:url(img-dportes/iconos_de_deportes/futbol.svg); 
+	width:40px; 
+	height:30px;
+	display:inline-block;
+	background-size:contain;
+	background-repeat:no-repeat; }
 .texto-deportes-inicio-inferior {
-	font-size: 15px;
+	font-size: 12px;
+	text-transform: uppercase;
 	color: #FFF;
 	text-decoration: none;
 	text-align: center;
 	margin-top: 5px;
 	margin-bottom: 10px;
 	text-shadow: 1px 1px 0px #666;
-	letter-spacing: 1px;
-}
+	letter-spacing: 2px; }
+[data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}

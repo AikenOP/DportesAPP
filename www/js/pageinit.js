@@ -216,6 +216,7 @@
             //$('map').imageMapResize();
         //}
         if(activePage === 'chart'){
+
                 var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
                 var lineChartData = {
                     labels : ["January","February","March","April","May","June","July"],
@@ -242,12 +243,15 @@
                         }
                     ]
                 }
-            window.onload = function(){
-                var ctx = document.getElementById("canvas").getContext("2d");
-                window.myLine = new Chart(ctx).Line(lineChartData, {
-                    responsive: true
-                });
-            }
+                alert('hello from pageinit.js')
+
+                window.onload = function(){
+                    alert('hello from shit that does not function')
+                    var ctx = document.getElementById("canvas").getContext("2d");
+                    window.myLine = new Chart(ctx).Line(lineChartData, {
+                        responsive: true
+                    });
+                }
         }
 
     });
