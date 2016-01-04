@@ -1000,9 +1000,4 @@ border-top: 1px solid #FFD45A; border-left: 1px solid #FFD45A; border-right: 1px
 .seccion-izquierda { width:43%; float:left; text-align:center; position:relative; padding-top: 25px;}
 .seccion-derecha {display:inline-block;float:left; width:55%}
 
-.ui-mobile .ui-page-active {
-    display: block;
-	overflow:hidden !important;
-}
-
 }
