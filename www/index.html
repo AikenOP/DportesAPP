@@ -1044,10 +1044,60 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <h4 align="center">Efectividad</h4><!-- titulo momentaneo, borrar al programar -->
+                        <!-- ejemplo de tabla para efectividad-->
+                        <!-- seleccionar efectividad a mostrar -->
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="false">
+                            <legend>Seleccione el indice de efectividad a mostrar:</legend>
+                            <input type="radio" name="radio-choice-b" id="radio-choice-c" value="list" checked="checked">
+                            <label for="radio-choice-c">Jugador</label>
+                            <input type="radio" name="radio-choice-b" id="radio-choice-d" value="grid">
+                            <label for="radio-choice-d">Posición</label>
+                            <input type="radio" name="radio-choice-b" id="radio-choice-e" value="gallery">
+                            <label for="radio-choice-e">Jugada</label>
+                        </fieldset>
+                        <!-- ejemplo de efectividad general-->
+                        <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                            <thead>
+                                <tr class="ui-bar-d">
+                                    <th></th>
+                                    <th data-priority="critical">Efectividad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="#detalle-jugador-prueba">Jugador 1</a></td>
+                                    <td>10%</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#detalle-jugador-prueba">Jugador 2</a></td>
+                                    <td>5%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- ejemplo de tabla de efectividad por posiciones, cada posicion es una tabla distinta -->
+                        <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                            <thead>
+                                <tr class="ui-bar-d">
+                                    <th>Medio campo</th>
+                                    <th data-priority="critical">Efectividad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="#">Jugador 1</a></td>
+                                    <td>10%</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Jugador 2</a></td>
+                                    <td>5%</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </ul>
                 </div>
             </div>
-        </div>      
+        </div>
     </div>
 
     <!-- resumen partido -->
@@ -1139,7 +1189,7 @@
                     <table data-role="table" id="" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
                         <thead>
                             <tr class="ui-bar-d">
-                                <th width="100">Equipo</th>
+                                <th width="100">Jugada</th>
                                 <th data-priority="critical">Favor</th>
                                 <th data-priority="critical">Contr</th>
                                 <th data-priority="critical">% Efec</th>
@@ -1149,7 +1199,15 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a href="#">Gol</a></td>
+                                <td><a href="#grafico-pie">Gol</a></td>
+                                <td>10</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>8</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td><a href="#grafico-pie">Tiro al arco</a></td>
                                 <td>10</td>
                                 <td>5</td>
                                 <td>6</td>
@@ -1160,6 +1218,7 @@
                     </table>
                     <div class="detalle">
                         <a href="#detalle-jugador-prueba" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow-icon color-boton">Ver Detalle de Jugadores</a>
+                        <!-- este link lleva a una lista de los jugadores listados en ese partido, los cuales mostraran las estadisticas limitadas a ese partido especifico-->
                     </div>
                 </div><!--cierre contenedor-resumen-goles-->
             </ul>
@@ -1299,6 +1358,63 @@
         </div>
         <div data-role="main">
             <canvas id="canvas" height="450" width="600"></canvas>           
+        </div>
+    </div>
+
+    <!-- prueba de graficos -->
+    <div data-role="page" id="grafico-pie" class="jqm-demos" data-title="Dportes" data-theme="a">
+        <div data-role="header" data-position="fixed" class="color-encabezado">
+            <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <h1>Gráficos</h1>
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
+        </div>
+        <div data-role="main">
+
+            <div class="contenedor-resumen-goles">
+                <div class="alinea-resumen">
+                    <h4 class="texto-resumen-goles">Resumen Jugada:</h4>
+                </div>
+                <canvas id="chart-area" width="500" height="500"/>
+            </div>
+            <!-- este grafico muestra que jugadores participaron del estadistico de jugada, y en que medida -->
+            <script>
+                var doughnutData = [
+                        {
+                            value: 300,
+                            color:"#F7464A",
+                            highlight: "#FF5A5E",
+                            label: "Red"
+                        },
+                        {
+                            value: 50,
+                            color: "#46BFBD",
+                            highlight: "#5AD3D1",
+                            label: "Green"
+                        },
+                        {
+                            value: 100,
+                            color: "#FDB45C",
+                            highlight: "#FFC870",
+                            label: "Yellow"
+                        },
+                        {
+                            value: 40,
+                            color: "#949FB1",
+                            highlight: "#A8B3C5",
+                            label: "Grey"
+                        },
+                        {
+                            value: 120,
+                            color: "#4D5360",
+                            highlight: "#616774",
+                            label: "Dark Grey"
+                        }
+                    ];
+                    window.onload = function(){
+                        var ctx = document.getElementById("chart-area").getContext("2d");
+                        window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
+                    };
+            </script>
         </div>
     </div>
     
