@@ -1369,6 +1369,28 @@
             <!-- este grafico muestra que jugadores participaron del estadistico de jugada, y en que medida -->
         </div>
     </div>
+
+    <!-- pruebas de graficos -->
+    <div data-role="page" id="grafico-prueba" class="jqm-demos" data-title="Dportes" data-theme="a">
+        <div data-role="header" data-position="fixed" class="color-encabezado">
+            <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <h1>Gráficos</h1>
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
+        </div>
+        <div data-role="main">
+
+            <div class="contenedor-resumen-goles">
+                <div class="alinea-resumen">
+                    <h4 class="texto-resumen-goles">Resumen Jugada:</h4>
+                </div>
+
+                <canvas id="chart-area1" width="50" height="50" />
+                <canvas id="chart-area2" width="300" height="300" />
+                <div id="chartjs-tooltip"></div>
+
+            </div>
+        </div>
+    </div>
     
     <!-- prueba de cancha de basketball-->
 	<div data-role="page" id="prueba-cancha" class="jqm-demos" data-title="Dportes" data-theme="a">
@@ -1888,7 +1910,7 @@
             <li data-icon="power"><a id="logout" href="#">Salir de Dportes</a></li>
             <!-- pruebas -->
             <li data-icon="star"><a href="#estadisticas-nuevas" data-transition="fade">Estadisticas de Prueba</a></li>
-            <li data-icon="star"><a href="#chart" data-transition="fade">Gráficos de Prueba</a></li>
+            <li data-icon="star"><a href="#grafico-prueba" data-transition="fade">Gráficos de Prueba</a></li>
             <li data-icon="eye"><a href="#jugadas-goles">pagina de tipos de goles</a></li>
             <li data-icon="eye"><a href="#prueba-cancha">Cancha de Prueba</a></li>
         </ul>
