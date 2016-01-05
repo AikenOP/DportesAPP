@@ -217,7 +217,6 @@
         //}
         if(activePage === 'chart'){
         }
-
         if(activePage === 'detalle-jugador-prueba'){
             var radarChartData = {
                     labels: ["Asistencia", "Quites", "Tiros de esquina", "Tiros libres", "Tiros al arco"],
@@ -250,7 +249,6 @@
                     });
                 }
         }
-
         if(activePage === 'grafico-pie'){
             var doughnutData = [
                         {
@@ -289,72 +287,62 @@
                         window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
                     };
         }
-
-        if(activePage === 'grafico-prueba')
-            Chart.defaults.global.customTooltips = function(tooltip) {
-                // Tooltip Element
-                var tooltipEl = $('#chartjs-tooltip');
-                // Hide if no tooltip
-                if (!tooltip) {
-                    tooltipEl.css({
-                        opacity: 0
-                    });
-                    return;
-                }
-                // Set caret Position
-                tooltipEl.removeClass('above below');
-                tooltipEl.addClass(tooltip.yAlign);
-                // Set Text
-                tooltipEl.html(tooltip.text);
-                // Find Y Location on page
-                var top;
-                if (tooltip.yAlign == 'above') {
-                    top = tooltip.y - tooltip.caretHeight - tooltip.caretPadding;
-                } else {
-                    top = tooltip.y + tooltip.caretHeight + tooltip.caretPadding;
-                }
-                // Display, position, and set styles for font
-                tooltipEl.css({
-                    opacity: 1,
-                    left: tooltip.chart.canvas.offsetLeft + tooltip.x + 'px',
-                    top: tooltip.chart.canvas.offsetTop + top + 'px',
-                    fontFamily: tooltip.fontFamily,
-                    fontSize: tooltip.fontSize,
-                    fontStyle: tooltip.fontStyle,
+        if(activePage === 'seguimiento-jugador-prueba'){
+            var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+            var lineChartData = {
+                labels : ["January","February","March","April","May","June","July"],
+                datasets : [
+                    {
+                        label: "My First dataset",
+                        fillColor : "rgba(220,220,220,0.2)",
+                        strokeColor : "rgba(220,220,220,1)",
+                        pointColor : "rgba(220,220,220,1)",
+                        pointStrokeColor : "#fff",
+                        pointHighlightFill : "#fff",
+                        pointHighlightStroke : "rgba(220,220,220,1)",
+                        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    },
+                    {
+                        label: "My Second dataset",
+                        fillColor : "rgba(151,187,205,0.2)",
+                        strokeColor : "rgba(151,187,205,1)",
+                        pointColor : "rgba(151,187,205,1)",
+                        pointStrokeColor : "#fff",
+                        pointHighlightFill : "#fff",
+                        pointHighlightStroke : "rgba(151,187,205,1)",
+                        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    }
+                ]
+            }
+            window.onload = function(){
+                var ctx = document.getElementById("jugada").getContext("2d");
+                window.myLine = new Chart(ctx).Line(lineChartData, {
+                    responsive: true
                 });
-            };
-            var pieData = [{
-                value: 300,
-                color: "#F7464A",
-                highlight: "#FF5A5E",
-                label: "Red"
-            }, {
-                value: 50,
-                color: "#46BFBD",
-                highlight: "#5AD3D1",
-                label: "Green"
-            }, {
-                value: 100,
-                color: "#FDB45C",
-                highlight: "#FFC870",
-                label: "Yellow"
-            }, {
-                value: 40,
-                color: "#949FB1",
-                highlight: "#A8B3C5",
-                label: "Grey"
-            }, {
-                value: 120,
-                color: "#4D5360",
-                highlight: "#616774",
-                label: "Dark Grey"
-            }];
-            window.onload = function() {
-                var ctx1 = document.getElementById("chart-area1").getContext("2d");
-                window.myPie = new Chart(ctx1).Pie(pieData);
-                var ctx2 = document.getElementById("chart-area2").getContext("2d");
-                window.myPie = new Chart(ctx2).Pie(pieData);
-            };
+            }
         }
+        if(activePage === 'est-jugador-prueba'){
+            var radarChartData = {
+                    labels: ["Asistencia", "Quites", "Tiros de esquina", "Tiros libres", "Tiros al arco"],
+                    datasets: [
+                        {
+                            label: "Desempeño Actual",
+                            fillColor: "rgba(151,187,205,0.2)",
+                            strokeColor: "rgba(151,187,205,1)",
+                            pointColor: "rgba(151,187,205,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(151,187,205,1)",
+                            data: [28,48,40,19,96]
+                        }
+                    ]
+                };
+                window.onload = function(){
+                    window.myRadar = new Chart(document.getElementById("radar2").getContext("2d")).Radar(radarChartData, {
+                        responsive: true
+                    });
+                }
+        }
+
 
     });

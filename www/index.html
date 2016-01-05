@@ -977,11 +977,11 @@
                 <div id="tres" class="ui-body-d ui-content">
                     <ul data-role="listview" data-inset="false">
                         <li data-icon="false">
-                        <a href="#" class="color-boton-equipo-dark">
-                            <img src="jquerymobile/img-dportes/rivales/cobresal.png">
-                            <h2>COBRESAL</h2>
-                            <p>RM - Santiago - Pudahuel</p>
-                        </a>
+                            <a href="#" class="color-boton-equipo-dark">
+                                <img src="jquerymobile/img-dportes/rivales/cobresal.png">
+                                <h2>COBRESAL</h2>
+                                <p>RM - Santiago - Pudahuel</p>
+                            </a>
                         </li>
                         <h4 align="center">Datos Estadísticos:</h4>
                         <select name="select-choice-a" id="select-choice-a" data-native-menu="false">
@@ -1265,7 +1265,7 @@
                      </tbody>
                 </table>
                 <h4 align="center">Desempeño:</h4>
-                <canvas id="radar" height="450" width="450"></canvas>
+                <canvas id="radar"></canvas>
             </ul>
         </div>
     </div>
@@ -1278,64 +1278,103 @@
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         <div data-role="main">
+            <ul data-role="listview" data-inset="false">
+                <li data-icon="false">
+                    <a href="#" class="color-boton-equipo-dark">
+                        <img src="jquerymobile/img-dportes/jugador1.jpg">
+                        <h2>KEYLOR NAVAS</h2>
+                        <p>Posición: Portero</p>
+                    </a>
+                </li>
+                <h4 align="center">Datos Estadísticos globales:</h4>
+                <!-- el select permitira navegar por las distintas opciones para listar las estadisticas del jugador especifico
+                por defecto mostrara la tabla de estadisticas globales del jugador 
+                <select name="select-choice-a" id="select-choice-a" data-native-menu="false">
+                    <option value="" selected>Global</option>
+                    <option value="aricayparinacota">Rivales</option>
+                    <option value="tarapaca">Periodo de Fechas</option>
+                    <option value="antofagasta">Ligas</option>
+                </select>-->
+                <!-- codigo a mostrar al seleccionar rival 
+                <input value="" type="search" placeholder="Buscar rival">-->
+                <!-- codigo a mostrar para los resultados de la busqueda
+                <ul data-role="listview" data-inset="false">
+                    <li data-icon="false"><a href="#">Rival 1</a></li>
+                    <li data-icon="false"><a href="#">Rival 2</a></li>
+                    <li data-icon="false"><a href="#">Rival 3</a></li>
+                </ul>-->
+                <!-- codigo a mostrar al seleccionar periodo de fechas
+                <label>Desde:<input type="date" placeholder="Desde"></label>
+                <label>Hasta:<input type="date" placeholder="Desde"></label> -->
+                <!-- codigo a mostrar al seleccionar ligas
+                <ul data-role="listview" data-inset="false">
+                    <li data-icon="false"><a href="#">Rival 1</a></li>
+                    <li data-icon="false"><a href="#">Rival 2</a></li>
+                    <li data-icon="false"><a href="#">Rival 3</a></li>
+                </ul> -->
+            </ul>
+            <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="" data-column-popup-theme="a">
+                <thead>
+                    <tr class="ui-bar-d">
+                        <th data-priority="critical"></th>
+                        <th data-priority="1">F</th>
+                        <th data-priority="1">C</th>
+                        <th data-priority="1">% Efec</th>
+                        <th data-priority="1">B</th>
+                        <th data-priority="2">M</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><a href="#seguimiento-jugador-prueba">Gol</a></th>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3%</td>
+                        <td>3.3</td>
+                        <td>3.3</td>
+                    </tr>
+                    <tr>
+                        <th><a href="#seguimiento-jugador-prueba">Tiro al arco</a></th>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3%</td>
+                        <td>3.3</td>
+                        <td>3.3</td>
+                    </tr>
+                    <tr>
+                        <th><a href="#seguimiento-jugador-prueba">Pases</a></th>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3%</td>
+                        <td>3.3</td>
+                        <td>3.3</td>
+                    </tr>
+                    <tr>
+                        <th><a href="#seguimiento-jugador-prueba">Total</a></th>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>3%</td>
+                        <td>3.3</td>
+                        <td>3.3</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4 align="center">Desempeño Global:</h4>
+            <canvas id="radar2"></canvas>
+        </div>
+    </div>
 
-        <ul data-role="listview" data-inset="false">
-            <li data-icon="false">
-                <a href="#" class="color-boton-equipo-dark">
-                    <img src="jquerymobile/img-dportes/jugador1.jpg">
-                    <h2>KEYLOR NAVAS</h2>
-                    <p>Posición: Portero</p>
-                </a>
-            </li>
-            <h4 align="center">Datos Estadísticos:</h4>
-            <!-- el select permitira navegar por las distintas opciones para listar las estadisticas del jugador especifico
-            por defecto mostrara la tabla de estadisticas globales del jugador -->
-            <select name="select-choice-a" id="select-choice-a" data-native-menu="false">
-                <option value="" selected>Global</option>
-                <option value="aricayparinacota">Rivales</option>
-                <option value="tarapaca">Periodo de Fechas</option>
-                <option value="antofagasta">Ligas</option>
-            </select>
-            <!-- codigo a mostrar al seleccionar rival -->
-            <input value="" type="search" placeholder="Buscar rival">
-            <!-- codigo a mostrar para los resultados de la busqueda-->
-            <ul data-role="listview" data-inset="false">
-                <li data-icon="false"><a href="#">Rival 1</a></li>
-                <li data-icon="false"><a href="#">Rival 2</a></li>
-                <li data-icon="false"><a href="#">Rival 3</a></li>
-            </ul>
-            <!-- codigo a mostrar al seleccionar periodo de fechas -->
-            <label>Desde:<input type="date" placeholder="Desde"></label>
-            <label>Hasta:<input type="date" placeholder="Desde"></label>
-            <!-- codigo a mostrar al seleccionar ligas -->
-            <ul data-role="listview" data-inset="false">
-                <li data-icon="false"><a href="#">Rival 1</a></li>
-                <li data-icon="false"><a href="#">Rival 2</a></li>
-                <li data-icon="false"><a href="#">Rival 3</a></li>
-            </ul>
-        </ul>
-        <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="" data-column-popup-theme="a">
-            <thead>
-                <tr class="ui-bar-d">
-                    <th data-priority="critical"></th>
-                    <th data-priority="1">Favor</th>
-                    <th data-priority="1">Contra</th>
-                    <th data-priority="1">% Efec</th>
-                    <th data-priority="1">B</th>
-                    <th data-priority="2">M</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Gol</th>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>3%</td>
-                    <td>3.3</td>
-                    <td>3.3</td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- seguimiento desempeño de jugador prueba -->
+    <div data-role="page" id="seguimiento-jugador-prueba" class="jqm-demos" data-title="Dportes" data-theme="a">
+        <div data-role="header" data-position="fixed" class="color-encabezado">
+            <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <h1>Estadísticas</h1>
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
+        </div>
+        <div data-role="main">
+            <h4 align="center">Desempeño por Jugada en el tiempo:</h4>
+            <canvas id="jugada"></canvas>
+            <!-- en global, deberia ser en el tiempo, en rival deberia ser por partido con ese rival y por periodo de fechas, deberia ser como en global, pero en los periodos especificados -->
         </div>
     </div>
 
@@ -1383,11 +1422,7 @@
                 <div class="alinea-resumen">
                     <h4 class="texto-resumen-goles">Resumen Jugada:</h4>
                 </div>
-
-                <canvas id="chart-area1" width="50" height="50" />
-                <canvas id="chart-area2" width="300" height="300" />
-                <div id="chartjs-tooltip"></div>
-
+                <canvas id="prueba"/>
             </div>
         </div>
     </div>
@@ -1436,8 +1471,7 @@
     
     <!-- grafica para estadisticas -->
 	<div data-role="page" id="jugadas-goles" class="jqm-demos" data-title="Dportes" data-theme="a">
-    
-        <div data-role="header" data-position="fixed" class="color-encabezado">
+        <div data-role="header" data-tab-toggle="false" data-position="fixed" class="color-encabezado">
             <a href="perfil.html" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Tipos de Goles</h1>
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a><!--ABRE MENU-->
@@ -1889,9 +1923,7 @@
               </div><!--seccion centrar-->
             </div><!--seccion general-->
             <!-- ———— CIERRE ———— -->
-            
 		</div>
-
     </div>
     
     <!-- PANEL MENU -->
@@ -1930,13 +1962,8 @@
             
             
 <script>
-$(document).ready(function(e) {
-    
 	$('#etiqueta-dentro-del-area').click(function(e){
-		
 		$('#seccion-dentro-del-area').css({ 'margin-bottom':'0px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-		
-		
 		$('#seccion-fuera-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-tiro-libre').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-tiro-de-esquina').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
@@ -1946,13 +1973,9 @@ $(document).ready(function(e) {
 		$('#seccion-gol-de-cabeza').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-taco').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-otro').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-		
 	});
-	
 	$('#etiqueta-fuera-del-area').click(function(e){
-	
 		$('#seccion-fuera-del-area').css({ 'margin-bottom':'0px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-	
 		$('#seccion-dentro-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-tiro-libre').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-tiro-de-esquina').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
@@ -1962,13 +1985,9 @@ $(document).ready(function(e) {
 		$('#seccion-gol-de-cabeza').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-taco').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-otro').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-	
 	});
-	
 	$('#etiqueta-tiro-libre').click(function(e){
-	
 		$('#seccion-tiro-libre').css({ 'margin-bottom':'0px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-	
 		$('#seccion-fuera-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-dentro-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-tiro-de-esquina').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
@@ -1978,13 +1997,9 @@ $(document).ready(function(e) {
 		$('#seccion-gol-de-cabeza').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-taco').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-otro').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-	
 	});
-	
 	$('#etiqueta-tiro-de-esquina').click(function(e){
-	
 		$('#seccion-tiro-de-esquina').css({ 'margin-bottom':'0px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-
 		$('#seccion-tiro-libre').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-fuera-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-dentro-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
@@ -1994,13 +2009,9 @@ $(document).ready(function(e) {
 		$('#seccion-gol-de-cabeza').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-taco').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-otro').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-	
 	});
-	
 	$('#etiqueta-tiro-de-volea').click(function(e){
-	
 		$('#seccion-tiro-de-volea').css({ 'margin-bottom':'0px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-	
 		$('#seccion-tiro-de-esquina').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-tiro-libre').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-fuera-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
@@ -2010,13 +2021,9 @@ $(document).ready(function(e) {
 		$('#seccion-gol-de-cabeza').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-taco').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-otro').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-
 	});
-	
 	$('#etiqueta-gol-de-tijera').click(function(e){
-		
 		$('#seccion-gol-de-tijera').css({ 'margin-bottom':'0px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-		
 		$('#seccion-tiro-de-volea').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-tiro-de-esquina').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-tiro-libre').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
@@ -2026,13 +2033,9 @@ $(document).ready(function(e) {
 		$('#seccion-gol-de-cabeza').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-taco').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-otro').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-		
 	});
-	
 	$('#etiqueta-gol-de-chilena').click(function(e){
-		
 		$('#seccion-gol-de-chilena').css({ 'margin-bottom':'0px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-		
 		$('#seccion-gol-de-tijera').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-tiro-de-volea').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-tiro-de-esquina').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
@@ -2042,13 +2045,9 @@ $(document).ready(function(e) {
 		$('#seccion-gol-de-cabeza').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-taco').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-otro').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-		
 	});
-	
 	$('#etiqueta-gol-de-cabeza').click(function(e){
-		
 		$('#seccion-gol-de-cabeza').css({ 'margin-bottom':'0px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-	
 		$('#seccion-gol-de-chilena').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-tijera').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-tiro-de-volea').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
@@ -2058,13 +2057,9 @@ $(document).ready(function(e) {
 		$('#seccion-dentro-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-taco').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-otro').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-	
 	});
-	
 	$('#etiqueta-gol-de-taco').click(function(e){
-		
 		$('#seccion-gol-de-taco').css({ 'margin-bottom':'0px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-	
 		$('#seccion-gol-de-cabeza').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-chilena').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-tijera').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
@@ -2074,13 +2069,9 @@ $(document).ready(function(e) {
 		$('#seccion-fuera-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-dentro-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-otro').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-	
 	});
-	
 	$('#etiqueta-gol-otro').click(function(e){
-		
 		$('#seccion-gol-otro').css({ 'margin-bottom':'0px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-		
 		$('#seccion-gol-de-taco').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-cabeza').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-gol-de-chilena').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
@@ -2090,11 +2081,7 @@ $(document).ready(function(e) {
 		$('#seccion-tiro-libre').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-fuera-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
 		$('#seccion-dentro-del-area').css({ 'margin-bottom':'-200px','-webkit-transition':'all 500ms ease', '-moz-transition':'all 500ms ease', '-ms-transition':'all 500ms ease','-o-transition':'all 500ms ease','transition':'all 500ms ease' });
-		
-	})
-	
-	
-});
+	});
 </script>
 </body>
 </html>
