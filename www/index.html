@@ -1264,6 +1264,8 @@
                        </tr>
                      </tbody>
                 </table>
+                <h4 align="center">Desempeño:</h4>
+                <canvas id="radar" height="450" width="450"></canvas>
             </ul>
         </div>
     </div>
@@ -1350,18 +1352,6 @@
     </div>
 
     <!-- prueba de graficos -->
-    <div data-role="page" id="chart" class="jqm-demos" data-title="Dportes" data-theme="a">
-        <div data-role="header" data-position="fixed" class="color-encabezado">
-            <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
-            <h1>Gráficos</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
-        </div>
-        <div data-role="main">
-            <canvas id="canvas" height="450" width="600"></canvas>           
-        </div>
-    </div>
-
-    <!-- prueba de graficos -->
     <div data-role="page" id="grafico-pie" class="jqm-demos" data-title="Dportes" data-theme="a">
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
@@ -1377,44 +1367,6 @@
                 <canvas id="chart-area" width="500" height="500"/>
             </div>
             <!-- este grafico muestra que jugadores participaron del estadistico de jugada, y en que medida -->
-            <script>
-                var doughnutData = [
-                        {
-                            value: 300,
-                            color:"#F7464A",
-                            highlight: "#FF5A5E",
-                            label: "Red"
-                        },
-                        {
-                            value: 50,
-                            color: "#46BFBD",
-                            highlight: "#5AD3D1",
-                            label: "Green"
-                        },
-                        {
-                            value: 100,
-                            color: "#FDB45C",
-                            highlight: "#FFC870",
-                            label: "Yellow"
-                        },
-                        {
-                            value: 40,
-                            color: "#949FB1",
-                            highlight: "#A8B3C5",
-                            label: "Grey"
-                        },
-                        {
-                            value: 120,
-                            color: "#4D5360",
-                            highlight: "#616774",
-                            label: "Dark Grey"
-                        }
-                    ];
-                    window.onload = function(){
-                        var ctx = document.getElementById("chart-area").getContext("2d");
-                        window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
-                    };
-            </script>
         </div>
     </div>
     
@@ -1460,8 +1412,7 @@
 		</div>
     </div>
     
-    
-    
+    <!-- grafica para estadisticas -->
 	<div data-role="page" id="jugadas-goles" class="jqm-demos" data-title="Dportes" data-theme="a">
     
         <div data-role="header" data-position="fixed" class="color-encabezado">
@@ -1907,9 +1858,6 @@
 
 		</div>
     </div>
-    
-    
-    
     
     <!-- PANEL MENU -->
     <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="b" id="menu_perfil">
