@@ -936,18 +936,18 @@ border-top: 1px solid #FFD45A; border-left: 1px solid #FFD45A; border-right: 1px
 .seccion-izquierda { width:50%; float:left; text-align:center; position:relative; padding-top: 37px;}
 .seccion-derecha {display:inline-block;float:left; width:50%}
 
-.etiqueta { margin: 0px 0px 0px 10px; text-align: left; color: #FFF; font-size: 14px; text-shadow: 0px 0px 1px #BABABA; height:30px; -ms-display:flex; display: flex; align-items: center;}
-.seccion-favor {width:50%; height:73px; -ms-display:flex; display: flex; float:left; align-items: center; justify-content: center;}
-.seccion-contra {width:50%; height:73px; -ms-display:flex; display: flex; align-items: center; justify-content: center;}
+.etiqueta { margin: 5px 0px 0px 10px; text-align: left; color: #FFF; font-size: 14px; text-shadow: 0px 0px 1px #BABABA; height:30px;}
+.seccion-favor {width:50%; height:73px; float:left; }
+.seccion-contra {width:50%; height:73px; float:left;}
 
 
-.numero-estadistico { color: #FFF;font-size: 35px;text-shadow: 0px 0px 1px #BABABA;text-align: center; width:100%}
+.numero-estadistico { color: #FFF;font-size: 35px;text-shadow: 0px 0px 1px #BABABA;text-align: center; width:100%; padding-top:10px;}
 .texto-favor-contra { text-align: center; color: #FFF; font-size: 14px; text-shadow: 0px 0px 1px #BABABA; width:100%}
 
 .seccion-efectividad {display:block;}
 .efectividad {display:block; color:#FFF; font-size:18px; text-align:center; text-shadow: 0px 0px 1px #BABABA;}
-.porcentaje-bueno{float:left; -ms-display:flex; display: flex; align-items: center; justify-content: center; width:50%; height:45px; color: #FFF; font-size: 25px; text-shadow: 0px 0px 1px #BABABA;}
-.porcentaje-malo{-ms-display:flex; display: flex; align-items: center; justify-content: center; width:50%; height:45px; color: #FFF; font-size: 25px; text-shadow: 0px 0px 1px #BABABA;}
+.porcentaje-bueno{float:left; width:50%; height:45px; color: #FFF; font-size: 25px; text-shadow: 0px 0px 1px #BABABA; text-align:center;}
+.porcentaje-malo{ float:left; width:50%; height:45px; color: #FFF; font-size: 25px; text-shadow: 0px 0px 1px #BABABA; text-align:center;}
 
 .seccion-exponente{ display:block}              
 .texto-mejor-exponente {display:block; color: #FFF; font-size: 18px; text-shadow: 0px 0px 1px #BABABA; text-align:center}
@@ -981,21 +981,22 @@ border-top: 1px solid #FFD45A; border-left: 1px solid #FFD45A; border-right: 1px
 @media (max-width: 480px) {
 
 .seccion-general {display:block; width:100%;margin-bottom: 0px;margin-bottom: -200px;float: left;}
-.numero-estadistico { color: #FFF;font-size: 23px;text-shadow: 0px 0px 1px #BABABA;text-align: center; width:100%}
+
 .texto-favor-contra { text-align: center; color: #FFF; font-size: 12px; text-shadow: 0px 0px 1px #BABABA; width:100%}
 .efectividad {display:block; color:#FFF; font-size:15px; text-align:center; text-shadow: 0px 0px 1px #BABABA;}
 
 .texto-mejor-exponente {display:block; color: #FFF; font-size: 15px; text-shadow: 0px 0px 1px #BABABA; text-align:center}
 .mejor-exponente {display:block; color: #FFF; font-size: 16px; text-shadow: 0px 0px 1px #BABABA; text-align:center; padding:2px 10px 0 10px}
 
-.seccion-favor {width:50%; height:55px; -ms-display:flex; display: flex; float:left; align-items: center; justify-content: center;}
-.seccion-contra {width:50%; height:55px; -ms-display:flex; display: flex; align-items: center; justify-content: center;}
+.seccion-favor {width:50%; height:55px; float:left;}
+.seccion-contra {width:50%; height:55px;}
+.numero-estadistico { color: #FFF;font-size: 23px;text-shadow: 0px 0px 1px #BABABA;text-align: center; width:100%; display:block; padding-top:7px;}
 
 .borde-infe-seccion-derecha {background:url(img-dportes/secciones_jugadas/esquina_inferior_derecha.jpg); width:20px; height:20px; float:right; margin-top: -5px;}
 .borde-inferior-izquierda { background:url(img-dportes/secciones_jugadas/esquina_inferior_izquierda.jpg); width:20px; height:20px;}
 
-.porcentaje-bueno{float:left; -ms-display:flex; display: flex; align-items: center; justify-content: center; width:50%; height:35px; color: #FFF; font-size: 18px; text-shadow: 0px 0px 1px #BABABA;}
-.porcentaje-malo{-ms-display:flex; display: flex; align-items: center; justify-content: center; width:50%; height:35px; color: #FFF; font-size: 18px; text-shadow: 0px 0px 1px #BABABA;}
+.porcentaje-bueno{float:left; width:50%; height:35px; color: #FFF; font-size: 18px; text-shadow: 0px 0px 1px #BABABA; text-align:center;}
+.porcentaje-malo{float:left; width:50%; height:35px; color: #FFF; font-size: 18px; text-shadow: 0px 0px 1px #BABABA; text-align:center;}
 
 .seccion-izquierda { width:50%; float:left; text-align:center; position:relative;
 background: rgba(255,188,1,1);
