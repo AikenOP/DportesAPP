@@ -7,6 +7,7 @@
             <script src="jquerymobile/jquery.min.js"></script>
             <script src="jquerymobile/jquery.mobile-1.4.5.js"></script>
             <script type="text/javascript" src="cordova.js"></script>
+            <script type="text/javascript" src="js/pagecreate.js"></script>
             <script type="text/javascript" src="js/pageinit.js"></script>
             <link rel="stylesheet" href="./jquerymobile/jquery.mobile.structure-1.4.5.css" />
             <link rel="stylesheet" href="./jquerymobile/jquery.mobile.theme-1.4.5.css" />
@@ -46,7 +47,7 @@
                 <form id="form-login" method="post">
                     <input id="log-email" name="email_usuario" placeholder="tu-correo@correo.cl" type="email">
                     <a id="log-email-error" href="#" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon color-boton-error-validacion" style="display:none">Ingrese un correo valido</a>
-                    <input id="log-password" name="pas446sword_usuario" placeholder="contraseña" type="password">
+                    <input id="log-password" name="password_usuario" placeholder="contraseña" type="password">
                     <a id="log-pass-error" href="#" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon color-boton-error-validacion" style="display:none">Ingrese una contraseña valida</a>
                     <a id="log-error" href="#" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon color-boton-error-validacion" style="display:none">Su combinación usuario/password es incorrecta</a>
                     <div class="ancho-botones">
@@ -243,9 +244,15 @@
         <div data-role="main" class="content" style="margin:20px">
             <form method="post">
                 <input id="reg-nom-equipo" name="equipo" placeholder="Nombre de tu equipo" type="text">
-                <select id="eq-region"></select>
-                <select id="eq-ciudad"></select>
-                <select id="eq-comuna"></select>
+                <select id="eq-region">
+                    <option value="0">Seleccione una region</option>
+                </select>
+                <select id="eq-ciudad">
+                    <option value="0">Seleccione una ciudad</option>
+                </select>
+                <select id="eq-comuna">
+                    <option value="0">Seleccione una comuna</option>
+                </select>
                 <fieldset id="reg-dportes" data-role="controlgroup">
                 </fieldset>
                 <a id="reg-dporte-error" href="#" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon color-boton-error-validacion" style="display:none;">Seleccione deporte</a>
@@ -253,7 +260,7 @@
                 a id="reg-ubicacion-error" href="#" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon color-boton-error-validacion" style="display:none;">Ingrese una ubicación</a>-->
                 <div class="ui-input-btn ui-btn btn-input">
                     Registrar
-                    <input id="registro-equipo" data-enhanced="true" type="submit">
+                    <input id="btn-reg-equipo" data-enhanced="true" type="submit">
                 </div>
             </form>
         </div>
@@ -423,43 +430,41 @@
             <a id="acc-deshacer" href="#" class="ui-btn ui-mini ui-btn-inline ui-icon-back ui-btn-icon-left">Deshacer ultima Jugada</a>
             <!-- PANEL JUGADAS -->
             <div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="jugada_partido">
-    
-                <ul id="acc-tipo-stat" data-role="listview">
-                        <!--<div class="jugadas"><span class="texto_jugada">Tarjeta</span>
-                            <div class="jugada_buena"><a href="#" class="ui-btn ui-corner-all ui-icon-amarilla ui-btn-icon-notext quita_margenes_iconos" data-rel="close">Buena</a></div>
-                            <div class="jugada_mala"><a href="#" class="ui-btn ui-corner-all ui-icon-roja ui-btn-icon-notext quita_margenes_iconos" data-rel="close">Mala</a></div>
-                        </div>-->
-                    <!-- acciones de gol
+                
+                <ul id="acc-tipo-gol" data-role="listview" style="display:none;">
                     <div class="jugadas"><span class="texto_jugada">Dentro del Area</span>
-                        <a href="#" data-rel="close"><div class="gol_dentro_area_buena"></div></a>
+                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_dentro_area_buena"></div></a>
                     </div>
                     <div class="jugadas"><span class="texto_jugada">Fuera del Area</span>
-                        <a href="#" data-rel="close"><div class="gol_fuera_area_buena"></div></a>
+                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_fuera_area_buena"></div></a>
                     </div>
                     <div class="jugadas"><span class="texto_jugada">Tiro Libre</span>
-                        <a href="#" data-rel="close"><div class="gol_tiro_libre_buena"></div></a>
+                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_tiro_libre_buena"></div></a>
                     </div>
                     <div class="jugadas"><span class="texto_jugada">Tiro Esquina</span>
-                        <a href="#" data-rel="close"><div class="gol_tiro_esquina_buena"></div></a>
+                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_tiro_esquina_buena"></div></a>
                     </div>
                     <div class="jugadas"><span class="texto_jugada">De Volea</span>
-                        <a href="#" data-rel="close"><div class="gol_volea_buena"></div></a>
+                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_volea_buena"></div></a>
                     </div>
                     <div class="jugadas"><span class="texto_jugada">De Tijeras</span>
-                        <a href="#" data-rel="close"><div class="gol_tijera_buena"></div></a>
+                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_tijera_buena"></div></a>
                     </div>
                     <div class="jugadas"><span class="texto_jugada">De Chilena</span>
                         <a href="#" data-rel="close"><div class="gol_chilena_buena"></div></a>
                     </div>
                     <div class="jugadas"><span class="texto_jugada">De Cabeza</span>
-                        <a href="#" data-rel="close"><div class="gol_cabeza_buena"></div></a>
+                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_cabeza_buena"></div></a>
                     </div>
                     <div class="jugadas"><span class="texto_jugada">De Taco</span>
-                        <a href="#" data-rel="close"><div class="gol_taco_buena"></div></a>
+                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_taco_buena"></div></a>
                     </div>
                     <div class="jugadas"><span class="texto_jugada">Otro</span>
-                        <a href="#" data-rel="close"><div class="gol_otro_buena"></div></a>
+                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_otro_buena"></div></a>
                     </div>
+                </ul>
+
+                <ul data-role="listview" style="display:none;">
                     <div class="jugadas"><span class="texto_jugada">Dentro del Area</span>
                         <a href="#" data-rel="close"><div class="gol_dentro_area_mala"></div></a>
                     </div>
@@ -489,7 +494,14 @@
                     </div>
                     <div class="jugadas"><span class="texto_jugada">Otro</span>
                         <a href="#" data-rel="close"><div class="gol_otro_mala"></div></a>
-                    </div>-->
+                    </div>    
+                </ul>
+
+                <ul id="acc-tipo-stat" data-role="listview">
+                        <!--<div class="jugadas"><span class="texto_jugada">Tarjeta</span>
+                            <div class="jugada_buena"><a href="#" class="ui-btn ui-corner-all ui-icon-amarilla ui-btn-icon-notext quita_margenes_iconos" data-rel="close">Buena</a></div>
+                            <div class="jugada_mala"><a href="#" class="ui-btn ui-corner-all ui-icon-roja ui-btn-icon-notext quita_margenes_iconos" data-rel="close">Mala</a></div>
+                        </div>-->
                 </ul>
     
             </div>
@@ -1961,141 +1973,142 @@
             <script type="text/javascript" src="js/auth.js"></script>
             <script type="text/javascript" src="js/photo.js"></script>
             <script type="text/javascript" src="js/chart.js"></script>
+            <script type="text/javascript" src="js/ubicaciones.js"></script>
 
-<script>
-	/*Cuadro de Gol dentro del Area*/
-	$('#etiqueta-dentro-del-area').click(function(e){
-		
-		$('#seccion-dentro-del-area').animate({marginBottom:"0px"}, 300,'linear');
+    <script>
+    	/*Cuadro de Gol dentro del Area*/
+    	$('#etiqueta-dentro-del-area').click(function(e){
+    		
+    		$('#seccion-dentro-del-area').animate({marginBottom:"0px"}, 300,'linear');
 
-	});
-	
-	$('#espacio-para-cerrar-1').click(function(e){
-		
-		$('#seccion-dentro-del-area').animate({marginBottom:"-200px"}, 300,'linear');
-	
-	});	
-	/*cierre*/
-	
-	
-	/*Cuadro de Gol Fuera del Area*/
-	$('#etiqueta-fuera-del-area').click(function(e){
-		
-		$('#seccion-fuera-del-area').animate({marginBottom:"0px"}, 300,'linear');
+    	});
+    	
+    	$('#espacio-para-cerrar-1').click(function(e){
+    		
+    		$('#seccion-dentro-del-area').animate({marginBottom:"-200px"}, 300,'linear');
+    	
+    	});	
+    	/*cierre*/
+    	
+    	
+    	/*Cuadro de Gol Fuera del Area*/
+    	$('#etiqueta-fuera-del-area').click(function(e){
+    		
+    		$('#seccion-fuera-del-area').animate({marginBottom:"0px"}, 300,'linear');
 
-	});
-	
-	$('#espacio-para-cerrar-2').click(function(e){
-		
-		$('#seccion-fuera-del-area').animate({marginBottom:"-200px"}, 300,'linear');
-	
-	});	
-	/*cierre*/
-	
-	
-	/*Cuadro de Gol de Tiro Libre*/
-	$('#etiqueta-tiro-libre').click(function(e){
-		
-		$('#seccion-tiro-libre').animate({marginBottom:"0px"}, 300,'linear');
+    	});
+    	
+    	$('#espacio-para-cerrar-2').click(function(e){
+    		
+    		$('#seccion-fuera-del-area').animate({marginBottom:"-200px"}, 300,'linear');
+    	
+    	});	
+    	/*cierre*/
+    	
+    	
+    	/*Cuadro de Gol de Tiro Libre*/
+    	$('#etiqueta-tiro-libre').click(function(e){
+    		
+    		$('#seccion-tiro-libre').animate({marginBottom:"0px"}, 300,'linear');
 
-	});
-	
-	$('#espacio-para-cerrar-3').click(function(e){
-		
-		$('#seccion-tiro-libre').animate({marginBottom:"-200px"}, 300,'linear');
-	
-	});	
-	/*cierre*/
-	
-	
-	/*Cuadro de Gol de Tiro de Esquina*/
-	$('#etiqueta-tiro-de-esquina').click(function(e){
-		
-		$('#seccion-tiro-de-esquina').animate({marginBottom:"0px"}, 300,'linear');
+    	});
+    	
+    	$('#espacio-para-cerrar-3').click(function(e){
+    		
+    		$('#seccion-tiro-libre').animate({marginBottom:"-200px"}, 300,'linear');
+    	
+    	});	
+    	/*cierre*/
+    	
+    	
+    	/*Cuadro de Gol de Tiro de Esquina*/
+    	$('#etiqueta-tiro-de-esquina').click(function(e){
+    		
+    		$('#seccion-tiro-de-esquina').animate({marginBottom:"0px"}, 300,'linear');
 
-	});
-	
-	$('#espacio-para-cerrar-4').click(function(e){
-		
-		$('#seccion-tiro-de-esquina').animate({marginBottom:"-200px"}, 300,'linear');
-	
-	});	
-	/*cierre*/
-	
-	
-	/*Cuadro de Gol de Tiro de Volea*/
-	$('#etiqueta-tiro-de-volea').click(function(e){
-		
-		$('#seccion-tiro-de-volea').animate({marginBottom:"0px"}, 300,'linear');
+    	});
+    	
+    	$('#espacio-para-cerrar-4').click(function(e){
+    		
+    		$('#seccion-tiro-de-esquina').animate({marginBottom:"-200px"}, 300,'linear');
+    	
+    	});	
+    	/*cierre*/
+    	
+    	
+    	/*Cuadro de Gol de Tiro de Volea*/
+    	$('#etiqueta-tiro-de-volea').click(function(e){
+    		
+    		$('#seccion-tiro-de-volea').animate({marginBottom:"0px"}, 300,'linear');
 
-	});
-	
-	$('#espacio-para-cerrar-5').click(function(e){
-		
-		$('#seccion-tiro-de-volea').animate({marginBottom:"-200px"}, 300,'linear');
-	
-	});	
-	/*cierre*/
-	
-	
-	/*Cuadro de Gol de Tijeras*/
-	$('#etiqueta-gol-de-tijera').click(function(e){
-		
-		$('#seccion-gol-de-tijera').animate({marginBottom:"0px"}, 300,'linear');
+    	});
+    	
+    	$('#espacio-para-cerrar-5').click(function(e){
+    		
+    		$('#seccion-tiro-de-volea').animate({marginBottom:"-200px"}, 300,'linear');
+    	
+    	});	
+    	/*cierre*/
+    	
+    	
+    	/*Cuadro de Gol de Tijeras*/
+    	$('#etiqueta-gol-de-tijera').click(function(e){
+    		
+    		$('#seccion-gol-de-tijera').animate({marginBottom:"0px"}, 300,'linear');
 
-	});
-	
-	$('#espacio-para-cerrar-6').click(function(e){
-		
-		$('#seccion-gol-de-tijera').animate({marginBottom:"-200px"}, 300,'linear');
-	
-	});	
-	/*cierre*/
-	
-	
-	/*Cuadro de Gol de Chilena*/
-	$('#etiqueta-gol-de-chilena').click(function(e){
-		
-		$('#seccion-gol-de-chilena').animate({marginBottom:"0px"}, 300,'linear');
+    	});
+    	
+    	$('#espacio-para-cerrar-6').click(function(e){
+    		
+    		$('#seccion-gol-de-tijera').animate({marginBottom:"-200px"}, 300,'linear');
+    	
+    	});	
+    	/*cierre*/
+    	
+    	
+    	/*Cuadro de Gol de Chilena*/
+    	$('#etiqueta-gol-de-chilena').click(function(e){
+    		
+    		$('#seccion-gol-de-chilena').animate({marginBottom:"0px"}, 300,'linear');
 
-	});
-	
-	$('#espacio-para-cerrar-7').click(function(e){
-		
-		$('#seccion-gol-de-chilena').animate({marginBottom:"-200px"}, 300,'linear');
-	
-	});	
-	/*cierre*/
-	
-	
-	/*Cuadro de Gol de Cabeza*/
-	$('#etiqueta-gol-de-cabeza').click(function(e){
-		
-		$('#seccion-gol-de-cabeza').animate({marginBottom:"0px"}, 300,'linear');
+    	});
+    	
+    	$('#espacio-para-cerrar-7').click(function(e){
+    		
+    		$('#seccion-gol-de-chilena').animate({marginBottom:"-200px"}, 300,'linear');
+    	
+    	});	
+    	/*cierre*/
+    	
+    	
+    	/*Cuadro de Gol de Cabeza*/
+    	$('#etiqueta-gol-de-cabeza').click(function(e){
+    		
+    		$('#seccion-gol-de-cabeza').animate({marginBottom:"0px"}, 300,'linear');
 
-	});
-	
-	$('#espacio-para-cerrar-8').click(function(e){
-		
-		$('#seccion-gol-de-cabeza').animate({marginBottom:"-200px"}, 300,'linear');
-	
-	});	
-	/*cierre*/
-	
-	
-	/*Cuadro de Gol de Cabeza*/
-	$('#etiqueta-gol-de-taco').click(function(e){
-		
-		$('#seccion-gol-de-taco').animate({marginBottom:"0px"}, 300,'linear');
+    	});
+    	
+    	$('#espacio-para-cerrar-8').click(function(e){
+    		
+    		$('#seccion-gol-de-cabeza').animate({marginBottom:"-200px"}, 300,'linear');
+    	
+    	});	
+    	/*cierre*/
+    	
+    	
+    	/*Cuadro de Gol de Cabeza*/
+    	$('#etiqueta-gol-de-taco').click(function(e){
+    		
+    		$('#seccion-gol-de-taco').animate({marginBottom:"0px"}, 300,'linear');
 
-	});
-	
-	$('#espacio-para-cerrar-9').click(function(e){
-		
-		$('#seccion-gol-de-taco').animate({marginBottom:"-200px"}, 300,'linear');
-	
-	});	
-	/*cierre*/
-</script>
+    	});
+    	
+    	$('#espacio-para-cerrar-9').click(function(e){
+    		
+    		$('#seccion-gol-de-taco').animate({marginBottom:"-200px"}, 300,'linear');
+    	
+    	});	
+    	/*cierre*/
+    </script>
 </body>
 </html>
