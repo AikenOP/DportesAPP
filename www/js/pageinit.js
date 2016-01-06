@@ -216,38 +216,133 @@
             //$('map').imageMapResize();
         //}
         if(activePage === 'chart'){
-                var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
-                var lineChartData = {
-                    labels : ["January","February","March","April","May","June","July"],
-                    datasets : [
+        }
+        if(activePage === 'detalle-jugador-prueba'){
+            var radarChartData = {
+                    labels: ["Asistencia", "Quites", "Tiros de esquina", "Tiros libres", "Tiros al arco"],
+                    datasets: [
                         {
-                            label: "My First dataset",
-                            fillColor : "rgba(220,220,220,0.2)",
-                            strokeColor : "rgba(220,220,220,1)",
-                            pointColor : "rgba(220,220,220,1)",
-                            pointStrokeColor : "#fff",
-                            pointHighlightFill : "#fff",
-                            pointHighlightStroke : "rgba(220,220,220,1)",
-                            data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                            label: "Desempeño Promedio",
+                            fillColor: "rgba(220,220,220,0.2)",
+                            strokeColor: "rgba(220,220,220,1)",
+                            pointColor: "rgba(220,220,220,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(220,220,220,1)",
+                            data: [65,59,90,81,56]
                         },
                         {
-                            label: "My Second dataset",
-                            fillColor : "rgba(151,187,205,0.2)",
-                            strokeColor : "rgba(151,187,205,1)",
-                            pointColor : "rgba(151,187,205,1)",
-                            pointStrokeColor : "#fff",
-                            pointHighlightFill : "#fff",
-                            pointHighlightStroke : "rgba(151,187,205,1)",
-                            data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                            label: "Desempeño Actual",
+                            fillColor: "rgba(151,187,205,0.2)",
+                            strokeColor: "rgba(151,187,205,1)",
+                            pointColor: "rgba(151,187,205,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(151,187,205,1)",
+                            data: [28,48,40,19,96]
                         }
                     ]
+                };
+                window.onload = function(){
+                    window.myRadar = new Chart(document.getElementById("radar").getContext("2d")).Radar(radarChartData, {
+                        responsive: true
+                    });
                 }
+        }
+        if(activePage === 'grafico-pie'){
+            var doughnutData = [
+                        {
+                            value: 30,
+                            color:"#F7464A",
+                            highlight: "#FF5A5E",
+                            label: "Jugador1"
+                        },
+                        {
+                            value: 50,
+                            color: "#46BFBD",
+                            highlight: "#5AD3D1",
+                            label: "Jugador2"
+                        },
+                        {
+                            value: 100,
+                            color: "#FDB45C",
+                            highlight: "#FFC870",
+                            label: "Jugador3"
+                        },
+                        {
+                            value: 40,
+                            color: "#949FB1",
+                            highlight: "#A8B3C5",
+                            label: "Jugador4"
+                        },
+                        {
+                            value: 120,
+                            color: "#4D5360",
+                            highlight: "#616774",
+                            label: "Jugador5"
+                        }
+                    ];
+                    window.onload = function(){
+                        var ctx = document.getElementById("chart-area").getContext("2d");
+                        window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
+                    };
+        }
+        if(activePage === 'seguimiento-jugador-prueba'){
+            var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+            var lineChartData = {
+                labels : ["January","February","March","April","May","June","July"],
+                datasets : [
+                    {
+                        label: "My First dataset",
+                        fillColor : "rgba(220,220,220,0.2)",
+                        strokeColor : "rgba(220,220,220,1)",
+                        pointColor : "rgba(220,220,220,1)",
+                        pointStrokeColor : "#fff",
+                        pointHighlightFill : "#fff",
+                        pointHighlightStroke : "rgba(220,220,220,1)",
+                        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    },
+                    {
+                        label: "My Second dataset",
+                        fillColor : "rgba(151,187,205,0.2)",
+                        strokeColor : "rgba(151,187,205,1)",
+                        pointColor : "rgba(151,187,205,1)",
+                        pointStrokeColor : "#fff",
+                        pointHighlightFill : "#fff",
+                        pointHighlightStroke : "rgba(151,187,205,1)",
+                        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    }
+                ]
+            }
             window.onload = function(){
-                var ctx = document.getElementById("canvas").getContext("2d");
+                var ctx = document.getElementById("jugada").getContext("2d");
                 window.myLine = new Chart(ctx).Line(lineChartData, {
                     responsive: true
                 });
             }
         }
+        if(activePage === 'est-jugador-prueba'){
+            var radarChartData = {
+                    labels: ["Asistencia", "Quites", "Tiros de esquina", "Tiros libres", "Tiros al arco"],
+                    datasets: [
+                        {
+                            label: "Desempeño Actual",
+                            fillColor: "rgba(151,187,205,0.2)",
+                            strokeColor: "rgba(151,187,205,1)",
+                            pointColor: "rgba(151,187,205,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(151,187,205,1)",
+                            data: [28,48,40,19,96]
+                        }
+                    ]
+                };
+                window.onload = function(){
+                    window.myRadar = new Chart(document.getElementById("radar2").getContext("2d")).Radar(radarChartData, {
+                        responsive: true
+                    });
+                }
+        }
+
 
     });
