@@ -86,6 +86,34 @@ function equipos(){
 	    }		
 	}
 
+	this.addEquipo = function(){
+		var xhr = new XMLHttpRequest();
+		var send = new FormData();
+		send.append('id',localStorage.getItem('id'));
+		send.append('nombre_equipo',this.nombre);
+		send.append('comuna',this.comuna);
+		send.append('dporte_equipo',1);
+	    xhr.open('POST', path + 'app/addEquipo');
+	    xhr.setRequestHeader('Cache-Control', 'no-cache');
+	    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	    xhr.send(send);
+        xhr.timeout = 10000;
+        xhr.onprogress = function(e){
+            $.mobile.loading('show');
+        }
+        xhr.ontimeout = function(e){
+            navigator.notification.alert('Se detecto un problema, intentelo nuevamente',function(){},'Atención','OK');   
+        }
+        xhr.onload = function(e){
+        	$.mobile.loading('hide');
+        	if(this.status == 200){
+	    		if(this.response){
+	    			$.mobile.navigate("#mis-equipos", {transition: "fade"});
+	    		}
+	    	}
+	    }		
+	}
+
 	this.getMisEquipos = function(){
 		var xhr = new XMLHttpRequest();
 		var send = new FormData();
@@ -191,3 +219,13 @@ function redirectEquipo(eq){
 	sessionStorage.setItem("eq_session",eq);
 	$.mobile.navigate("#editar-equipo", {transition: "fade"});
 }
+
+
+document.getElementById('btn-reg-equipo').addEventListener('click',function(){
+	event.preventDefault();
+	var eq = new equipos();
+	eq.nombre = document.getElementById('reg-nom-equipo').value;
+	eq.comuna = document.getElementById('eq-comuna').value;
+	eq.addEquipo();
+	delete eq;
+});
