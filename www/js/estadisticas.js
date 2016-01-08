@@ -205,6 +205,12 @@ function setParametrosEstadisticos(evento,equipo){
     $.mobile.navigate("#estadisticas", {transition: "fade"});
 }
 
+function setGol(id){
+    document.getElementById('acc-tipo-stat').style.display = "block";
+    document.getElementById('acc-tipo-gol').style.display = "none";
+    $("#jugada_partido").panel( "close" );
+}
+
 function setAccion(tipo,accion){
     var xhr = new XMLHttpRequest();
     var add = new FormData();
@@ -229,6 +235,8 @@ function setAccion(tipo,accion){
         document.getElementById('jugGoles'+id).innerHTML = parseInt(goles) + 1
         $('#jugImg'+id).css('display','block');
         $('#jugGoles'+id).css('display','block');
+        document.getElementById('acc-tipo-stat').style.display = "none";
+        document.getElementById('acc-tipo-gol').style.display = "block";
     } else if(tipo == 1 && accion == 0){
         var marcador = document.getElementById('acc-marc-contra').innerHTML;
         var marcador_stat = document.getElementById('stat-marc-contra').innerHTML;
@@ -242,14 +250,17 @@ function setAccion(tipo,accion){
             $("#jugTarjetaRoja"+sessionStorage.getItem('accIDTitular')).css('display','block');
         }
         $('#jgActivo'+sessionStorage.getItem('accIDTitular')).addClass('ui-state-disabled');
+        $( "#jugada_partido" ).panel( "close" );
     } else if(tipo == 5 && accion == 1){
         if(checkAmarilla()){
             $('#jgActivo'+sessionStorage.getItem('accIDTitular')).addClass('ui-state-disabled');    
-        }  
+        }
+        $( "#jugada_partido" ).panel( "close" );
+    } else {
+        $( "#jugada_partido" ).panel( "close" );
     }
-
     //alert("tipo de accion: " + tipo + " usuario: " + localStorage.getItem('accIDTitular') + " accion: " + accion);
-    $( "#jugada_partido" ).panel( "close" );
+    //$( "#jugada_partido" ).panel( "close" );
 }
 
 function periodoConf(button){
