@@ -448,7 +448,7 @@
 
     <!-- Estadisticas -->
     <div data-role="page" id="estadisticas" class="jqm-demos" data-title="Dportes" data-theme="a">
-        <div data-role="header" data-position="fixed" class="color-encabezado">
+        <div data-role="header" data-position="fixed" class="color-encabezado" data-tab-toggle="false">
             <a id="stat-back-rel" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Estadisticas</h1>
             <a id="stat-forward-rel" data-transition="fade" class="saca-estilo-boton ui-btn-icon-right"><div class="fl-derecha"></div></a>
@@ -923,7 +923,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a href="#">Club Deportivo Alto de Bajos</a></td>
+                                    <td><a href="#seguimiento-equipo-rival-prueba">Club Deportivo Alto de Bajos</a></td>
                                     <td>10</td>
                                     <td>5</td>
                                     <td>6</td>
@@ -945,17 +945,17 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a href="#">Totales</a></td>
+                                    <td><a href="#amarillas">Totales</a></td>
                                     <td>10</td>
                                     <td>5</td>
                                 </tr>
                                 <tr>
-                                    <td><a href="#">Jugador 1</a></td>
+                                    <td><a href="#amarillas">Jugador 1</a></td>
                                     <td>10</td>
                                     <td>5</td>
                                 </tr>
                                 <tr>
-                                    <td><a href="#">Jugador 2</a></td>
+                                    <td><a href="#amarillas">Jugador 2</a></td>
                                     <td>10</td>
                                     <td>5</td>
                                 </tr>
@@ -1002,11 +1002,11 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a href="#">Jugador 1</a></td>
+                                    <td><a href="#seguimiento-jugador">Jugador 1</a></td>
                                     <td>10%</td>
                                 </tr>
                                 <tr>
-                                    <td><a href="#">Jugador 2</a></td>
+                                    <td><a href="#seguimiento-jugador">Jugador 2</a></td>
                                     <td>5%</td>
                                 </tr>
                             </tbody>
@@ -1295,6 +1295,45 @@
         </div>
     </div>
 
+    <!-- seguimiento desempeño de equipo contra rival prueba -->
+    <div data-role="page" id="seguimiento-equipo-rival-prueba" class="jqm-demos" data-title="Dportes" data-theme="a">
+        <div data-role="header" data-position="fixed" class="color-encabezado">
+            <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <h1>Estadísticas</h1>
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
+        </div>
+        <div data-role="main">
+            <h4 align="center">Desempeño del equipo contra rival:</h4>
+            <canvas id="rivales"></canvas>
+        </div>
+    </div>
+
+    <!-- seguimiento tarjetas amarillas de equipo prueba -->
+    <div data-role="page" id="amarillas" class="jqm-demos" data-title="Dportes" data-theme="a">
+        <div data-role="header" data-position="fixed" class="color-encabezado">
+            <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <h1>Estadísticas</h1>
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
+        </div>
+        <div data-role="main">
+            <h4 align="center">Obtencion de tarjetas en el tiempo:</h4>
+            <canvas id="amarilla-tarjeta"></canvas>
+        </div>
+    </div>
+
+    <!-- seguimiento efectividad jugadores prueba -->
+    <div data-role="page" id="seguimiento-jugador" class="jqm-demos" data-title="Dportes" data-theme="a">
+        <div data-role="header" data-position="fixed" class="color-encabezado">
+            <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <h1>Estadísticas</h1>
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
+        </div>
+        <div data-role="main">
+            <h4 align="center">Seguimiento de la efectividad segun posicion</h4>
+            <canvas id="seguimiento-jugador-graf"></canvas>
+        </div>
+    </div>
+
     <!-- nombre pagina-->
     <div data-role="page" id="" class="jqm-demos" data-title="Dportes" data-theme="a">
         <div data-role="header" data-position="fixed" class="color-encabezado">
@@ -1323,24 +1362,6 @@
                 <canvas id="chart-area" width="500" height="500"/>
             </div>
             <!-- este grafico muestra que jugadores participaron del estadistico de jugada, y en que medida -->
-        </div>
-    </div>
-
-    <!-- pruebas de graficos -->
-    <div data-role="page" id="grafico-prueba" class="jqm-demos" data-title="Dportes" data-theme="a">
-        <div data-role="header" data-position="fixed" class="color-encabezado">
-            <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
-            <h1>Gráficos</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
-        </div>
-        <div data-role="main">
-
-            <div class="contenedor-resumen-goles">
-                <div class="alinea-resumen">
-                    <h4 class="texto-resumen-goles">Resumen Jugada:</h4>
-                </div>
-                <canvas id="prueba"/>
-            </div>
         </div>
     </div>
     
@@ -1425,7 +1446,7 @@
                         <div class="seccion-efectividad">
                         	<div class="efectividad">Efectividad</div>
                         	<div class="porcentaje-bueno">50%</div>
-                            <div class="porcentaje-malo">50%</div>
+                            
                         </div>
                         
                         <div class="seccion-exponente">
@@ -1470,7 +1491,7 @@
                         <div class="seccion-efectividad">
                         	<div class="efectividad">Efectividad</div>
                         	<div class="porcentaje-bueno">50%</div>
-                            <div class="porcentaje-malo">50%</div>
+                            
                         </div>
                         
                         <div class="seccion-exponente">
@@ -1515,7 +1536,7 @@
                         <div class="seccion-efectividad">
                         	<div class="efectividad">Efectividad</div>
                         	<div class="porcentaje-bueno">50%</div>
-                            <div class="porcentaje-malo">50%</div>
+                            
                         </div>
                         
                         <div class="seccion-exponente">
@@ -1560,7 +1581,7 @@
                         <div class="seccion-efectividad">
                         	<div class="efectividad">Efectividad</div>
                         	<div class="porcentaje-bueno">50%</div>
-                            <div class="porcentaje-malo">50%</div>
+                            
                         </div>
                         
                         <div class="seccion-exponente">
@@ -1605,7 +1626,7 @@
                         <div class="seccion-efectividad">
                         	<div class="efectividad">Efectividad</div>
                         	<div class="porcentaje-bueno">50%</div>
-                            <div class="porcentaje-malo">50%</div>
+                            
                         </div>
                         
                         <div class="seccion-exponente">
@@ -1650,7 +1671,7 @@
                         <div class="seccion-efectividad">
                         	<div class="efectividad">Efectividad</div>
                         	<div class="porcentaje-bueno">50%</div>
-                            <div class="porcentaje-malo">50%</div>
+                            
                         </div>
                         
                         <div class="seccion-exponente">
@@ -1695,7 +1716,7 @@
                         <div class="seccion-efectividad">
                         	<div class="efectividad">Efectividad</div>
                         	<div class="porcentaje-bueno">50%</div>
-                            <div class="porcentaje-malo">50%</div>
+                            
                         </div>
                         
                         <div class="seccion-exponente">
@@ -1740,7 +1761,7 @@
                         <div class="seccion-efectividad">
                         	<div class="efectividad">Efectividad</div>
                         	<div class="porcentaje-bueno">50%</div>
-                            <div class="porcentaje-malo">50%</div>
+                            
                         </div>
                         
                         <div class="seccion-exponente">
@@ -1784,7 +1805,7 @@
                         <div class="seccion-efectividad">
                         	<div class="efectividad">Efectividad</div>
                         	<div class="porcentaje-bueno">50%</div>
-                            <div class="porcentaje-malo">50%</div>
+                            
                         </div>
                         
                         <div class="seccion-exponente">
@@ -1828,7 +1849,7 @@
                         <div class="seccion-efectividad">
                         	<div class="efectividad">Efectividad</div>
                         	<div class="porcentaje-bueno">50%</div>
-                            <div class="porcentaje-malo">50%</div>
+                            
                         </div>
                         
                         <div class="seccion-exponente">
@@ -1861,7 +1882,6 @@
             <li data-icon="power"><a id="logout" href="#">Salir de Dportes</a></li>
             <!-- pruebas -->
             <li data-icon="star"><a href="#estadisticas-nuevas" data-transition="fade">Estadisticas de Prueba</a></li>
-            <li data-icon="star"><a href="#grafico-prueba" data-transition="fade">Gráficos de Prueba</a></li>
             <li data-icon="eye"><a href="#jugadas-goles">pagina de tipos de goles</a></li>
             <li data-icon="eye"><a href="#prueba-cancha">Cancha de Prueba</a></li>
         </ul>
