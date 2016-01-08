@@ -6,6 +6,7 @@
 
             function onDeviceReady(){
 
+                Chart.defaults.global.responsive = false;
                 setTimeout(function(){ 
                     if(localStorage.getItem('login')){
                         $.mobile.navigate("#home", {transition: "fade"});
@@ -133,13 +134,52 @@
             partidos.getHistorialPartidos();
             delete partidos;
 
+            var jg = new jugadores();
+            jg.getJugadoresEstadisticasAcumuladas();
+            delete jg;
+
             document.getElementById('botones-estadisticos').style.display = "none";
             document.getElementById('stat-back-rel').style.display = "block";
             document.getElementById('stat-forward-rel').href = "#menu_perfil";
             document.getElementById('stat-forward-rel').innerHTML = "<div class='icono-menu-right'></div>";
             document.getElementById('stat-back-rel').href = '#historial-stat';
             document.getElementById('tyc-back').href = '#'+activePage;
-           swipe('#historial-stat','#menu_perfil','right');        
+            swipe('#historial-stat','#menu_perfil','right');        
+        }
+
+        if(activePage === 'stat-jugador-individual'){
+
+            document.getElementById('ind-nombre').innerHTML =  sessionStorage.getItem('pi_nombre');
+            document.getElementById('ind-posicion').innerHTML = 'Posición: '+sessionStorage.getItem('pi_posicion'); 
+            var radarChartData = {
+                    labels: ["Asistencia", "Quites", "Tiros de esquina", "Tiros libres", "Tiros al arco"],
+                    datasets: [
+                        {
+                            label: "Desempeño Actual",
+                            fillColor: "rgba(151,187,205,0.2)",
+                            strokeColor: "rgba(151,187,205,1)",
+                            pointColor: "rgba(151,187,205,1)",
+                            pointStrokeColor: "#fff",
+                            pointHighlightFill: "#fff",
+                            pointHighlightStroke: "rgba(151,187,205,1)",
+                            data: [28,48,40,19,96]
+                        }
+                    ]
+                };
+
+                
+                /*window.myRadar = new Chart(document.getElementById("radar2").getContext("2d")).Radar(radarChartData, {
+                responsive: true
+                });*/
+                var canvas = document.getElementById("radar2");
+                var ctx = canvas.getContext("2d");
+                
+                var newChart = new Chart(ctx).Radar(radarChartData);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                //newChart.clear();
+                //newChart.destroy();
+                //newChart = new Chart(ctx).Radar(radarChartData);
+                      
         }
 
         if(activePage === 'jugadores-equipo'){
@@ -215,8 +255,7 @@
         //if(activePage === 'prueba-cancha'){
             //$('map').imageMapResize();
         //}
-        if(activePage === 'chart'){
-        }
+
         if(activePage === 'detalle-jugador-prueba'){
             var radarChartData = {
                     labels: ["Asistencia", "Quites", "Tiros de esquina", "Tiros libres", "Tiros al arco"],
@@ -320,28 +359,6 @@
                     responsive: true
                 });
             }
-        }
-        if(activePage === 'est-jugador-prueba'){
-            var radarChartData = {
-                    labels: ["Asistencia", "Quites", "Tiros de esquina", "Tiros libres", "Tiros al arco"],
-                    datasets: [
-                        {
-                            label: "Desempeño Actual",
-                            fillColor: "rgba(151,187,205,0.2)",
-                            strokeColor: "rgba(151,187,205,1)",
-                            pointColor: "rgba(151,187,205,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(151,187,205,1)",
-                            data: [28,48,40,19,96]
-                        }
-                    ]
-                };
-                window.onload = function(){
-                    window.myRadar = new Chart(document.getElementById("radar2").getContext("2d")).Radar(radarChartData, {
-                        responsive: true
-                    });
-                }
         }
 
 
