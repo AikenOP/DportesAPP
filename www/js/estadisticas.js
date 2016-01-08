@@ -49,6 +49,7 @@ function estadisticas(){
 	}
 
     this.setGolContra = function(){
+        $.mobile.loading('show');
         var xhr = new XMLHttpRequest();
         var send = new FormData();
         send.append('id_evento',this.evento);
@@ -59,6 +60,17 @@ function estadisticas(){
         xhr.setRequestHeader('Cache-Control', 'no-cache');
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         xhr.send(send);
+
+        xhr.onprogress = function(e){
+            $.mobile.loading('show');
+        }
+        xhr.onload = function(e){
+            document.getElementById('acc-tipo-gol').style.display = "none";
+            document.getElementById('acc-tipo-gol-contra').style.display = "block";
+            document.getElementById('acc-tipo-stat').style.display = "none";
+            $("#jugada_partido").panel( "open" );
+            $.mobile.loading('hide');
+        }
     }
 
     this.getEstadisticasByJugador = function(){
@@ -206,25 +218,22 @@ function setParametrosEstadisticos(evento,equipo){
 }
 
 function setGol(id){
-    document.getElementById('acc-tipo-stat').style.display = "block";
     document.getElementById('acc-tipo-gol').style.display = "none";
+    document.getElementById('acc-tipo-gol-contra').style.display = "none";
+    document.getElementById('acc-tipo-stat').style.display = "block";
+    var xhr = new XMLHttpRequest();
+    var send = new FormData();
+    send.append('id_gol',id);
+    send.append('id_accion',sessionStorage.getItem('accion'));
+    xhr.open('POST', path + 'app/setTipoGol');
+    xhr.setRequestHeader('Cache-Control', 'no-cache');
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.send(send);
     $("#jugada_partido").panel( "close" );
 }
 
 function setAccion(tipo,accion){
-    var xhr = new XMLHttpRequest();
-    var add = new FormData();
-    add.append('id_evento',sessionStorage.getItem('evento'));
-    add.append('id_usuario',sessionStorage.getItem('accIDTitular'));
-    add.append('id_equipo',localStorage.getItem('equipo'));
-    add.append('id_periodo',sessionStorage.getItem('periodo'));
-    add.append('id_tipo',tipo);
-    add.append('accion',accion);
-    //alert(sessionStorage.getItem(''));
-    xhr.open('POST', path + 'app/setEstadisticaFutbol');
-    xhr.setRequestHeader('Cache-Control', 'no-cache');
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    xhr.send(add);
+
     if(tipo == 1 && accion == 1){
         var id = sessionStorage.getItem('accIDTitular');
         var marcador = document.getElementById('acc-marc-favor').innerHTML;
@@ -235,13 +244,12 @@ function setAccion(tipo,accion){
         document.getElementById('jugGoles'+id).innerHTML = parseInt(goles) + 1
         $('#jugImg'+id).css('display','block');
         $('#jugGoles'+id).css('display','block');
-        document.getElementById('acc-tipo-stat').style.display = "none";
-        document.getElementById('acc-tipo-gol').style.display = "block";
     } else if(tipo == 1 && accion == 0){
         var marcador = document.getElementById('acc-marc-contra').innerHTML;
         var marcador_stat = document.getElementById('stat-marc-contra').innerHTML;
         document.getElementById('acc-marc-contra').innerHTML = parseInt(marcador) + 1;
-        document.getElementById('stat-marc-contra').innerHTML = parseInt(marcador_stat) + 1;      
+        document.getElementById('stat-marc-contra').innerHTML = parseInt(marcador_stat) + 1;  
+        $( "#jugada_partido" ).panel( "close" );  
     } else if(tipo == 5 && accion == 0){
         $("#jugTarjetaAmarilla"+sessionStorage.getItem('accIDTitular')).css('display','none');
         if(checkAmarillaRoja(sessionStorage.getItem('accIDTitular'))){
@@ -258,6 +266,33 @@ function setAccion(tipo,accion){
         $( "#jugada_partido" ).panel( "close" );
     } else {
         $( "#jugada_partido" ).panel( "close" );
+    }
+
+    var xhr = new XMLHttpRequest();
+    var add = new FormData();
+    add.append('id_evento',sessionStorage.getItem('evento'));
+    add.append('id_usuario',sessionStorage.getItem('accIDTitular'));
+    add.append('id_equipo',localStorage.getItem('equipo'));
+    add.append('id_periodo',sessionStorage.getItem('periodo'));
+    add.append('id_tipo',tipo);
+    add.append('accion',accion);
+    //alert(sessionStorage.getItem(''));
+    xhr.open('POST', path + 'app/setEstadisticaFutbol');
+    xhr.setRequestHeader('Cache-Control', 'no-cache');
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    $.mobile.loading('show');
+    xhr.send(add);
+    xhr.onprogress = function(e){
+        $.mobile.loading('show');
+    }
+    xhr.onload = function(e){
+        if(tipo == 1 && accion == 1){
+            sessionStorage.setItem('accion',this.response);
+            document.getElementById('acc-tipo-stat').style.display = "none";
+            document.getElementById('acc-tipo-gol-contra').style.display = "none";
+            document.getElementById('acc-tipo-gol').style.display = "block";
+        }
+        $.mobile.loading('hide');
     }
     //alert("tipo de accion: " + tipo + " usuario: " + localStorage.getItem('accIDTitular') + " accion: " + accion);
     //$( "#jugada_partido" ).panel( "close" );
