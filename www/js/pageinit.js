@@ -178,8 +178,7 @@
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 //newChart.clear();
                 //newChart.destroy();
-                //newChart = new Chart(ctx).Radar(radarChartData);
-                      
+                //newChart = new Chart(ctx).Radar(radarChartData);                
         }
 
         if(activePage === 'jugadores-equipo'){
@@ -252,9 +251,6 @@
         if(activePage === 'acerca'){
             swipe('#acerca','#menu_perfil','right');
         }
-        //if(activePage === 'prueba-cancha'){
-            //$('map').imageMapResize();
-        //}
 
         if(activePage === 'detalle-jugador-prueba'){
             var radarChartData = {
@@ -282,11 +278,7 @@
                         }
                     ]
                 };
-                window.onload = function(){
-                    window.myRadar = new Chart(document.getElementById("radar").getContext("2d")).Radar(radarChartData, {
-                        responsive: true
-                    });
-                }
+                var newChart = new Chart(document.getElementById("radar").getContext("2d")).Radar(radarChartData);
         }
         if(activePage === 'grafico-pie'){
             var doughnutData = [
@@ -321,10 +313,8 @@
                             label: "Jugador5"
                         }
                     ];
-                    window.onload = function(){
-                        var ctx = document.getElementById("chart-area").getContext("2d");
-                        window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
-                    };
+                    var ctx = document.getElementById("chart-area").getContext("2d");
+                    var newChart = new Chart(ctx).Doughnut(doughnutData);
         }
         if(activePage === 'seguimiento-jugador-prueba'){
             var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
@@ -353,13 +343,98 @@
                     }
                 ]
             }
-            window.onload = function(){
-                var ctx = document.getElementById("jugada").getContext("2d");
-                window.myLine = new Chart(ctx).Line(lineChartData, {
-                    responsive: true
-                });
-            }
+            var ctx = document.getElementById("jugada").getContext("2d");
+            var newChart = new Chart(ctx).Line(lineChartData);
         }
-
+        if(activePage === 'seguimiento-equipo-rival-prueba'){
+            var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+            var lineChartData = {
+                labels : ["January","February","March","April","May","June","July"],
+                datasets : [
+                    {
+                        label: "My First dataset",
+                        fillColor : "rgba(220,220,220,0.2)",
+                        strokeColor : "rgba(220,220,220,1)",
+                        pointColor : "rgba(220,220,220,1)",
+                        pointStrokeColor : "#fff",
+                        pointHighlightFill : "#fff",
+                        pointHighlightStroke : "rgba(220,220,220,1)",
+                        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    },
+                    {
+                        label: "My Second dataset",
+                        fillColor : "rgba(151,187,205,0.2)",
+                        strokeColor : "rgba(151,187,205,1)",
+                        pointColor : "rgba(151,187,205,1)",
+                        pointStrokeColor : "#fff",
+                        pointHighlightFill : "#fff",
+                        pointHighlightStroke : "rgba(151,187,205,1)",
+                        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    }
+                ]
+            }
+            var ctx = document.getElementById("rivales").getContext("2d");
+            var newChart = new Chart(ctx).Line(lineChartData);
+        }
+        if(activePage === 'amarillas'){
+            var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+            var lineChartData = {
+                labels : ["January","February","March","April","May","June","July"],
+                datasets : [
+                    {
+                        label: "My First dataset",
+                        fillColor : "rgba(220,220,220,0.2)",
+                        strokeColor : "rgba(220,220,220,1)",
+                        pointColor : "rgba(220,220,220,1)",
+                        pointStrokeColor : "#fff",
+                        pointHighlightFill : "#fff",
+                        pointHighlightStroke : "rgba(220,220,220,1)",
+                        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    },
+                    {
+                        label: "My Second dataset",
+                        fillColor : "rgba(151,187,205,0.2)",
+                        strokeColor : "rgba(151,187,205,1)",
+                        pointColor : "rgba(151,187,205,1)",
+                        pointStrokeColor : "#fff",
+                        pointHighlightFill : "#fff",
+                        pointHighlightStroke : "rgba(151,187,205,1)",
+                        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    }
+                ]
+            }
+            var ctx = document.getElementById("amarilla-tarjeta").getContext("2d");
+            var newChart = new Chart(ctx).Line(lineChartData);
+        }
+        if(activePage === 'seguimiento-jugador'){
+            var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+            var lineChartData = {
+                labels : ["January","February","March","April","May","June","July"],
+                datasets : [
+                    {
+                        label: "My First dataset",
+                        fillColor : "rgba(220,220,220,0.2)",
+                        strokeColor : "rgba(220,220,220,1)",
+                        pointColor : "rgba(220,220,220,1)",
+                        pointStrokeColor : "#fff",
+                        pointHighlightFill : "#fff",
+                        pointHighlightStroke : "rgba(220,220,220,1)",
+                        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    },
+                    {
+                        label: "My Second dataset",
+                        fillColor : "rgba(151,187,205,0.2)",
+                        strokeColor : "rgba(151,187,205,1)",
+                        pointColor : "rgba(151,187,205,1)",
+                        pointStrokeColor : "#fff",
+                        pointHighlightFill : "#fff",
+                        pointHighlightStroke : "rgba(151,187,205,1)",
+                        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+                    }
+                ]
+            }
+            var ctx = document.getElementById("seguimiento-jugador-graf").getContext("2d");
+            var newChart = new Chart(ctx).Line(lineChartData);
+        }
 
     });
