@@ -353,7 +353,7 @@ function jugadores(){
         var xhr = new XMLHttpRequest();
         var send = new FormData();
         send.append('id_equipo',localStorage.getItem('equipo'));
-        send.append('id_evento',sessionStorage.getItem('evento'))
+        send.append('id_evento',sessionStorage.getItem('evento'));
         xhr.open('POST', path + 'app/getJugadoresEstadisticas');
         xhr.setRequestHeader('Cache-Control', 'no-cache');
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -380,6 +380,41 @@ function jugadores(){
                         inc += "<li><h2 class='mensaje'>No se detectaron estadisticas para los jugadores</h2></li>";
                     }
                     $("#stat-jg-list").html(inc).listview('refresh');
+                }
+            }
+        }       
+    }
+
+    this.getJugadoresEstadisticasAcumuladas = function(){
+        var xhr = new XMLHttpRequest();
+        var send = new FormData();
+        send.append('id_equipo',localStorage.getItem('equipo'));
+        xhr.open('POST', path + 'app/getJugadoresByEquipo');
+        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(send);
+        xhr.onprogress = function(e){
+            $.mobile.loading('show');
+        }
+        xhr.onload = function(e){
+            $.mobile.loading('hide');
+            if(this.status == 200){
+                if(this.response && JSON.parse(this.response)){
+                    var json = JSON.parse(this.response);
+                    var inc = '';
+                    if(json.length != 0){
+                        for(var i = 0; i < json.length; i++ ){
+                            inc += "<li>";
+                            inc += "<a onclick='setParamIndividuales("+json[i].id_usuario+",\""+json[i].nombre+"\",\""+json[i].posicion+"\")' href='#' class='color-boton-equipo'><img src='jquerymobile/img-dportes/foto.png'>";
+                            inc += "<h2>"+json[i].nombre+"</h2>";
+                            inc += "<p>"+json[i].posicion+"</p>";
+                            inc += "</a>";
+                            inc += "</li>";
+                        }
+                    } else {
+                        inc += "<li><h2 class='mensaje'>No se detectaron estadisticas para los jugadores</h2></li>";
+                    }
+                    $("#stat-jg-ac").html(inc).listview('refresh');
                 }
             }
         }       
@@ -681,6 +716,13 @@ function setHistorialJG(id,nombre,posicion){
     sessionStorage.dt_nombre = nombre;
     sessionStorage.dt_posicion = posicion;
     $.mobile.navigate("#detalle-jugador", {transition: "fade"});
+}
+
+function setParamIndividuales(id,nombre,posicion){
+    sessionStorage.pi_jugador = id;
+    sessionStorage.pi_nombre = nombre;
+    sessionStorage.pi_posicion = posicion;
+    $.mobile.navigate("#stat-jugador-individual", {transition: "fade"});
 }
 
 function setTitular(id){

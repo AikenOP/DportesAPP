@@ -986,6 +986,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbc01', end
 
 }
 
+    canvas{
+        width: 100% !important;
+        max-width: 800px;
+        height: auto !important;
+    }
+
 @media (max-width: 480px) {
 
 .seccion-general {display:block; width:100%;margin-bottom: 0px;margin-bottom: -200px;float: left;}

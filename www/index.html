@@ -432,76 +432,12 @@
             <div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="jugada_partido">
                 
                 <ul id="acc-tipo-gol" data-role="listview" style="display:none;">
-                    <div class="jugadas"><span class="texto_jugada">Dentro del Area</span>
-                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_dentro_area_buena"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">Fuera del Area</span>
-                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_fuera_area_buena"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">Tiro Libre</span>
-                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_tiro_libre_buena"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">Tiro Esquina</span>
-                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_tiro_esquina_buena"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">De Volea</span>
-                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_volea_buena"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">De Tijeras</span>
-                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_tijera_buena"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">De Chilena</span>
-                        <a href="#" data-rel="close"><div class="gol_chilena_buena"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">De Cabeza</span>
-                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_cabeza_buena"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">De Taco</span>
-                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_taco_buena"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">Otro</span>
-                        <a href="#" data-rel="close" onclick="setGol(1)"><div class="gol_otro_buena"></div></a>
-                    </div>
                 </ul>
 
-                <ul data-role="listview" style="display:none;">
-                    <div class="jugadas"><span class="texto_jugada">Dentro del Area</span>
-                        <a href="#" data-rel="close"><div class="gol_dentro_area_mala"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">Fuera del Area</span>
-                        <a href="#" data-rel="close"><div class="gol_fuera_area_mala"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">Tiro Libre</span>
-                        <a href="#" data-rel="close"><div class="gol_tiro_libre_mala"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">Tiro Esquina</span>
-                        <a href="#" data-rel="close"><div class="gol_tiro_esquina_mala"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">De Volea</span>
-                        <a href="#" data-rel="close"><div class="gol_volea_mala"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">De Tijeras</span>
-                        <a href="#" data-rel="close"><div class="gol_tijera_mala"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">De Chilena</span>
-                        <a href="#" data-rel="close"><div class="gol_chilena_mala"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">De Cabeza</span>
-                        <a href="#" data-rel="close"><div class="gol_cabeza_mala"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">De Taco</span>
-                        <a href="#" data-rel="close"><div class="gol_taco_mala"></div></a>
-                    </div>
-                    <div class="jugadas"><span class="texto_jugada">Otro</span>
-                        <a href="#" data-rel="close"><div class="gol_otro_mala"></div></a>
-                    </div>    
+                <ul id="acc-tipo-gol-contra" data-role="listview" style="display:none;">  
                 </ul>
 
                 <ul id="acc-tipo-stat" data-role="listview">
-                        <!--<div class="jugadas"><span class="texto_jugada">Tarjeta</span>
-                            <div class="jugada_buena"><a href="#" class="ui-btn ui-corner-all ui-icon-amarilla ui-btn-icon-notext quita_margenes_iconos" data-rel="close">Buena</a></div>
-                            <div class="jugada_mala"><a href="#" class="ui-btn ui-corner-all ui-icon-roja ui-btn-icon-notext quita_margenes_iconos" data-rel="close">Mala</a></div>
-                        </div>-->
                 </ul>
     
             </div>
@@ -597,16 +533,7 @@
         <!--<div data-role="footer"><p align="center">© 2015 Derechos Reservados Dportes</p></div>-->
     </div>
 
-    <!-- ———— FECHAS PASADAS ————— -->
-    <div data-role="page" id="historial-stat" class="jqm-demos" data-title="Dportes" data-theme="a">
-        <div data-role="header" data-position="fixed" class="color-encabezado">
-            <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
-            <h1>Fechas Jugadas</h1>
-            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
-        </div>
-        <div id="historial-content" class="content" style="margin-top:20px"></div>
-        <!--<div data-role="footer"><p align="center">© 2015 Derechos Reservados Dportes</p></div>-->
-    </div>
+    <!-- ———— CAMBIO JUGADOR ————— -->
     <div data-role="page" id="cambio-jugador" class="jqm-demos" data-title="Dportes" data-theme="a">
         <div data-role="header" data-position="fixed" data-tap-toggle="false" class="color-encabezado">
             <a href="#acciones" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
@@ -923,7 +850,7 @@
     </div>
 
     <!-- estadisticas nuevas -->
-    <div data-role="page" id="estadisticas-nuevas" class="jqm-demos">
+    <div data-role="page" id="historial-stat" class="jqm-demos">
     
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
@@ -934,38 +861,16 @@
             <div data-role="tabs" id="tabs">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#uno" data-ajax="false" class="ui-btn-active" data-transition="slide">Por partido</a></li>
+                        <li><a href="#historial-content" data-ajax="false" class="ui-btn-active" data-transition="slide">Por partido</a></li>
                         <li><a href="#dos" data-ajax="false" data-transition="slide">Individuales</a></li>
                         <li><a href="#tres" data-ajax="false" data-transition="slide">Grupales</a></li>
                     </ul>
                 </div>
-                <div id="uno" class="ui-body-d ui-content">
-                    <ul id="custom-format-listview" data-role="listview" data-inset="false" >
-                        <li data-icon="false">
-                            <a href="#resumen-partido" data-ajax="false" class="fechas" id="contenedor-fechas">
-                                <div class="contenedor-fechas">
-                                    <div class="centrado-fechas">
-                                        <div class="block">
-                                            <img src="jquerymobile/img-dportes/realmadrid.png">
-                                            <p class="nombre-equipo">R. Madrid de portugal</p>
+                <div id="historial-content" class="ui-body-d ui-content">
 
-                                            <p class="marcador">1</p>
-                                        </div>
-                                        <div class="vs">VS</div>
-                                        <div class="block">
-                                            <img src="jquerymobile/img-dportes/barcelona.png">
-                                            <p class="nombre-equipo">Barcelona de la nueva españa</p>
-                                            <p class="marcador">1</p>
-                                        </div>
-                                        <div class="fecha-partido">Jugado el: 23 octubre 2015</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
                 <div id="dos" class="ui-body-d ui-content">
-                    <ul data-role="listview" data-inset="false">
+                    <ul id="stat-jg-ac" data-role="listview" data-inset="false">
                         <li>
                             <a href="#est-jugador-prueba" class="color-boton-equipo"><img src="jquerymobile/img-dportes/jugador1.jpg">
                                 <h2>KEYLOR NAVAS</h2>
@@ -1283,7 +1188,7 @@
     </div>
 
     <!-- Estadisticas globales de un jugador prueba-->
-    <div data-role="page" id="est-jugador-prueba" class="jqm-demos" data-title="Dportes" data-theme="a">
+    <div data-role="page" id="stat-jugador-individual" class="jqm-demos" data-title="Dportes" data-theme="a">
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Acumuladas jugador</h1>
@@ -1293,9 +1198,9 @@
             <ul data-role="listview" data-inset="false">
                 <li data-icon="false">
                     <a href="#" class="color-boton-equipo-dark">
-                        <img src="jquerymobile/img-dportes/jugador1.jpg">
-                        <h2>KEYLOR NAVAS</h2>
-                        <p>Posición: Portero</p>
+                        <img src="jquerymobile/img-dportes/foto.png">
+                        <h2 id="ind-nombre"></h2>
+                        <p id="ind-posicion"></p>
                     </a>
                 </li>
                 <h4 align="center">Datos Estadísticos globales:</h4>
