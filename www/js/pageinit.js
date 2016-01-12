@@ -148,7 +148,9 @@
         }
 
         if(activePage === 'stat-jugador-individual'){
-
+            var tb = new tablas();
+            tb.getIndividualAcumulada();
+            delete tb;
             document.getElementById('ind-nombre').innerHTML =  sessionStorage.getItem('pi_nombre');
             document.getElementById('ind-posicion').innerHTML = 'Posición: '+sessionStorage.getItem('pi_posicion'); 
             var radarChartData = {
