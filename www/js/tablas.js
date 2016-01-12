@@ -17,7 +17,11 @@ function tablas(){
         }
         
         xhr.onload = function(){
-            alert(this.response);
+            if(this.status == 200){
+                if(this.response){
+
+                }
+            }
         }
 	}
 }
