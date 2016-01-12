@@ -922,6 +922,7 @@ a.color-boton-presionado {
                 margin-top: 5px;
                 margin-bottom: 10px;
                 text-shadow: none;
+                letter-spacing: 1px;
 }
 
 [data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}
