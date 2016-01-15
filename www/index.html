@@ -871,69 +871,101 @@
                 </div>
                 <div id="dos" class="ui-body-d ui-content">
                     <ul id="stat-jg-ac" data-role="listview" data-inset="false">
-                        <li>
-                            <a href="#est-jugador-prueba" class="color-boton-equipo"><img src="jquerymobile/img-dportes/jugador1.jpg">
-                                <h2>KEYLOR NAVAS</h2>
-                                <p>Portero</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#est-jugador-prueba" class="color-boton-equipo-dark"><img src="jquerymobile/img-dportes/jugador2.jpg">
-                                <h2>SERGIO RAMOS</h2>
-                                <p>Lateral</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#est-jugador-prueba" class="color-boton-equipo"><img src="jquerymobile/img-dportes/jugador3.jpg">
-                                <h2>PEPE</h2>
-                                <p>Lateral</p>
-                            </a>
-                        </li>
                     </ul>
                 </div>
                 <div id="tres" class="ui-body-d ui-content">
                     <ul data-role="listview" data-inset="false">
                         <li data-icon="false">
                             <a href="#" class="color-boton-equipo-dark">
-                                <img src="jquerymobile/img-dportes/rivales/cobresal.png">
-                                <h2>COBRESAL</h2>
-                                <p>RM - Santiago - Pudahuel</p>
+                                <img src="jquerymobile/img-dportes/logo-encuentro.png">
+                                <h2 id="grup-nombre-equipo"></h2>
+                                <p>RM - Santiago - San Joaquin</p>
                             </a>
                         </li>
+                    
                         <h4 align="center">Datos Estadísticos:</h4>
-                        <select name="select-choice-a" id="select-choice-a" data-native-menu="false">
-                            <option value="" selected>Rivales</option>
-                            <option value="aricayparinacota">Tarjetas</option>
-                            <option value="tarapaca">Goles</option>
-                            <option value="antofagasta">Tipos de Goles</option>
-                            <option value="antofagasta">Cambios</option>
-                            <option value="antofagasta">Efectividad</option>
+                        <select id="select-grupal" name="select-choice-a" id="select-choice-a" data-native-menu="true">
+                            <option value="0" selected>Seleccione estadistica</option>
+                            <option value="1">Tarjetas</option>
+                            <option value="2">Goles</option>
+                            <option value="3">Tipos de Goles</option>
+                            <option value="4">Cambios</option>
+                            <option value="5">Efectividad</option>
                         </select>
-                        <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
-                            <thead>
-                                <tr class="ui-bar-d">
-                                    <th width="100">Equipo</th>
-                                    <th data-priority="critical">PG</th>
-                                    <th data-priority="critical">PE</th>
-                                    <th data-priority="critical">PP</th>
-                                    <th data-priority="critical">GF</th>
-                                    <th data-priority="critical">GC</th>
-                                    <th data-priority="critical">Dif</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="#seguimiento-equipo-rival-prueba">Club Deportivo Alto de Bajos</a></td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>8</td>
-                                    <td>5</td>
-                                    <td>3</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <h4 align="center">Amarillas</h4><!-- titulo momentaneo, borrar al programar -->
+                        <div id="tabla-grupal-rivales" style="display:none;">
+                            <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                <thead>
+                                    <tr class="ui-bar-d">
+                                        <th width="100">Equipo</th>
+                                        <th data-priority="critical">PG</th>
+                                        <th data-priority="critical">PE</th>
+                                        <th data-priority="critical">PP</th>
+                                        <th data-priority="critical">GF</th>
+                                        <th data-priority="critical">GC</th>
+                                        <th data-priority="critical">Dif</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#seguimiento-equipo-rival-prueba">Club Deportivo Alto de Bajos</a></td>
+                                        <td>10</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                        <td>8</td>
+                                        <td>5</td>
+                                        <td>3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tabla-grupal-gol" style="display:none;">
+                            <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                <thead>
+                                    <tr class="ui-bar-d">
+                                        <th width="100">Jugador</th>
+                                        <th data-priority="critical">A Favor</th>
+                                        <th data-priority="critical">En Contra</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabla-goles-grupal">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tabla-grupal-tipo-gol" style="display:none;">
+                            <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                <thead>
+                                    <tr class="ui-bar-d">
+                                        <th width="100">Tipo</th>
+                                        <th data-priority="critical">A Favor</th>
+                                        <th data-priority="critical">En Contra</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabla-tipos-goles-grupal">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tabla-grupal-cambios" style="display:none;">
+                            <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                <thead>
+                                    <tr class="ui-bar-d">
+                                        <th width="100">Jugador</th>
+                                        <th data-priority="critical">Titular</th>
+                                        <th data-priority="critical">Reserva</th>
+                                        <th data-priority="critical">Cambio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#">Jugador 1</a></td>
+                                        <td>10</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tarjetas-grupal" style="display:none;">
+                        <h4 align="center"></h4><!-- titulo momentaneo, borrar al programar -->
                         <!-- ejemplo de tabla para tarjetas amarillas-->
                         <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
                             <thead>
@@ -943,74 +975,62 @@
                                     <th data-priority="critical"><img src="jquerymobile/img-dportes/iconos/icono_roja.png"></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="#amarillas">Totales</a></td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#amarillas">Jugador 1</a></td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#amarillas">Jugador 2</a></td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                </tr>
+                            <tbody id="tabla-tarjeta-grupal">
                             </tbody>
                         </table>
-                        <h4 align="center">Efectividad</h4><!-- titulo momentaneo, borrar al programar -->
-                        <!-- ejemplo de tabla para efectividad-->
-                        <!-- seleccionar efectividad a mostrar -->
-                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="false">
-                            <legend>Seleccione el indice de efectividad a mostrar:</legend>
-                            <input type="radio" name="radio-choice-b" id="radio-choice-c" value="list" checked="checked">
-                            <label for="radio-choice-c">Jugador</label>
-                            <input type="radio" name="radio-choice-b" id="radio-choice-d" value="grid">
-                            <label for="radio-choice-d">Posición</label>
-                            <input type="radio" name="radio-choice-b" id="radio-choice-e" value="gallery">
-                            <label for="radio-choice-e">Jugada</label>
-                        </fieldset>
-                        <!-- ejemplo de efectividad general-->
-                        <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
-                            <thead>
-                                <tr class="ui-bar-d">
-                                    <th></th>
-                                    <th data-priority="critical">Efectividad</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="#detalle-jugador-prueba">Jugador 1</a></td>
-                                    <td>10%</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#detalle-jugador-prueba">Jugador 2</a></td>
-                                    <td>5%</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <!-- ejemplo de tabla de efectividad por posiciones, cada posicion es una tabla distinta -->
-                        <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
-                            <thead>
-                                <tr class="ui-bar-d">
-                                    <th>Medio campo</th>
-                                    <th data-priority="critical">Efectividad</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="#seguimiento-jugador">Jugador 1</a></td>
-                                    <td>10%</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#seguimiento-jugador">Jugador 2</a></td>
-                                    <td>5%</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        </div>
+                        <div id="efectividad-grupal" style="display:none;">
+                            <h4 align="center">Efectividad</h4><!-- titulo momentaneo, borrar al programar -->
+                            <!-- ejemplo de tabla para efectividad-->
+                            <!-- seleccionar efectividad a mostrar -->
+                            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="false">
+                                <legend>Seleccione el indice de efectividad a mostrar:</legend>
+                                <input type="radio" name="radio-choice-b" id="radio-choice-c" value="list" checked="checked">
+                                <label for="radio-choice-c">Jugador</label>
+                                <input type="radio" name="radio-choice-b" id="radio-choice-d" value="grid">
+                                <label for="radio-choice-d">Posición</label>
+                                <input type="radio" name="radio-choice-b" id="radio-choice-e" value="gallery">
+                                <label for="radio-choice-e">Jugada</label>
+                            </fieldset>
+                            <!-- ejemplo de efectividad general-->
+                            <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                <thead>
+                                    <tr class="ui-bar-d">
+                                        <th></th>
+                                        <th data-priority="critical">Efectividad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#detalle-jugador-prueba">Jugador 1</a></td>
+                                        <td>10%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#detalle-jugador-prueba">Jugador 2</a></td>
+                                        <td>5%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- ejemplo de tabla de efectividad por posiciones, cada posicion es una tabla distinta -->
+                            <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                <thead>
+                                    <tr class="ui-bar-d">
+                                        <th>Medio campo</th>
+                                        <th data-priority="critical">Efectividad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#seguimiento-jugador">Jugador 1</a></td>
+                                        <td>10%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#seguimiento-jugador">Jugador 2</a></td>
+                                        <td>5%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <div>
                     </ul>
                 </div>
             </div>
