@@ -138,6 +138,13 @@
             jg.getJugadoresEstadisticasAcumuladas();
             delete jg;
 
+            var tabl = new tablas();
+            tabl.getTarjetasGrupales();
+            tabl.getGolesGrupales();
+            tabl.getTiposGolesGrupales();
+            delete tabl;
+
+            document.getElementById('grup-nombre-equipo').innerHTML = localStorage.getItem('nombre_equipo');
             document.getElementById('botones-estadisticos').style.display = "none";
             document.getElementById('stat-back-rel').style.display = "block";
             document.getElementById('stat-forward-rel').href = "#menu_perfil";
@@ -152,7 +159,7 @@
             tb.getIndividualAcumulada();
             delete tb;
             document.getElementById('ind-nombre').innerHTML =  sessionStorage.getItem('pi_nombre');
-            document.getElementById('ind-posicion').innerHTML = 'Posición: '+sessionStorage.getItem('pi_posicion');               
+            document.getElementById('ind-posicion').innerHTML = 'Posición: '+sessionStorage.getItem('pi_posicion');         
         }
 
         if(activePage === 'jugadores-equipo'){

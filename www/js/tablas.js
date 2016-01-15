@@ -105,4 +105,169 @@ function tablas(){
             }
         }
 	}
+
+    this.getTarjetasGrupales = function(){
+        var xhr = new XMLHttpRequest();
+        var send = new FormData();
+        send.append('id_equipo',localStorage.getItem('equipo'));
+        xhr.open('POST', path + 'app/getTarjetasGrupales');
+        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(send);
+
+        xhr.onprogress = function(e){
+            $.mobile.loading('show');
+        }
+        
+        xhr.onload = function(){
+            if(this.status == 200){
+                if(this.response && JSON.parse(this.response)){
+                    var inc = '';
+                    var json = JSON.parse(this.response);
+                    var tarjetas = json.tabla;
+                    var total = json.total;
+                    inc = "<tr>";
+                    inc += "<td><a href='#amarillas'>Total</a></td>";
+                    inc += "<td>"+total.amarillas+"</td>";
+                    inc += "<td>"+total.rojas+"</td>";
+                    inc += "</tr>";
+                    for(var i = 0; i < tarjetas.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+tarjetas[i].nombre+"</td>";
+                        inc += "<td>"+tarjetas[i].amarillas+"</td>";
+                        inc += "<td>"+tarjetas[i].rojas+"</td>";
+                        inc += "</tr>";
+                    }
+                    $('#tabla-tarjeta-grupal').append(inc);
+                    $.mobile.loading('hide');
+                }
+            }
+        }
+    }
+
+    this.getGolesGrupales = function(){
+        var xhr = new XMLHttpRequest();
+        var send = new FormData();
+        send.append('id_equipo',localStorage.getItem('equipo'));
+        xhr.open('POST', path + 'app/getGolesGrupales');
+        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(send);
+
+        xhr.onprogress = function(e){
+            $.mobile.loading('show');
+        }
+        
+        xhr.onload = function(){
+            if(this.status == 200){
+                if(this.response && JSON.parse(this.response)){
+                    var inc = '';
+                    var json = JSON.parse(this.response);
+                    var goles = json.tabla;
+                    var total = json.total;
+                    inc = "<tr>";
+                    inc += "<td><a href='#amarillas'>Total</a></td>";
+                    inc += "<td>"+total.favor+"</td>";
+                    inc += "<td>"+total.contra+"</td>";
+                    inc += "</tr>";
+                    for(var i = 0; i < goles.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+goles[i].nombre+"</td>";
+                        inc += "<td>"+goles[i].favor+"</td>";
+                        inc += "<td>"+goles[i].contra+"</td>";
+                        inc += "</tr>";
+                    }
+                    $('#tabla-goles-grupal').append(inc);
+                    $.mobile.loading('hide');
+                }
+            }
+        }
+    }
+
+    this.getTiposGolesGrupales = function(){
+        var xhr = new XMLHttpRequest();
+        var send = new FormData();
+        send.append('id_equipo',localStorage.getItem('equipo'));
+        xhr.open('POST', path + 'app/getTiposGolesGrupales');
+        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(send);
+
+        xhr.onprogress = function(e){
+            $.mobile.loading('show');
+        }
+        
+        xhr.onload = function(){
+            if(this.status == 200){
+                if(this.response && JSON.parse(this.response)){
+                    var inc = '';
+                    var json = JSON.parse(this.response);
+                    var tipos = json.tabla;
+                    /*var total = json.total;
+                    inc = "<tr>";
+                    inc += "<td><a href='#amarillas'>Total</a></td>";
+                    inc += "<td>"+total.favor+"</td>";
+                    inc += "<td>"+total.contra+"</td>";
+                    inc += "</tr>";*/
+                    for(var i = 0; i < tipos.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+tipos[i].nombre+"</td>";
+                        inc += "<td>"+tipos[i].favor+"</td>";
+                        inc += "<td>"+tipos[i].contra+"</td>";
+                        inc += "</tr>";
+                    }
+                    $('#tabla-tipos-goles-grupal').append(inc);
+                    $.mobile.loading('hide');
+                }
+            }
+        }        
+    }
 }
+
+
+document.getElementById("select-grupal").addEventListener('change', function(){
+    var select = this.value;
+    if(select == 1){
+        document.getElementById('tabla-grupal-rivales').style.display = "none";
+        document.getElementById('tabla-grupal-gol').style.display = "none";
+        document.getElementById('tabla-grupal-tipo-gol').style.display = "none";
+        document.getElementById('tabla-grupal-cambios').style.display = "none";
+        document.getElementById('efectividad-grupal').style.display = "none";
+        document.getElementById('tarjetas-grupal').style.display = "block";
+    } else if(select == 2){
+        document.getElementById('tabla-grupal-rivales').style.display = "none";
+        document.getElementById('tabla-grupal-gol').style.display = "block";
+        document.getElementById('tabla-grupal-tipo-gol').style.display = "none";
+        document.getElementById('tabla-grupal-cambios').style.display = "none";
+        document.getElementById('efectividad-grupal').style.display = "none";
+        document.getElementById('tarjetas-grupal').style.display = "none";
+    } else if(select == 3){
+        document.getElementById('tabla-grupal-rivales').style.display = "none";
+        document.getElementById('tabla-grupal-gol').style.display = "none";
+        document.getElementById('tabla-grupal-tipo-gol').style.display = "block";
+        document.getElementById('tabla-grupal-cambios').style.display = "none";
+        document.getElementById('efectividad-grupal').style.display = "none";
+        document.getElementById('tarjetas-grupal').style.display = "none";
+    } else if(select == 4){
+        document.getElementById('tabla-grupal-rivales').style.display = "none";
+        document.getElementById('tabla-grupal-gol').style.display = "none";
+        document.getElementById('tabla-grupal-tipo-gol').style.display = "none";
+        document.getElementById('tabla-grupal-cambios').style.display = "block";
+        document.getElementById('efectividad-grupal').style.display = "none";
+        document.getElementById('tarjetas-grupal').style.display = "none";
+    } else if(select == 5){
+        document.getElementById('tabla-grupal-rivales').style.display = "none";
+        document.getElementById('tabla-grupal-gol').style.display = "none";
+        document.getElementById('tabla-grupal-tipo-gol').style.display = "none";
+        document.getElementById('tabla-grupal-cambios').style.display = "none";
+        document.getElementById('efectividad-grupal').style.display = "block";
+        document.getElementById('tarjetas-grupal').style.display = "none";
+    } else {
+        document.getElementById('tabla-grupal-rivales').style.display = "none";
+        document.getElementById('tabla-grupal-gol').style.display = "none";
+        document.getElementById('tabla-grupal-tipo-gol').style.display = "none";
+        document.getElementById('tabla-grupal-cambios').style.display = "none";
+        document.getElementById('efectividad-grupal').style.display = "none";
+        document.getElementById('tarjetas-grupal').style.display = "none";        
+    }
+});
