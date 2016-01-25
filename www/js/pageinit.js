@@ -138,6 +138,13 @@
             jg.getJugadoresEstadisticasAcumuladas();
             delete jg;
 
+            var tabl = new tablas();
+            tabl.getTarjetasGrupales();
+            tabl.getGolesGrupales();
+            tabl.getTiposGolesGrupales();
+            delete tabl;
+
+            document.getElementById('grup-nombre-equipo').innerHTML = localStorage.getItem('nombre_equipo');
             document.getElementById('botones-estadisticos').style.display = "none";
             document.getElementById('stat-back-rel').style.display = "block";
             document.getElementById('stat-forward-rel').href = "#menu_perfil";
@@ -148,37 +155,11 @@
         }
 
         if(activePage === 'stat-jugador-individual'){
-
+            var tb = new tablas();
+            tb.getIndividualAcumulada();
+            delete tb;
             document.getElementById('ind-nombre').innerHTML =  sessionStorage.getItem('pi_nombre');
-            document.getElementById('ind-posicion').innerHTML = 'Posición: '+sessionStorage.getItem('pi_posicion'); 
-            var radarChartData = {
-                    labels: ["Asistencia", "Quites", "Tiros de esquina", "Tiros libres", "Tiros al arco"],
-                    datasets: [
-                        {
-                            label: "Desempeño Actual",
-                            fillColor: "rgba(151,187,205,0.2)",
-                            strokeColor: "rgba(151,187,205,1)",
-                            pointColor: "rgba(151,187,205,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(151,187,205,1)",
-                            data: [28,48,40,19,96]
-                        }
-                    ]
-                };
-
-                
-                /*window.myRadar = new Chart(document.getElementById("radar2").getContext("2d")).Radar(radarChartData, {
-                responsive: true
-                });*/
-                var canvas = document.getElementById("radar2");
-                var ctx = canvas.getContext("2d");
-                
-                var newChart = new Chart(ctx).Radar(radarChartData);
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                //newChart.clear();
-                //newChart.destroy();
-                //newChart = new Chart(ctx).Radar(radarChartData);                
+            document.getElementById('ind-posicion').innerHTML = 'Posición: '+sessionStorage.getItem('pi_posicion');         
         }
 
         if(activePage === 'jugadores-equipo'){
