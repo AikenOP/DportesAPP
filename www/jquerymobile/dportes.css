@@ -1034,3 +1034,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbc01', end
 
 }
 canvas { width: 100% !important; max-width: 800px; height: auto !important;}
+
+.jug-cancha {}
+.jug-cancha li {background-color: tomato !important;float: left;width: 15%;}
+.jug-cancha li:first-child {margin:100px;}
+
+.draggable {width:13%;padding:0.1em;margin:0.5em;color:white;font-size:bold;border:1px solid white;background:rgba(255, 255, 255, 0.5);float:left;}
+.draggable img {max-width:100%;}
+.draggable p {font-size:10px;text-align:center;}

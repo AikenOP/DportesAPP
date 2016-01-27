@@ -418,4 +418,8 @@
             var newChart = new Chart(ctx).Line(lineChartData);
         }
 
+        if(activePage === 'drag-drop'){
+            $( ".draggable" ).draggable();
+        }
+
     });
