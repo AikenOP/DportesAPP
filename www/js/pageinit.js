@@ -417,5 +417,15 @@
             var ctx = document.getElementById("seguimiento-jugador-graf").getContext("2d");
             var newChart = new Chart(ctx).Line(lineChartData);
         }
+        if(activePage === 'notificaciones'){
+            var notifica = new notificaciones();
+            notifica.getNotificaciones();
+            delete notifica;
+        }
+        if(activePage === 'asistencia'){
+            var asistencia = new notificaciones();
+            asistencia.getAsistencia();
+            delete asistencia;
+        }
 
     });
