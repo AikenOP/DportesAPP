@@ -164,7 +164,7 @@
         <div class="content centrado-iconos-inicio">
         
             <div class="contenedor-iconos-inicio">
-                <div id="home-jg" class="icono-inicio-1"><a href="#" data-transition="fade"><img src="jquerymobile/img-dportes/iconos/notificacion.svg" ></a></div>
+                <div id="home-jg" class="icono-inicio-1"><a href="#notificaciones" data-transition="fade"><img src="jquerymobile/img-dportes/iconos/notificacion.svg" ></a></div>
                 <div class="icono-inicio-2"><a href="#historial-stat" data-transition="fade"><img src="jquerymobile/img-dportes/iconos/icono_estadisticas.svg"></a></div>
             </div>
                 
@@ -834,7 +834,7 @@
     </div>
 
     <!-- ———— NOTIFICACIONES ————— -->
-    <div data-role="page" id="notificaciones" class="jqm-demos" style="background:#6BC43C;">
+    <div data-role="page" id="df" class="jqm-demos" style="background:#6BC43C;">
     
         <div data-role="header" data-position="fixed" class="color-encabezado">
           <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
@@ -1933,34 +1933,18 @@
     </div>
 
     <!-- notificaciones de prueba-->
-    <div data-role="page" id="noti" class="jqm-demos" data-title="Dportes" data-theme="a" style="background:#6BC43C;">
+    <div data-role="page" id="notificaciones" class="jqm-demos" data-title="Dportes" data-theme="a" style="background:#6BC43C;">
         <div data-role="header" data-position="fixed" class="color-encabezado">
-            <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <a data-rel="back" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Notificaciones</h1>
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         <div class="content" style="margin:20px;">
         
             <!-- CONTENEDOR NOTIFICACIONES DE PARTIDO -->
-            <div class="contenedor-general-notificaciones" id="contenedor-notificacion">
+            <div id="notificaciones-evt">
                 
-                <div class="fecha-notificacion">Aviso de Encuentro</div>
-                <a href="#asistencia" class="link-color">
-                    <div class="contenedor-fechas-notificacion">
-                        <div class="centrado-fechas-notificacion">
-                            <div class="block-notificacion"><img src="jquerymobile/img-dportes/realmadrid.png"><p class="nombre-equipo">R. Madrid</p></div>
-                            <div class="vs-notificacion">VS</div>
-                            <div class="block-notificacion"><img src="jquerymobile/img-dportes/barcelona.png"><p class="nombre-equipo">Barcelona</p></div>
-                            <div class="block-notificacion"><p class="nombre-equipo-notificacion">16 oct 2015 - 16:00hrs</p></div>
-                            <div class="block-notificacion"><p id="notificacion-con" class="nombre-equipo-notificacion-con" style="display:none;">Asistencia confirmada</p></div>
-                            <div class="block-notificacion"><p id="notificacion-con-2" class="nombre-equipo-notificacion-in" style="display:none;">Inasistencia confirmada</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="boton-participar"><a href="#ventana-asistira" data-rel="popup" data-position-to="window" class="ui-btn color-boton-notificacion" id="boton-asistere" data-transition="pop">Asistiré</a></div>
-                <div class="boton-participar"><a href="#ventana-no-asistira" data-rel="popup" data-position-to="window" class="ui-btn color-boton-notificacion-2" id="boton-no-asistere" data-transition="pop">No Asistiré</a></div>
-                
-                <div data-role="popup" id="ventana-asistira" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+                <!--<div data-role="popup" id="ventana-asistira" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
                     <div data-role="header" data-theme="a">
                     <h1>Asistencia</h1>
                     </div>
@@ -1978,14 +1962,13 @@
                         <h4 class="ui-title">No asistirá al encuentro.</h4>
                         <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Aceptar</a>
                     </div>
-                </div>
-
-             </div>
+                </div> -->
+            </div>
              <!-- CONTENEDOR NOTIFICACIONES DE PARTIDO -->
              
 
             <!-- CONTENEDOR NOTIFICACIONES DE INVITACIÓN -->
-            <div class="contenedor-general-notificaciones" id="contenedor-invitacion">
+            <!--<div class="contenedor-general-notificaciones" id="contenedor-invitacion">
 
                 <div class="fecha-notificacion">Invitación</div>
                 <div class="contenedor-fechas-notificacion">
@@ -2018,12 +2001,12 @@
                     </div>
                 </div>
 
-             </div>
+             </div> -->
              <!-- CONTENEDOR NOTIFICACIONES DE INVITACIÓN -->
              
              
             <!-- CONTENEDOR NOTIFICACIONES DE GOL EN CONTRA -->
-            <div class="contenedor-general-notificaciones" id="notificacion-gol-encontra">
+            <!--<div class="contenedor-general-notificaciones" id="notificacion-gol-encontra">
 
                 <div class="fecha-notificacion">Gol en contra<div class="cerrar" id="cerrar-gol-encontra">X</div></div>
                 <div class="contenedor-fechas-notificacion">
@@ -2033,12 +2016,12 @@
                     </div>
                 </div>
                 
-             </div>
+             </div>-->
              <!-- CONTENEDOR NOTIFICACIONES DE GOL EN CONTRA -->
              
              
             <!-- CONTENEDOR NOTIFICACIONES DE GOL -->
-            <div class="contenedor-general-notificaciones" id="notificacion-gol">
+            <!-- <div class="contenedor-general-notificaciones" id="notificacion-gol">
 
                 <div class="fecha-notificacion">Gol de tu Equipo<div class="cerrar" id="cerrar-gol">X</div></div>
                 <div class="contenedor-fechas-notificacion">
@@ -2048,12 +2031,12 @@
                     </div>
                 </div>
                 
-             </div>
+             </div> -->
              <!-- CONTENEDOR NOTIFICACIONES DE GOL -->
              
             
             <!-- CONTENEDOR NOTIFICACIONES DE CREACION DE LIGA -->
-            <div class="contenedor-general-notificaciones" id="notificacion-liga">
+            <!-- <div class="contenedor-general-notificaciones" id="notificacion-liga">
 
                 <div class="fecha-notificacion">Creación de Liga<div class="cerrar" id="cerrar-creacion-liga">X</div></div>
                 <div class="contenedor-fechas-notificacion">
@@ -2063,7 +2046,7 @@
                     </div>
                 </div>
                 
-             </div>
+             </div> -->
              <!-- CONTENEDOR NOTIFICACIONES DE CREACION DE LIGA  -->
              
         </div>
@@ -2072,101 +2055,12 @@
     <!-- asistencia -->
     <div data-role="page" id="asistencia" class="jqm-demos" data-title="Dportes" data-theme="a">
         <div data-role="header" data-position="fixed" class="color-encabezado">
-            <a href="#" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <a data-rel="back" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Asistencia</h1>
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         <div class="content">
-                    <ul data-role="listview" data-inset="false" data-count-theme="a"> 
-                        
-                        <li data-icon="false">
-                            <a href="#" class="color-boton-equipo"><img src="jquerymobile/img-dportes/jugador1.jpg">
-                            <h2>KEYLOR NAVAS</h2>
-                            <p>Portero</p>
-                            <span class="ui-li-count asistencia-no-asistira">No Asistirá</span>
-                            </a>
-                        </li>
-                        
-                        <li data-icon="false">
-                            <a href="#" class="color-boton-equipo-dark"><img src="jquerymobile/img-dportes/jugador2.jpg">
-                            <h2>SERGIO RAMOS</h2>
-                            <p>Lateral</p>
-                            <span class="ui-li-count asistencia-asistira">Asistirá</span>
-                            </a>
-                        </li>
-                        
-                        <li data-icon="false">
-                            <a href="#" class="color-boton-equipo"><img src="jquerymobile/img-dportes/jugador3.jpg">
-                            <h2>PEPE</h2>
-                            <p>Lateral</p>
-                            <span class="ui-li-count asistencia-sin-responder">Sin Responder</span>
-                            </a>
-                        </li>
-                        
-                        <li data-icon="false">
-                            <a href="#" class="color-boton-equipo-dark"><img src="jquerymobile/img-dportes/jugador4.jpg">
-                            <h2>VARANE</h2>
-                            <p>Central</p>
-                            <span class="ui-li-count asistencia-sin-responder">Sin Responder</span>
-                            </a>
-                        </li>
-                        
-                        <li data-icon="false">
-                            <a href="#" class="color-boton-equipo"><img src="jquerymobile/img-dportes/jugador5.jpg">
-                            <h2>ALBARONE</h2>
-                            <p>Central</p>
-                            <span class="ui-li-count asistencia-asistira">Asistirá</span>
-                            </a>
-                        </li>
-                        
-                        <li data-icon="false">
-                            <a href="#" class="color-boton-equipo-dark"><img src="jquerymobile/img-dportes/jugador6.jpg">
-                            <h2>CARBAJAL</h2>
-                            <p>Medio Campista</p>
-                            <span class="ui-li-count asistencia-sin-responder">Sin Responder</span>
-                            </a>
-                        </li>
-                        
-                        <li data-icon="false">
-                            <a href="#" class="color-boton-equipo"><img src="jquerymobile/img-dportes/jugador7.jpg">
-                            <h2>DANILO</h2>
-                            <p>Medio Campista</p>
-                            <span class="ui-li-count asistencia-sin-responder">Sin Responder</span>
-                            </a>
-                        </li>
-                        
-                        
-                        <li data-icon="false">
-                            <a href="#" class="color-boton-equipo-dark"><img src="jquerymobile/img-dportes/jugador9.jpg">
-                            <h2>NACHO</h2>
-                            <p>Delantero</p>
-                            <span class="ui-li-count asistencia-no-asistira">No Asistirá</span>
-                            </a>
-                        </li>
-                        
-                        <li data-icon="false">
-                            <a href="#" class="color-boton-equipo"><img src="jquerymobile/img-dportes/jugador10.jpg">
-                            <h2>KROOS</h2>
-                            <p>Extremo</p>
-                            <span class="ui-li-count asistencia-no-asistira">No Asistirá</span>
-                            </a>
-                        </li>
-                        
-                        <li data-icon="false">
-                            <a href="#" class="color-boton-equipo-dark"><img src="jquerymobile/img-dportes/jugador11.jpg">
-                            <h2>CESEMIRO</h2>
-                            <p>Extremo</p>
-                            <span class="ui-li-count asistencia-asistira">Asistirá</span>
-                            </a>
-                        </li>
-                        
-                        <li data-icon="false">
-                            <a href="#" class="color-boton-equipo"><img src="jquerymobile/img-dportes/jugador8.jpg">
-                            <h2>MARCELO</h2>
-                            <p>Medio Campista</p>
-                            <span class="ui-li-count asistencia-asistira">Asistirá</span>
-                            </a>
-                        </li>
+                    <ul id="asistencia-notifica" data-role="listview" data-inset="false" data-count-theme="a"> 
                     </ul>
 
         </div>
@@ -2202,12 +2096,13 @@
             <!--<li data-icon="star"><a href="#estadisticas-nuevas" data-transition="fade">Estadisticas de Prueba</a></li>
             <li data-icon="eye"><a href="#jugadas-goles">pagina de tipos de goles</a></li>-->
             <!--<li data-icon="eye"><a href="#prueba-cancha">Cancha de Prueba</a></li>-->
-            <li data-icon="eye"><a href="#noti">Notificaciones de Prueba</a></li>
-            <li data-icon="eye"><a href="#drag-drop">Prueba de Drag&Drop</a></li>
+            <!--<li data-icon="eye"><a href="#noti">Notificaciones de Prueba</a></li>-->
+            <!--<li data-icon="eye"><a href="#drag-drop">Prueba de Drag&Drop</a></li>-->
         </ul>
     </div>
 
             <script type="text/javascript" src="js/librerias.js"></script>
+            <script type="text/javascript" src="js/notificaciones.js"></script>
             <script type="text/javascript" src="js/dportes.js"></script>
             <script type="text/javascript" src="js/equipos.js"></script>
             <script type="text/javascript" src="js/estadisticas.js"></script>
