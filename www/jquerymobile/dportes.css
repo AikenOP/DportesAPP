@@ -500,6 +500,8 @@ li.li-padding div.ui-radio label { border-top:hidden; border-left:hidden; border
 /* Notificaciones, afecta NOTIFICACIONES.HTML */
 .boton-participar {width:50%; float:left;}
 .contenedor-general-notificaciones {overflow:auto; margin-bottom:15px; background:#FFF;}
+.contenedor-general-notificaciones2 {overflow:auto; margin-bottom:0px; background:#FFF;}
+.contenedor-general-notificaciones2 hr {opacity: 0.6;}
 div.boton-participar a {margin-top:0px; margin-bottom:0px;}
 .contenedor-fechas-notificacion { padding-top:15px; padding-bottom:10px; text-align:center;width:100%;}
 .centrado-fechas-notificacion {display:inline-block;width:278px;}
@@ -1040,7 +1042,7 @@ canvas { width: 100% !important; max-width: 800px; height: auto !important;}
 .jug-cancha {}
 .jug-cancha li {background-color: tomato !important;float: left;width: 15%;}
 .jug-cancha li:first-child {margin:100px;}
-
-.draggable {width:13%;padding:0.1em;margin:0.5em;color:white;font-size:bold;border:1px solid white;background:rgba(255, 255, 255, 0.5);float:left;}
+/* === seccion de Drag&Drop ===*/
+.draggable {width:13%;padding:0.1em;margin:0.5em;color:white;font-size:bold;float:left;}
 .draggable img {max-width:100%;}
 .draggable p {font-size:10px;text-align:center;}

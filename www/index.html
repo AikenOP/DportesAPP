@@ -201,6 +201,14 @@
                         <input name="nombre" id="perfil-nombre" value="" type="text">
                         <label id="3"><strong>Tu Correo:</strong></label>
                         <input name="correo" id="perfil-correo" value="" type="text">
+                        <label id="3"><strong>Fecha de Nacimiento:</strong></label>
+                        <input name="" id="" value="" type="date">
+                        <label id="3"><strong>Sexo:</strong></label>
+                        <select id="eq-comuna">
+                            <option value="0">Seleccione sexo</option>
+                            <option value="0">Femenino</option>
+                            <option value="0">Masculino</option>
+                        </select>
                         <!--<label id="4"><strong>Tu Clave Actual:</strong></label>
                         <input name="clave" id="4" value="145$dge" type="text">-->
                     
@@ -253,6 +261,12 @@
                 </select>
                 <select id="eq-comuna">
                     <option value="0">Seleccione una comuna</option>
+                </select>
+                <select id="eq-comuna">
+                    <option value="0">Seleccione tipo de equipo</option>
+                    <option value="0">Masculino</option>
+                    <option value="0">Femenino</option>
+                    <option value="0">Mixto</option>
                 </select>
                 <fieldset id="reg-dportes" data-role="controlgroup">
                 </fieldset>
@@ -325,7 +339,7 @@
                 <a id="pg-fecha-error" href="#" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon color-boton-error-validacion" style="display:none">Ingrese una Fecha</a>
 
 
-                <label for="select-choice-a" class="select">Escoge el tiempo hasta donde quieres jugar:</label>
+                <label for="select-choice-a" class="select">Cuantos tiempos tendra el encuentro:</label>
                 <select id="pg-periodo" name="select-choice-a">
                     <option value="1">Tiempo unico</option>
                     <option value="2">2 Tiempos</option>
@@ -348,7 +362,7 @@
     <div data-role="page" id="p-pro" class="jqm-demos" data-title="Dportes" data-theme="a">
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
-            <h1>Próximos Partidos</h1>
+            <h1>Agendar Encuentro</h1>
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         <div class="content">
@@ -632,7 +646,7 @@
     <div data-role="page" id="jugadores-equipo" class="jqm-demos" data-title="Dportes" data-theme="a">
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
-            <h1>Equipo <span id="jug-nom-eq"></span></h1>
+            <h1><span id="jug-nom-eq"></span></h1>
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
             <!--<div class="tarro-basura"><a id="jug-borrar" href="#"><img src="jquerymobile/img-dportes/iconos/borrar.png"></a></div> -->
         </div>
@@ -702,8 +716,8 @@
         <div class="content" style="margin:0px">
             <ul data-role="listview" data-inset="false">
                 <li data-icon="false">
-                <a href="#" class="color-boton-equipo-dark">
-                    <img src="jquerymobile/img-dportes/logo-encuentro.png">
+                <a href="#" class="color-boton-equipo-dark" id="takePhoto2">
+                    <img src="jquerymobile/img-dportes/logo-encuentro.png" id="photo2">
                     <h2 id="edit-equipo"></h2>
                     <p id="edit-ubicacion">No disponible</p>
                 </a>
@@ -839,7 +853,7 @@
     
         <div data-role="header" data-position="fixed" class="color-encabezado">
           <a href="#home" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
-          <h1>Notificaciones</h1>
+          <h1>Agenda</h1>
           <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         
@@ -1426,7 +1440,45 @@
                 <div class="alinea-resumen">
                     <h4 class="texto-resumen-goles">Resumen Jugada:</h4>
                 </div>
-                <canvas id="chart-area" width="500" height="500"/>
+                <!--<canvas id="chart-area" width="500" height="500"/>-->
+
+                <style>
+                #canvas-holder1 {
+                    width: 300px;
+                    margin: 20px auto;
+                }
+                #canvas-holder2 {
+                    width: 50%;
+                    margin: 20px 25%;
+                }
+                #chartjs-tooltip {
+                    opacity: 1;
+                    position: absolute;
+                    background: rgba(0, 0, 0, .7);
+                    color: white;
+                    padding: 3px;
+                    border-radius: 3px;
+                    -webkit-transition: all .1s ease;
+                    transition: all .1s ease;
+                    pointer-events: none;
+                    -webkit-transform: translate(-50%, 0);
+                    transform: translate(-50%, 0);
+                }
+                .chartjs-tooltip-key{
+                    display:inline-block;
+                    width:10px;
+                    height:10px;
+                }
+                </style>
+    
+                <div id="canvas-holder1">
+                    <canvas id="chart1" width="300" height="30" />
+                </div>
+                <div id="canvas-holder2">
+                    <canvas id="chart2" width="450" height="600" />
+                </div>
+
+                <div id="chartjs-tooltip"></div>
             </div>
             <!-- este grafico muestra que jugadores participaron del estadistico de jugada, y en que medida -->
         </div>
@@ -1937,14 +1989,14 @@
     <div data-role="page" id="notificaciones" class="jqm-demos" data-title="Dportes" data-theme="a" style="background:#6BC43C;">
         <div data-role="header" data-position="fixed" class="color-encabezado">
             <a data-rel="back" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
-            <h1>Notificaciones</h1>
+            <h1>Agenda</h1>
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         <div class="content" style="margin:20px 0 20px 0;">
         
             <!-- CONTENEDOR NOTIFICACIONES DE PARTIDO -->
             <div id="notificaciones-evt">
-                
+        
                 <!--<div data-role="popup" id="ventana-asistira" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
                     <div data-role="header" data-theme="a">
                     <h1>Asistencia</h1>
@@ -2061,9 +2113,21 @@
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
         <div class="content">
-                    <ul id="asistencia-notifica" data-role="listview" data-inset="false" data-count-theme="a"> 
-                    </ul>
-
+            <div class="contenedor-general-notificaciones2">
+                <div class="contenedor-fechas-notificacion">
+                    <div class="row">
+                        <div class="small-6 columns"><label>Fecha</label><h3>13/07/20017</h3></div>
+                        <div class="small-6 columns"><label>Rival</label><h3>Sport Frances</h3></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="small-4 columns"><label>Asisten</label><h2>10</h2></div>
+                        <div class="small-4 columns"><label>No asisten</label><h2>20</h2></div>
+                        <div class="small-4 columns"><label>Pendiente</label><h2>30</h2></div>
+                    </div>
+                </div>
+            </div>
+            <ul id="asistencia-notifica" data-role="listview" data-inset="false" data-count-theme="a"></ul>
         </div>
     </div>
 
@@ -2144,6 +2208,7 @@
             <!--<li data-icon="eye"><a href="#prueba-cancha">Cancha de Prueba</a></li>-->
             <!--<li data-icon="eye"><a href="#noti">Notificaciones de Prueba</a></li>-->
             <li data-icon="eye"><a href="#drag-drop">Prueba de Drag&Drop</a></li>
+            <li data-icon="eye"><a href="#grafico-pie">Prueba de gráfico</a></li>
         </ul>
     </div>
 
