@@ -227,13 +227,18 @@ function checkAmarilla(){
 }
 
 function checkAmarillaRoja(id){
-	var arr = JSON.parse(sessionStorage.getItem('amarillas'));
-	for(var i = 0 ; i <= arr.length ; i++){
-		if(id == arr[i]){
-			return true
+	if(sessionStorage.getItem('amarillas')){
+		var arr = JSON.parse(sessionStorage.getItem('amarillas'));
+		for(var i = 0 ; i <= arr.length ; i++){
+			if(id == arr[i]){
+				return true
+			}
 		}
+		return false;		
+	} else {
+		return false;
 	}
-	return false;
+
 }
 
 function dropAmarilla(id){

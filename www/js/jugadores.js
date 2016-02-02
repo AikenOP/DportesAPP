@@ -316,7 +316,7 @@ function jugadores(){
                             click = '';
                         }
                         
-                    inc += "<li value='"+json[i].id_usuario+"' class='li-padding' "+click+">";
+                    inc += "<li value='"+json[i].id_usuario+"' class='li-padding'>";
                     inc += "<span class='delete "+disabled+"'>";
                     inc += "<div class='centra_texto'>Borrar</div>";
                     inc += "</span>";
@@ -325,7 +325,7 @@ function jugadores(){
                     inc += "More"
                     inc += "</p>";
                     inc += "</span>";*/
-                    inc += "<a href='#' draggable='false'><img src='jquerymobile/img-dportes/foto.png'>";
+                    inc += "<a href='#' "+click+" draggable='false'><img src='jquerymobile/img-dportes/foto.png'>";
                     inc += "<h2>"+json[i].nombre+"</h2>";
                     inc += "<p>"+json[i].posicion+"</p>";
                     inc += "<span class='flagged ui-screen-hidden'>";
