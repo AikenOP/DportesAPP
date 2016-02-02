@@ -559,6 +559,14 @@ a.color-boton-notificacion-2:focus { box-shadow:none !important; padding-top: 0.
 	height: 50px;
 	background-image: url("img-dportes/iconos/agregar.svg");
 	z-index: 3; }
+.orden_cancha {
+	position: fixed;
+	bottom: 15px;
+	right: 15px;
+	width: 50px;
+	height: 50px;
+	background-image: url("img-dportes/iconos/orden_cancha.png");
+	z-index: 3; }
 /* Afecta a PENALES.HTML */
 .contenedor-penales { margin-bottom:10px; text-align:center;}
 .caja-penales {width:49%;display:inline-block; vertical-align:middle;}
