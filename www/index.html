@@ -1441,44 +1441,44 @@
                     <h4 class="texto-resumen-goles">Resumen Jugada:</h4>
                 </div>
                 <!--<canvas id="chart-area" width="500" height="500"/>-->
-
                 <style>
                 #canvas-holder1 {
-                    width: 300px;
+                    width: 90%;
                     margin: 20px auto;
                 }
                 #canvas-holder2 {
-                    width: 50%;
-                    margin: 20px 25%;
+                    width: 90%;
+                    margin: 20px auto;
                 }
-                #chartjs-tooltip {
-                    opacity: 1;
-                    position: absolute;
-                    background: rgba(0, 0, 0, .7);
-                    color: white;
-                    padding: 3px;
-                    border-radius: 3px;
-                    -webkit-transition: all .1s ease;
-                    transition: all .1s ease;
-                    pointer-events: none;
-                    -webkit-transform: translate(-50%, 0);
-                    transform: translate(-50%, 0);
-                }
-                .chartjs-tooltip-key{
-                    display:inline-block;
-                    width:10px;
-                    height:10px;
-                }
+
                 </style>
     
                 <div id="canvas-holder1">
                     <canvas id="chart1" width="300" height="30" />
                 </div>
+
+                <div class="chartjs-tooltip">
+                    <div class="chartjs-tooltip-section">
+                        <span class="chartjs-tooltip-key" style="background-color:rgba(151,187,205,1);"></span>
+                        <span class="chartjs-tooltip-value">Elemento</span>
+                        <span class="chartjs-tooltip-key" style="background-color:rgba(220,220,220,1)"></span>
+                        <span class="chartjs-tooltip-value">Elemento</span>
+                    </div>                    
+                </div>
+
                 <div id="canvas-holder2">
                     <canvas id="chart2" width="450" height="600" />
                 </div>
 
-                <div id="chartjs-tooltip"></div>
+                <div class="chartjs-tooltip">
+                    <div class="chartjs-tooltip-section">
+                        <span class="chartjs-tooltip-key" style="background-color:rgba(151,187,205,1);"></span>
+                        <span class="chartjs-tooltip-value">Elemento</span>
+                        <span class="chartjs-tooltip-key" style="background-color:rgba(220,220,220,1)"></span>
+                        <span class="chartjs-tooltip-value">Elemento</span>
+                    </div>
+                </div>
+                
             </div>
             <!-- este grafico muestra que jugadores participaron del estadistico de jugada, y en que medida -->
         </div>
@@ -2223,7 +2223,7 @@
             <script type="text/javascript" src="js/usuarios.js"></script>
             <script type="text/javascript" src="js/auth.js"></script>
             <script type="text/javascript" src="js/photo.js"></script>
-            <script type="text/javascript" src="js/chart.js"></script>
+            <script type="text/javascript" src="js/chart.js"></script>           
             <script type="text/javascript" src="js/ubicaciones.js"></script>
             <script type="text/javascript" src="js/tablas.js"></script>
             <script src="js/jquery.ui.touch-punch.min.js"></script>

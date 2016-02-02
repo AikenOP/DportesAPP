@@ -264,10 +264,10 @@
         if(activePage === 'grafico-pie'){
             Chart.defaults.global.pointHitDetectionRadius = 1;
             Chart.defaults.global.customTooltips = function(tooltip) {
-                var tooltipEl = $('#chartjs-tooltip');
+                var tooltipEl = $('#chartjs-tooltip_');
                 if (!tooltip) {
                     tooltipEl.css({
-                        opacity: 0
+                        opacity: 10
                     });
                     return;
                 }
