@@ -233,7 +233,6 @@ function setGol(id){
 }
 
 function setAccion(tipo,accion){
-
     if(tipo == 1 && accion == 1){
         var id = sessionStorage.getItem('accIDTitular');
         var marcador = document.getElementById('acc-marc-favor').innerHTML;
