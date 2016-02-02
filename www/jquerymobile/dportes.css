@@ -502,9 +502,8 @@ li.li-padding div.ui-radio label { border-top:hidden; border-left:hidden; border
 .contenedor-general-notificaciones {overflow:auto; margin-bottom:15px; background:#FFF;}
 div.boton-participar a {margin-top:0px; margin-bottom:0px;}
 .contenedor-fechas-notificacion { padding-top:15px; padding-bottom:10px; text-align:center;width:100%;}
-.centrado-fechas-notificacion {display:inline-block;width:278px;}
-.block-notificacion { display:inline-block; vertical-align:top;}
-.block-notificacion2 { display:block; width:100%; text-align:center;}
+.centrado-fechas-notificacion {display:inline-block;width:230px;}
+.block-notificacion { display:inline-block;}
 .vs-notificacion { font-size:18px; margin-left:15px; margin-right:15px; font-weight:bold; display:inline-block; vertical-align: top; margin-top:35px;  }
 .nombre-equipo-notificacion {margin: 5px 0 5px 0;font-size:12px; font-weight:bold; text-align:center;}
 .nombre-equipo-notificacion-con {margin: 5px 0 5px 0;font-size:18px; font-weight:bold; text-align:center; color: royalblue;}
@@ -612,10 +611,9 @@ a.color-boton-notificacion-2:focus { box-shadow:none !important; padding-top: 0.
 	float: right;
 	margin-left:5px; }
 /*asistencia*/
-
-.asistencia-asistira {color:#090 !important; background:none; border:none; border-style:none; margin-top:20px;}
-.asistencia-no-asistira {color:#900!important; background:none; border:none; border-style:none; margin-top:20px;}
-.asistencia-sin-responder {color:#333 !important; background:none; border:none; border-style:none; margin-top:20px;}
+.asistencia-asistira {color:#090 !important; background:none; border:none; border-style:none;}
+.asistencia-no-asistira {color:#900!important; background:none; border:none; border-style:none;}
+.asistencia-sin-responder {color:#333 !important; background:none; border:none; border-style:none;}
 .contenedor_iconos_jugadas {position: absolute; bottom: 5%; left: 5%; width: 1.25rem;}
 .agregar_nuevo_juego {
 	position: fixed;
