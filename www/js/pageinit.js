@@ -262,40 +262,74 @@
                 var newChart = new Chart(document.getElementById("radar").getContext("2d")).Radar(radarChartData);
         }
         if(activePage === 'grafico-pie'){
-            var doughnutData = [
-                        {
-                            value: 30,
-                            color:"#F7464A",
-                            highlight: "#FF5A5E",
-                            label: "Jugador1"
-                        },
-                        {
-                            value: 50,
-                            color: "#46BFBD",
-                            highlight: "#5AD3D1",
-                            label: "Jugador2"
-                        },
-                        {
-                            value: 100,
-                            color: "#FDB45C",
-                            highlight: "#FFC870",
-                            label: "Jugador3"
-                        },
-                        {
-                            value: 40,
-                            color: "#949FB1",
-                            highlight: "#A8B3C5",
-                            label: "Jugador4"
-                        },
-                        {
-                            value: 120,
-                            color: "#4D5360",
-                            highlight: "#616774",
-                            label: "Jugador5"
-                        }
-                    ];
-                    var ctx = document.getElementById("chart-area").getContext("2d");
-                    var newChart = new Chart(ctx).Doughnut(doughnutData);
+            Chart.defaults.global.pointHitDetectionRadius = 1;
+            Chart.defaults.global.customTooltips = function(tooltip) {
+                var tooltipEl = $('#chartjs-tooltip_');
+                if (!tooltip) {
+                    tooltipEl.css({
+                        opacity: 10
+                    });
+                    return;
+                }
+                tooltipEl.removeClass('above below');
+                tooltipEl.addClass(tooltip.yAlign);
+                var innerHtml = '';
+                for (var i = tooltip.labels.length - 1; i >= 0; i--) {
+                    innerHtml += [
+                        '<div class="chartjs-tooltip-section">',
+                        '   <span class="chartjs-tooltip-key" style="background-color:' + tooltip.legendColors[i].fill + '"></span><p>Tool tip</p>',
+                        '   <span class="chartjs-tooltip-value">' + tooltip.labels[i] + '</span>',
+                        '</div>'
+                    ].join('');
+                }
+                tooltipEl.html(innerHtml);
+                tooltipEl.css({
+                    opacity: 1,
+                    left: tooltip.chart.canvas.offsetLeft + tooltip.x + 'px',
+                    top: tooltip.chart.canvas.offsetTop + tooltip.y + 'px',
+                    fontFamily: tooltip.fontFamily,
+                    fontSize: tooltip.fontSize,
+                    fontStyle: tooltip.fontStyle,
+                });
+            };
+            var randomScalingFactor = function() {
+                return Math.round(Math.random() * 100);
+            };
+            var lineChartData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [{
+                    label: "My First dataset",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+                }, {
+                    label: "My Second dataset",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: [randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor(), randomScalingFactor()]
+                }]
+            };
+            window.onload = function() {
+                var ctx1 = document.getElementById("chart1").getContext("2d");
+                window.myLine = new Chart(ctx1).Line(lineChartData, {
+                    showScale: false,
+                    pointDot : true,
+                    responsive: true
+                });
+                var ctx2 = document.getElementById("chart2").getContext("2d");
+                window.myLine = new Chart(ctx2).Line(lineChartData, {
+                    responsive: true
+                });
+            };
+
         }
         if(activePage === 'seguimiento-jugador-prueba'){
             var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
@@ -426,6 +460,10 @@
             var asistencia = new notificaciones();
             asistencia.getAsistencia();
             delete asistencia;
+        }
+
+        if(activePage === 'drag-drop'){
+            $( ".draggable" ).draggable();
         }
 
     });

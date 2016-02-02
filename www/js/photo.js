@@ -17,6 +17,21 @@ document.getElementById('takePhoto').addEventListener('click',function(){
         'Camara,Galeria'
     );
 });
+document.getElementById('takePhoto2').addEventListener('click',function(){
+    event.preventDefault();
+    navigator.notification.confirm(
+        'Seleccione el origen de la imagen',
+            function(button){
+                if(button == 1){
+                    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true, targetWidth: 500, targetHeight: 500, destinationType: navigator.camera.DestinationType.DATA_URL });
+                } else {
+                    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true, targetWidth: 500, targetHeight: 500, sourceType: 0, destinationType: navigator.camera.DestinationType.DATA_URL });
+                }
+            },
+        'Insertar Imagen',
+        'Camara,Galeria'
+    );
+});
 //document.getElementById('sendPhoto').addEventListener('click',function(){
     //var sendPhoto = document.getElementById('sendPhoto');
     //sendPhoto.addEventListener('click', sendPhoto, false);
@@ -31,6 +46,13 @@ document.getElementById('takePhoto').addEventListener('click',function(){
 //}
 function onPhotoDataSuccess(imageData) {
     var photo = document.getElementById('photo');
+    photo.style.display = 'block';
+    photo.src = "data:image/jpeg;base64," + imageData;
+    //var sendPhoto = document.getElementById('sendPhoto');
+    //sendPhoto.style.display = 'block';  
+}
+function onPhotoDataSuccess(imageData) {
+    var photo = document.getElementById('photo2');
     photo.style.display = 'block';
     photo.src = "data:image/jpeg;base64," + imageData;
     //var sendPhoto = document.getElementById('sendPhoto');

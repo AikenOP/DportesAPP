@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+        <title>Desarrollo APP</title>
+        <meta charset="utf-8"> 
+            <script src="jquerymobile/jquery.min.js"></script>
+
+
+            <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="js/canvasjs.min.js"></script>
+
+            <link rel="stylesheet" href="./jquerymobile/jquery.mobile.structure-1.4.5.css" />
+            <link rel="stylesheet" href="./jquerymobile/jquery.mobile.theme-1.4.5.css" />
+            <link rel="stylesheet" href="./jquerymobile/jquery.mobile-1.4.5.css" />
+            <link rel="stylesheet" href="./jquerymobile/dportes.css" />
+            <script>
+            $(function () {
+                $("[data-role='panel']").panel().enhanceWithin();
+            });
+            </script>
+			<script src="jquerymobile/imageMapResizer.min.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('map').imageMapResize();
+                });  
+            </script>
+    </head>
+
+<body>
+
+    
+
+    <!-- prueba de graficos -->
+    <div data-role="page" id="grafico-pie" class="jqm-demos" data-title="Dportes" data-theme="a">
+        <div data-role="header" data-position="fixed" class="color-encabezado">
+            <a href="#" data-rel="back" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <h1>Gráficos</h1>
+            <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
+        </div>
+        <div data-role="main">
+
+            <div class="contenedor-resumen-goles">
+                <div class="alinea-resumen">
+                    <h4 class="texto-resumen-goles">Resumen Jugada:</h4>
+                </div>
+                <!--<canvas id="chart-area" width="500" height="500"/>-->
+
+                                <script type="text/javascript">
+                window.onload = function () {
+                    var chart = new CanvasJS.Chart("chartContainer",
+                    {
+                        animationEnabled: true,
+                        title:{
+                            text: "Simple Column Chart"
+                        },
+                        data: [
+                        {
+                            type: "column", //change type to bar, line, area, pie, etc
+                            dataPoints: [
+                                { x: 10, y: 71 },
+                                { x: 20, y: 55 },
+                                { x: 30, y: 50 },
+                                { x: 40, y: 65 },
+                                { x: 50, y: 95 },
+                                { x: 60, y: 68 },
+                                { x: 70, y: 28 },
+                                { x: 80, y: 34 },
+                                { x: 90, y: 14 }
+                            ]
+                        }
+                        ]
+                    });
+
+                    chart.render();
+                }
+                </script>
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+            </div>
+            <!-- este grafico muestra que jugadores participaron del estadistico de jugada, y en que medida -->
+        </div>
+    </div>
+    
+    
+
+            <script type="text/javascript" src="js/librerias.js"></script>
+            <script type="text/javascript" src="js/notificaciones.js"></script>
+            <script type="text/javascript" src="js/dportes.js"></script>
+            <script type="text/javascript" src="js/equipos.js"></script>
+            <script type="text/javascript" src="js/estadisticas.js"></script>
+            <script type="text/javascript" src="js/jugadores.js"></script>
+            <script type="text/javascript" src="js/eventos.js"></script>
+            <script type="text/javascript" src="js/registro.js"></script>
+            <script type="text/javascript" src="js/usuarios.js"></script>
+            <script type="text/javascript" src="js/auth.js"></script>
+            <script type="text/javascript" src="js/photo.js"></script>
+            <script type="text/javascript" src="js/chart.js"></script>
+            <script type="text/javascript" src="js/ubicaciones.js"></script>
+            <script type="text/javascript" src="js/tablas.js"></script>
+            <script src="js/jquery.ui.touch-punch.min.js"></script>
+            <script>
+            	/*Cuadro de Gol dentro del Area*/
+            	$('#etiqueta-dentro-del-area').click(function(e){
+            		$('#seccion-dentro-del-area').animate({marginBottom:"0px"}, 300,'linear');
+            	});
+            	$('#espacio-para-cerrar-1').click(function(e){
+            		$('#seccion-dentro-del-area').animate({marginBottom:"-200px"}, 300,'linear');
+            	});	    	
+            	/*Cuadro de Gol Fuera del Area*/
+            	$('#etiqueta-fuera-del-area').click(function(e){
+            		$('#seccion-fuera-del-area').animate({marginBottom:"0px"}, 300,'linear');
+            	});
+            	$('#espacio-para-cerrar-2').click(function(e){
+            		$('#seccion-fuera-del-area').animate({marginBottom:"-200px"}, 300,'linear');
+            	});	
+            	/*Cuadro de Gol de Tiro Libre*/
+            	$('#etiqueta-tiro-libre').click(function(e){
+            		$('#seccion-tiro-libre').animate({marginBottom:"0px"}, 300,'linear');
+            	});
+            	$('#espacio-para-cerrar-3').click(function(e){
+            		$('#seccion-tiro-libre').animate({marginBottom:"-200px"}, 300,'linear');
+            	});	    	
+            	/*Cuadro de Gol de Tiro de Esquina*/
+            	$('#etiqueta-tiro-de-esquina').click(function(e){
+            		$('#seccion-tiro-de-esquina').animate({marginBottom:"0px"}, 300,'linear');
+            	});
+            	$('#espacio-para-cerrar-4').click(function(e){
+            		$('#seccion-tiro-de-esquina').animate({marginBottom:"-200px"}, 300,'linear');
+            	});    	
+            	/*Cuadro de Gol de Tiro de Volea*/
+            	$('#etiqueta-tiro-de-volea').click(function(e){
+            		$('#seccion-tiro-de-volea').animate({marginBottom:"0px"}, 300,'linear');
+            	});
+            	$('#espacio-para-cerrar-5').click(function(e){
+            		$('#seccion-tiro-de-volea').animate({marginBottom:"-200px"}, 300,'linear');
+            	});
+            	/*Cuadro de Gol de Tijeras*/
+            	$('#etiqueta-gol-de-tijera').click(function(e){
+            		$('#seccion-gol-de-tijera').animate({marginBottom:"0px"}, 300,'linear');
+            	});
+            	$('#espacio-para-cerrar-6').click(function(e){
+            		$('#seccion-gol-de-tijera').animate({marginBottom:"-200px"}, 300,'linear');
+            	});
+            	/*Cuadro de Gol de Chilena*/
+            	$('#etiqueta-gol-de-chilena').click(function(e){
+            		$('#seccion-gol-de-chilena').animate({marginBottom:"0px"}, 300,'linear');
+            	});
+            	$('#espacio-para-cerrar-7').click(function(e){
+            		$('#seccion-gol-de-chilena').animate({marginBottom:"-200px"}, 300,'linear');
+            	});    	
+            	/*Cuadro de Gol de Cabeza*/
+            	$('#etiqueta-gol-de-cabeza').click(function(e){
+            		$('#seccion-gol-de-cabeza').animate({marginBottom:"0px"}, 300,'linear');
+            	});
+            	$('#espacio-para-cerrar-8').click(function(e){
+            		$('#seccion-gol-de-cabeza').animate({marginBottom:"-200px"}, 300,'linear');
+            	});
+            	/*Cuadro de Gol de Cabeza*/
+            	$('#etiqueta-gol-de-taco').click(function(e){
+            		$('#seccion-gol-de-taco').animate({marginBottom:"0px"}, 300,'linear');
+            	});
+            	$('#espacio-para-cerrar-9').click(function(e){
+            		$('#seccion-gol-de-taco').animate({marginBottom:"-200px"}, 300,'linear');
+            	});
+                /* === comportamiento de notificaciones ===*/
+                //Presionado el boton "Asistire" oculta la notificacion de Partido
+                //$("#boton-no-asistere").click(function(e) {
+                    //$("#boton-no-asistere").addClass("ui-state-disabled");
+                    //$("#boton-asistere").addClass("ui-state-disabled");
+                //});
+                $("#boton-asistere").click(function(e) {
+                    $("#notificacion-con").slideDown(500);
+                    $("#notificacion-con-2").slideUp(500);
+                });
+                $("#boton-no-asistere").click(function(e) {
+                    $("#notificacion-con-2").slideDown(500);
+                    $("#notificacion-con").slideUp(500);
+                });
+                //Presionado el boton "No Asistire" oculta la notificacion de Partido
+                //$("#boton-asistere").click(function(e) {
+                    //$("#boton-no-asistere").addClass("ui-state-disabled");
+                    //$("#boton-asistere").addClass("ui-state-disabled");
+                //});
+                //Presionado el boton "No Aceptar" oculta la notificacion de Partido
+                $("#boton-no-aceptar").click(function(e) {
+                    $("#boton-no-aceptar").addClass("ui-state-disabled");
+                    $("#boton-aceptar").addClass("ui-state-disabled");
+                });
+                //Presionado el boton "Aceptar" oculta la notificacion de Partido
+                $("#boton-aceptar").click(function(e) {
+                    $("#boton-no-aceptar").addClass("ui-state-disabled");
+                    $("#boton-aceptar").addClass("ui-state-disabled");
+                });
+                //Presionado el boton "cerrar" oculta la notificacion de Partido
+                $("#cerrar-gol").click(function(e) {
+                    $("#notificacion-gol").slideUp(500);
+                });
+                $("#cerrar-gol-encontra").click(function(e) {
+                    $("#notificacion-gol-encontra").slideUp(500);
+                });
+                $("#cerrar-creacion-liga").click(function(e) {
+                    $("#notificacion-liga").slideUp(500);
+                    alert("En hora Buena!! no tienes más Notificaciones");
+                });
+                //seccion para deshabilitar las votaciones una vez escogido el jugador
+                $("#elegir-mejor-goleador").click( function(){
+                    $("#mejor-goleador").addClass("ui-state-disabled");
+                });
+                $("#elegir-mejor-jugador").click( function(){
+                    $("#mejor-jugador").addClass("ui-state-disabled");
+                });
+                $("#elegir-mejor-defensa").click( function(){
+                    $("#mejor-defensa").addClass("ui-state-disabled");
+                });
+                $("#elegir-mejor-portero").click( function(){
+                    $("#mejor-portero").addClass("ui-state-disabled");
+                });
+                $("#elegir-mejor-equipo").click( function(){
+                    $("#mejor-equipo").addClass("ui-state-disabled");  
+                });
+            </script>
+</body>
+</html>
