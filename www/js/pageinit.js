@@ -261,6 +261,7 @@
                 };
                 var newChart = new Chart(document.getElementById("radar").getContext("2d")).Radar(radarChartData);
         }
+
         if(activePage === 'grafico-pie'){
             Chart.defaults.global.pointHitDetectionRadius = 1;
             Chart.defaults.global.customTooltips = function(tooltip) {
@@ -329,8 +330,8 @@
                     responsive: true
                 });
             };
-
         }
+
         if(activePage === 'seguimiento-jugador-prueba'){
             var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
             var lineChartData = {
@@ -361,6 +362,7 @@
             var ctx = document.getElementById("jugada").getContext("2d");
             var newChart = new Chart(ctx).Line(lineChartData);
         }
+
         if(activePage === 'seguimiento-equipo-rival-prueba'){
             var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
             var lineChartData = {
@@ -391,6 +393,7 @@
             var ctx = document.getElementById("rivales").getContext("2d");
             var newChart = new Chart(ctx).Line(lineChartData);
         }
+
         if(activePage === 'amarillas'){
             var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
             var lineChartData = {
@@ -421,6 +424,7 @@
             var ctx = document.getElementById("amarilla-tarjeta").getContext("2d");
             var newChart = new Chart(ctx).Line(lineChartData);
         }
+
         if(activePage === 'seguimiento-jugador'){
             var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
             var lineChartData = {
@@ -451,14 +455,17 @@
             var ctx = document.getElementById("seguimiento-jugador-graf").getContext("2d");
             var newChart = new Chart(ctx).Line(lineChartData);
         }
+
         if(activePage === 'notificaciones'){
             var notifica = new notificaciones();
             notifica.getNotificaciones();
             delete notifica;
         }
+
         if(activePage === 'asistencia'){
             var asistencia = new notificaciones();
             asistencia.getAsistencia();
+            asistencia.getInfo();
             delete asistencia;
         }
 

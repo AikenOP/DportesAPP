@@ -202,12 +202,12 @@
                         <label id="3"><strong>Tu Correo:</strong></label>
                         <input name="correo" id="perfil-correo" value="" type="text">
                         <label id="3"><strong>Fecha de Nacimiento:</strong></label>
-                        <input name="" id="" value="" type="date">
+                        <input name="fecha" id="perfil-fecha" value="" type="date">
                         <label id="3"><strong>Sexo:</strong></label>
-                        <select id="eq-comuna">
+                        <select name="sexo" id="perfil-sexo" >
                             <option value="0">Seleccione sexo</option>
-                            <option value="0">Femenino</option>
-                            <option value="0">Masculino</option>
+                            <option value="1">Femenino</option>
+                            <option value="2">Masculino</option>
                         </select>
                         <!--<label id="4"><strong>Tu Clave Actual:</strong></label>
                         <input name="clave" id="4" value="145$dge" type="text">-->
@@ -709,7 +709,7 @@
     <!-- ————— EDITAR EQUIPOS ————— -->
     <div data-role="page" id="editar-equipo" class="jqm-demos" data-title="Dportes" data-theme="a">
         <div data-role="header" data-position="fixed" class="color-encabezado">
-            <a href="#mis-equipos" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
+            <a data-rel="back" data-transition="fade" class="saca-estilo-boton"><div class="fl-izquierda"></div></a>
             <h1>Editar Equipo</h1>
             <a href="#menu_perfil" data-transition="fade" class="saca-estilo-boton"><div class="icono-menu-right"></div></a>
         </div>
@@ -727,9 +727,21 @@
                         <label><strong>Nombre del equipo:</strong></label>
                         <input name="nombre_equipo" id="edit-eq-nombre" value="" maxlength="100" type="text">
                         <label><strong>Región:</strong></label>
-                        <input name="comuna_equipo" id="edir-eq-region" value="" type="text">
+                        <select id="mi-eq-region">
+                            <option>Seleccione una region</option>
+                        </select>
+                        <label><strong>Ciudad:</strong></label>
+                        <select id="mi-eq-ciudad">
+                            <option>Seleccione una ciudad</option>
+                        </select>
                         <label><strong>Comuna:</strong></label>
-                        <input name="clave" id="edit-eq-comuna" value="" type="text" maxlength="100">
+                        <select id="mi-eq-comuna">
+                            <option>Seleccione una comuna</option>
+                        </select>
+                        <label><strong>Tipo de equipo:</strong></label>
+                        <select id="mi-eq-tipo">
+                            <option>No disponible</option>
+                        </select>
                         <a onclick="setEquipo()" data-rel="popup" data-position-to="window" data-transition="pop" class="color-boton"><button class="ui-btn btn-input" type="submit">Guardar</button></a>
                     </form>
                 </div>
@@ -2116,14 +2128,14 @@
             <div class="contenedor-general-notificaciones2">
                 <div class="contenedor-fechas-notificacion">
                     <div class="row">
-                        <div class="small-6 columns"><label>Fecha</label><h3>13/07/20017</h3></div>
-                        <div class="small-6 columns"><label>Rival</label><h3>Sport Frances</h3></div>
+                        <div class="small-6 columns"><label>Fecha</label><h3 id="asist-fecha"></h3></div>
+                        <div class="small-6 columns"><label>Rival</label><h3 id="asist-rival"></h3></div>
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="small-4 columns"><label>Asisten</label><h2>10</h2></div>
-                        <div class="small-4 columns"><label>No asisten</label><h2>20</h2></div>
-                        <div class="small-4 columns"><label>Pendiente</label><h2>30</h2></div>
+                        <div class="small-4 columns"><label>Asisten</label><h2 id="asist-asisten"></h2></div>
+                        <div class="small-4 columns"><label>No asisten</label><h2 id="asist-no-asisten"></h2></div>
+                        <div class="small-4 columns"><label>Pendiente</label><h2 id="asist-pendiente"></h2></div>
                     </div>
                 </div>
             </div>
