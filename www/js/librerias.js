@@ -108,6 +108,12 @@ function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+function getHora(hora){
+	var hor = hora.split(" ");
+	var arr = hor[1].split(":");
+	return arr[0] + ":" + arr[1];
+}
+
 function getFecha(fecha) {
 	var fech = fecha.split(" ");
 	var arr = fech[0].split("-");
