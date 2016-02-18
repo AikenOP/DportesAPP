@@ -3,6 +3,8 @@ function usuarios(){
     this.id_usuario
     this.nombre
     this.correo
+    this.fecha
+    this.sexo
 
     this.getUsuario = function(){
     	var xhr = new XMLHttpRequest();
@@ -29,6 +31,9 @@ function usuarios(){
                     document.getElementById('perfil-usuario').innerHTML = ucwords(json.nombre) + ' ' + ucwords(json.apellido_paterno);
                     document.getElementById('perfil-nombre').value = json.nombre + ' ' + json.apellido_paterno;
                     document.getElementById('perfil-correo').value = json.email;
+                    document.getElementById('perfil-fecha').value = json.fecha_nacimiento;
+                    $('#perfil-sexo').val(json.sexo).prop('selected', true);
+                    $('#perfil-sexo').selectmenu('refresh');
                 }
             }
         };
@@ -40,6 +45,8 @@ function usuarios(){
         send.append('id',this.id_usuario);
         send.append('nombre_usuario',this.nombre);
         send.append('email_usuario',this.correo);
+        send.append('fecha',this.fecha);
+        send.append('sexo',this.sexo);
         xhr.open('POST', path + 'app/setUsuarioPerfil');
         xhr.setRequestHeader('Cache-Control', 'no-cache');
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -70,6 +77,8 @@ document.getElementById('perfil-save').addEventListener('click',function(){
     user.id_usuario = localStorage.getItem('id');
     user.nombre = document.getElementById('perfil-nombre').value;
     user.correo = document.getElementById('perfil-correo').value;
+    user.fecha = document.getElementById('perfil-fecha').value;
+    user.sexo = document.getElementById('perfil-sexo').value;
     user.setUsuarioPerfil();  
     delete user;
 });
