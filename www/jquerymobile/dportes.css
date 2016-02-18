@@ -886,21 +886,21 @@ a.color-boton-presionado {
     background-image:url("img-dportes/iconos/icono_nuevo_equipo.svg");
     z-index: 3; }
 .deporte-baloncesto { 
-	background-image:url(img-dportes/iconos_de_deportes/baloncesto.svg); 
+	background-image:url(img-dportes/iconos_de_deportes/baloncesto-copia.svg); 
 	width:40px; 
 	height:30px; 
 	display:inline-block;
 	background-size:contain;
 	background-repeat:no-repeat; }
 .deporte-rugby { 
-	background-image:url(img-dportes/iconos_de_deportes/rugby.svg); 
+	background-image:url(img-dportes/iconos_de_deportes/rugby-copia.svg); 
 	width:40px; 
 	height:30px;
 	display:inline-block; 
 	background-size:contain;
 	background-repeat:no-repeat; }
 .deporte-voleyball {
-	background-image:url(img-dportes/iconos_de_deportes/voleyball.svg); 
+	background-image:url(img-dportes/iconos_de_deportes/voleyball-copia.svg); 
 	width:40px; 
 	height:30px;
 	display:inline-block;
