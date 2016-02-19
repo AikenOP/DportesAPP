@@ -42,7 +42,7 @@ function equipos(){
         xhr.timeout = 10000;
         xhr.onprogress = function(e){
             $.mobile.loading('show');
-        }
+        }	
         xhr.ontimeout = function(e){
             navigator.notification.alert('Se detecto un problema, intentelo nuevamente',function(){},'Atención','OK');   
         }
