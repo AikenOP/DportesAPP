@@ -142,6 +142,8 @@
             tabl.getTarjetasGrupales();
             tabl.getGolesGrupales();
             tabl.getTiposGolesGrupales();
+            tabl.getEfectividadGrupalesByJugador();
+            tabl.getEfectividadGrupalesByJugada();
             delete tabl;
 
             document.getElementById('grup-nombre-equipo').innerHTML = localStorage.getItem('nombre_equipo');
