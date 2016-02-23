@@ -142,6 +142,7 @@
             tabl.getTarjetasGrupales();
             tabl.getGolesGrupales();
             tabl.getTiposGolesGrupales();
+            tabl.getCambios();
             tabl.getEfectividadGrupalesByJugador();
             tabl.getEfectividadGrupalesByPosicion();
             tabl.getEfectividadGrupalesByJugada();

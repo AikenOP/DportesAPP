@@ -223,6 +223,40 @@ function tablas(){
         }        
     }
 
+    this.getCambios = function(){
+        var xhr = new XMLHttpRequest();
+        var send = new FormData();
+        send.append('id_equipo',localStorage.getItem('equipo'));
+        xhr.open('POST', path + 'app/getTablaCambios');
+        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(send);    
+
+        xhr.onprogress = function(e){
+            $.mobile.loading('show');
+        }
+
+        xhr.onload = function(){
+            if(this.status == 200){
+                if(this.response && JSON.parse(this.response)){
+                    var inc = '';
+                    var json = JSON.parse(this.response);
+                    for(var i = 0; i < json.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+json[i].nombre+"</td>";
+                        inc += "<td>"+json[i].titular+"</td>";
+                        inc += "<td>"+json[i].reserva+"</td>";
+                        inc += "<td>"+json[i].cambio+"</td>";
+                        inc += "</tr>";
+                    }
+                    $('#tabla-stat-cambios').html(inc);
+                    $.mobile.loading('hide');
+                }
+            }
+        }
+
+    }
+
     this.getEfectividadGrupalesByJugador = function(){
         var xhr = new XMLHttpRequest();
         var send = new FormData();
