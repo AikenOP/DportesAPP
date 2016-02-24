@@ -138,7 +138,7 @@ function tablas(){
                         inc += "<td>"+tarjetas[i].rojas+"</td>";
                         inc += "</tr>";
                     }
-                    $('#tabla-tarjeta-grupal').append(inc);
+                    $('#tabla-tarjeta-grupal').html(inc);
                     $.mobile.loading('hide');
                 }
             }
@@ -177,7 +177,7 @@ function tablas(){
                         inc += "<td>"+goles[i].contra+"</td>";
                         inc += "</tr>";
                     }
-                    $('#tabla-goles-grupal').append(inc);
+                    $('#tabla-goles-grupal').html(inc);
                     $.mobile.loading('hide');
                 }
             }
@@ -203,12 +203,6 @@ function tablas(){
                     var inc = '';
                     var json = JSON.parse(this.response);
                     var tipos = json.tabla;
-                    /*var total = json.total;
-                    inc = "<tr>";
-                    inc += "<td><a href='#amarillas'>Total</a></td>";
-                    inc += "<td>"+total.favor+"</td>";
-                    inc += "<td>"+total.contra+"</td>";
-                    inc += "</tr>";*/
                     for(var i = 0; i < tipos.length; i++ ){
                         inc += "<tr>";
                         inc += "<td>"+tipos[i].nombre+"</td>";
@@ -216,7 +210,7 @@ function tablas(){
                         inc += "<td>"+tipos[i].contra+"</td>";
                         inc += "</tr>";
                     }
-                    $('#tabla-tipos-goles-grupal').append(inc);
+                    $('#tabla-tipos-goles-grupal').html(inc);
                     $.mobile.loading('hide');
                 }
             }
@@ -254,7 +248,6 @@ function tablas(){
                 }
             }
         }
-
     }
 
     this.getEfectividadGrupalesByJugador = function(){
