@@ -1055,3 +1055,17 @@ canvas { width: 100% !important; max-width: 800px; height: auto !important;}
 .draggable {width:13%;padding:0.1em;margin:0.5em;color:white;font-size:bold;float:left;}
 .draggable img {max-width:100%;}
 .draggable p {font-size:10px;text-align:center;}
+/* === Notificaciones === */
+.contenedor-globo {
+	position: relative; }
+.globo {
+	background-color: red;
+	border:1px solid firebrick;
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	color: white;
+	border-radius: 0.75rem 0.75rem 0.75rem 0;
+	font-weight: normal;
+	text-decoration: none;
+	padding: 0.5rem 0.5rem 0.5rem 0.5rem; }
