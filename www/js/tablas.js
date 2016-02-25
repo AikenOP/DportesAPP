@@ -138,7 +138,7 @@ function tablas(){
                         inc += "<td>"+tarjetas[i].rojas+"</td>";
                         inc += "</tr>";
                     }
-                    $('#tabla-tarjeta-grupal').append(inc);
+                    $('#tabla-tarjeta-grupal').html(inc);
                     $.mobile.loading('hide');
                 }
             }
@@ -177,7 +177,7 @@ function tablas(){
                         inc += "<td>"+goles[i].contra+"</td>";
                         inc += "</tr>";
                     }
-                    $('#tabla-goles-grupal').append(inc);
+                    $('#tabla-goles-grupal').html(inc);
                     $.mobile.loading('hide');
                 }
             }
@@ -203,12 +203,6 @@ function tablas(){
                     var inc = '';
                     var json = JSON.parse(this.response);
                     var tipos = json.tabla;
-                    /*var total = json.total;
-                    inc = "<tr>";
-                    inc += "<td><a href='#amarillas'>Total</a></td>";
-                    inc += "<td>"+total.favor+"</td>";
-                    inc += "<td>"+total.contra+"</td>";
-                    inc += "</tr>";*/
                     for(var i = 0; i < tipos.length; i++ ){
                         inc += "<tr>";
                         inc += "<td>"+tipos[i].nombre+"</td>";
@@ -216,7 +210,231 @@ function tablas(){
                         inc += "<td>"+tipos[i].contra+"</td>";
                         inc += "</tr>";
                     }
-                    $('#tabla-tipos-goles-grupal').append(inc);
+                    $('#tabla-tipos-goles-grupal').html(inc);
+                    $.mobile.loading('hide');
+                }
+            }
+        }        
+    }
+
+    this.getCambios = function(){
+        var xhr = new XMLHttpRequest();
+        var send = new FormData();
+        send.append('id_equipo',localStorage.getItem('equipo'));
+        xhr.open('POST', path + 'app/getTablaCambios');
+        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(send);    
+
+        xhr.onprogress = function(e){
+            $.mobile.loading('show');
+        }
+
+        xhr.onload = function(){
+            if(this.status == 200){
+                if(this.response && JSON.parse(this.response)){
+                    var inc = '';
+                    var json = JSON.parse(this.response);
+                    for(var i = 0; i < json.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+json[i].nombre+"</td>";
+                        inc += "<td>"+json[i].titular+"</td>";
+                        inc += "<td>"+json[i].reserva+"</td>";
+                        inc += "<td>"+json[i].cambio+"</td>";
+                        inc += "</tr>";
+                    }
+                    $('#tabla-stat-cambios').html(inc);
+                    $.mobile.loading('hide');
+                }
+            }
+        }
+    }
+
+    this.getEfectividadGrupalesByJugador = function(){
+        var xhr = new XMLHttpRequest();
+        var send = new FormData();
+        send.append('id_equipo',localStorage.getItem('equipo'));
+        xhr.open('POST', path + 'app/getEfectividadGrupalesByJugador');
+        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(send);
+
+        xhr.onprogress = function(e){
+            $.mobile.loading('show');
+        }
+        
+        xhr.onload = function(){
+            if(this.status == 200){
+                if(this.response && JSON.parse(this.response)){
+                    var inc = '';
+                    var json = JSON.parse(this.response);
+                    for(var i = 0; i < json.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+json[i].nombre+"</td>";
+                        inc += "<td>"+json[i].efectividad+"%</td>";
+                        inc += "</tr>";
+                    }
+                    $('#efec-stat-table').html(inc);
+                    $.mobile.loading('hide');
+                }
+            }
+        }        
+    }
+
+    this.getEfectividadGrupalesByPosicion = function(){
+        var xhr = new XMLHttpRequest();
+        var send = new FormData();
+        send.append('id_equipo',localStorage.getItem('equipo'));
+        xhr.open('POST', path + 'app/getEfectividadGrupalesByPosicion');
+        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(send);
+
+        xhr.onprogress = function(e){
+            $.mobile.loading('show');
+        }
+
+        xhr.onload = function(){
+            if(this.status == 200){
+                if(this.response && JSON.parse(this.response)){
+                    var inc = '';
+                    var json = JSON.parse(this.response);
+                    var nd = json.nd;
+                    var portero = json.portero;
+                    var defensa = json.defensa;
+                    var volante = json.volante;
+                    var delantero = json.delantero;
+
+                    for(var i = 0; i < nd.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+nd[i].nombre+"</td>";
+                        inc += "<td>"+nd[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-nd').html(inc);
+
+                    inc = '';
+                    for(var i = 0; i < portero.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+portero[i].nombre+"</td>";
+                        inc += "<td>"+portero[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-portero').html(inc);
+                    
+                    inc = '';
+                    for(var i = 0; i < defensa.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+defensa[i].nombre+"</td>";
+                        inc += "<td>"+defensa[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-defensa').html(inc);
+                    
+                    inc = '';
+                    for(var i = 0; i < volante.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+volante[i].nombre+"</td>";
+                        inc += "<td>"+volante[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-volante').html(inc);
+                    
+                    inc = '';
+                    for(var i = 0; i < delantero.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+delantero[i].nombre+"</td>";
+                        inc += "<td>"+delantero[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-delantero').html(inc);
+                    
+                    $.mobile.loading('hide');
+                }
+            }
+        }        
+    }
+
+    this.getEfectividadGrupalesByJugada = function(){
+        var xhr = new XMLHttpRequest();
+        var send = new FormData();
+        send.append('id_equipo',localStorage.getItem('equipo'));
+        xhr.open('POST', path + 'app/getEfectividadGrupalesByJugada');
+        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(send);
+
+        xhr.onprogress = function(e){
+            $.mobile.loading('show');
+        }
+        
+        xhr.onload = function(){
+            if(this.status == 200){
+                if(this.response && JSON.parse(this.response)){
+                    var inc = '';
+                    var json = JSON.parse(this.response);
+                    var goles = json.goles;
+                    var tiro_arco = json.tiro_arco;
+                    var tiro_libre = json.tiro_libre;
+                    var tiro_esquina = json.tiro_esquina;
+                    var tiro_penal = json.tiro_penal;
+                    var quite = json.quite;
+                    var asistencia = json.asistencia;
+                    for(var i = 0; i < goles.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+goles[i].nombre+"</td>";
+                        inc += "<td>"+goles[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-gol').html(inc);
+                    inc = '';
+                    for(var i = 0; i < tiro_arco.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+tiro_arco[i].nombre+"</td>";
+                        inc += "<td>"+tiro_arco[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-tiro-arco').html(inc);
+                    inc = '';
+                    for(var i = 0; i < tiro_libre.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+tiro_libre[i].nombre+"</td>";
+                        inc += "<td>"+tiro_libre[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-tiro-libre').html(inc);
+                    inc = '';
+                    for(var i = 0; i < tiro_esquina.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+tiro_esquina[i].nombre+"</td>";
+                        inc += "<td>"+tiro_esquina[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-tiro-esquina').html(inc);
+                    inc = '';
+                    for(var i = 0; i < tiro_penal.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+tiro_penal[i].nombre+"</td>";
+                        inc += "<td>"+tiro_penal[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-tiro-penal').html(inc);
+                    inc = '';
+                    for(var i = 0; i < quite.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+quite[i].nombre+"</td>";
+                        inc += "<td>"+quite[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-quite').html(inc);
+                    inc = '';
+                    for(var i = 0; i < asistencia.length; i++ ){
+                        inc += "<tr>";
+                        inc += "<td>"+asistencia[i].nombre+"</td>";
+                        inc += "<td>"+asistencia[i].efectividad+"%</td>";
+                        inc += "</tr>";           
+                    }
+                    $('#efec-stat-asistencia').html(inc);
                     $.mobile.loading('hide');
                 }
             }
@@ -224,6 +442,21 @@ function tablas(){
     }
 }
 
+function cambioTabla(num){
+    if(num == 1){
+        document.getElementById('tabla-jugador-stat').style.display = "block";
+        document.getElementById('tabla-jugada-stat').style.display = "none";
+        document.getElementById('tabla-posiciones-stat').style.display = "none";
+    } else if (num == 2) {
+        document.getElementById('tabla-jugador-stat').style.display = "none";
+        document.getElementById('tabla-jugada-stat').style.display = "none";
+        document.getElementById('tabla-posiciones-stat').style.display = "block";
+    } else {
+        document.getElementById('tabla-jugador-stat').style.display = "none";
+        document.getElementById('tabla-jugada-stat').style.display = "block";
+        document.getElementById('tabla-posiciones-stat').style.display = "none";
+    } 
+}
 
 document.getElementById("select-grupal").addEventListener('change', function(){
     var select = this.value;
