@@ -974,13 +974,7 @@
                                         <th data-priority="critical">Cambio</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><a href="#">Jugador 1</a></td>
-                                        <td>10</td>
-                                        <td>5</td>
-                                        <td>6</td>
-                                    </tr>
+                                <tbody id="tabla-stat-cambios">
                                 </tbody>
                             </table>
                         </div>
@@ -1005,51 +999,161 @@
                             <!-- seleccionar efectividad a mostrar -->
                             <fieldset data-role="controlgroup" data-type="horizontal" data-mini="false">
                                 <legend>Seleccione el indice de efectividad a mostrar:</legend>
-                                <input type="radio" name="radio-choice-b" id="radio-choice-c" value="list" checked="checked">
+                                <input onclick="cambioTabla(1)" type="radio" name="radio-choice-b" id="radio-choice-c" value="list" checked="checked">
                                 <label for="radio-choice-c">Jugador</label>
-                                <input type="radio" name="radio-choice-b" id="radio-choice-d" value="grid">
+                                <input onclick="cambioTabla(2)" type="radio" name="radio-choice-b" id="radio-choice-d" value="grid">
                                 <label for="radio-choice-d">Posición</label>
-                                <input type="radio" name="radio-choice-b" id="radio-choice-e" value="gallery">
+                                <input onclick="cambioTabla(3)" type="radio" name="radio-choice-b" id="radio-choice-e" value="gallery">
                                 <label for="radio-choice-e">Jugada</label>
                             </fieldset>
                             <!-- ejemplo de efectividad general-->
-                            <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
-                                <thead>
-                                    <tr class="ui-bar-d">
-                                        <th></th>
-                                        <th data-priority="critical">Efectividad</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><a href="#detalle-jugador-prueba">Jugador 1</a></td>
-                                        <td>10%</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#detalle-jugador-prueba">Jugador 2</a></td>
-                                        <td>5%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!-- ejemplo de tabla de efectividad por posiciones, cada posicion es una tabla distinta -->
-                            <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
-                                <thead>
-                                    <tr class="ui-bar-d">
-                                        <th>Medio campo</th>
-                                        <th data-priority="critical">Efectividad</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><a href="#seguimiento-jugador">Jugador 1</a></td>
-                                        <td>10%</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#seguimiento-jugador">Jugador 2</a></td>
-                                        <td>5%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div id="tabla-jugador-stat">
+                                <table data-role="table" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th></th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-table">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="tabla-posiciones-stat" style="display:none;">
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>No Definido</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-nd">
+                                    </tbody>
+                                </table>
+
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>Portero</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-portero">
+                                    </tbody>
+                                </table>
+
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>Defensa</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-defensa">
+                                    </tbody>
+                                </table>
+
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>Volante</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-volante">
+                                    </tbody>
+                                </table>
+
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>Delantero</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-delantero">
+                                    </tbody>
+                                </table>
+
+                            </div>                            
+                            <div id="tabla-jugada-stat" style="display:none;">
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>Goles</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-gol">
+                                    </tbody>
+                                </table>
+
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>Tiro Al Arco</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-tiro-arco">
+                                    </tbody>
+                                </table>
+
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>Tiro Libre</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-tiro-libre">
+                                    </tbody>
+                                </table>
+                                
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>Tiro de Esquina</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-tiro-esquina">
+                                    </tbody>
+                                </table>
+
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>Tiro Penal</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-tiro-penal">
+                                    </tbody>
+                                </table>
+
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>Quite</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-quite">
+                                    </tbody>
+                                </table>
+
+                                <table data-role="table" id="" data-mode="" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Detalle Estadístico" data-column-popup-theme="a">
+                                    <thead>
+                                        <tr class="ui-bar-d">
+                                            <th>Asistencia</th>
+                                            <th data-priority="critical">Efectividad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="efec-stat-asistencia">
+                                    </tbody>
+                                </table>
+                            </div>
                         <div>
                     </ul>
                 </div>
