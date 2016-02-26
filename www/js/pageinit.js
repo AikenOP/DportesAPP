@@ -27,6 +27,9 @@
             swipe('#home','#menu_perfil','right');
             clearGame();
             closeSessionEvents();
+            var notifica = new notificaciones();
+            notifica.getTotalNotificacionesByUsuario();
+            delete notifica;
             document.getElementById('tyc-back').href = '#'+activePage;
             document.getElementById('jg-rel-back').href = "#home";
         }

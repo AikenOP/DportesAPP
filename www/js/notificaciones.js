@@ -1,13 +1,22 @@
 
 function notificaciones(){
 	this.id_notifica
+    this.bool = true;
 
 
 	this.getNotificaciones = function(){
 		var xhr = new XMLHttpRequest();
         var send = new FormData();
+        var offset = 0; 
 
+        if($("div.contenedor-general-notificaciones").size() > 0 && this.bool == false){
+            offset = $("div.contenedor-general-notificaciones").size();
+        } else {
+            $('#notificaciones-evt').html('');
+        }
+        
         send.append('id',localStorage.getItem('id'));
+        send.append('offset',offset);
 
         xhr.open('POST', path + 'app/getNotificaciones');
         xhr.setRequestHeader('Cache-Control', 'no-cache');
@@ -19,16 +28,12 @@ function notificaciones(){
             $.mobile.loading('hide');
             navigator.notification.alert('Se detecto un problema, intentelo nuevamente',function(){},'Atención','OK');
         };
-        /*xhr.onprogress = function(){
-            alert('progress');
-        };*/
         xhr.onerror = function(e){
             navigator.notification.alert('Se detecto un problema, intentelo nuevamente',function(){},'Atención','OK');
         };
 
         xhr.onload = function(e){
         	//alert(localStorage.getItem('id'));
-        	
             if(this.status == 200){
                 if(this.response && JSON.parse(this.response)){
                     var json = JSON.parse(this.response);
@@ -71,9 +76,49 @@ function notificaciones(){
                 }
             }
 
-        	$('#notificaciones-evt').html(inc);
+        	$('#notificaciones-evt').append(inc);
+            if(json.length >= 5){
+                document.getElementById('not-more').style.display = "block";
+            } else {
+                document.getElementById('not-more').style.display = "none";
+            }
+            $.mobile.loading('hide');
         }
 	}
+
+    this.getTotalNotificacionesByUsuario = function(){
+        var xhr = new XMLHttpRequest();
+        var send = new FormData(); 
+        xhr.open('POST', path + 'app/getTotalNotificacionesByUsuario');
+        send.append('id',localStorage.getItem('id'));
+        xhr.setRequestHeader('Cache-Control', 'no-cache');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.send(send);
+        $.mobile.loading('show');
+        xhr.timeout = 10000;
+        xhr.ontimeout = function () {
+            $.mobile.loading('hide');
+            navigator.notification.alert('Se detecto un problema, intentelo nuevamente',function(){},'Atención','OK');
+        };
+        xhr.onerror = function(e){
+            navigator.notification.alert('Se detecto un problema, intentelo nuevamente',function(){},'Atención','OK');
+        };
+
+        xhr.onload = function(e){  
+            if(this.status == 200){
+                if(this.response && JSON.parse(this.response)){
+                    if(this.response > 0){
+                        document.getElementById('globo').innerHTML = this.response;
+                        document.getElementById('globo').style.display = "block";
+                    } else {
+                        document.getElementById('globo').innerHTML = "";
+                        document.getElementById('globo').style.display = "none";
+                    }
+                    $.mobile.loading('hide');
+                }
+            }
+        }
+    }
 
     this.getAsistencia = function(){
         var xhr = new XMLHttpRequest();
