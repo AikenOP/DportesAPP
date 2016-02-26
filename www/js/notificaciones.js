@@ -42,6 +42,7 @@ function notificaciones(){
                     var hora = '';
                     var asistir= 'none;';
                     var no_asistir = 'none;';
+                    var clase = '';
                     for(var i = 0; i < json.length; i++ ){ 
                     	fecha = getFecha(json[i].fecha_evento);
                         hora = getHora(json[i].fecha_evento);
@@ -55,8 +56,14 @@ function notificaciones(){
                             no_asistir = 'none;';
                             asistir = 'none;';
                         }
+                        if(json[i].visto == 0){
+                            clase = 'no-leido';
+                        } else {
+                            clase = 'leido';
+                        }
+
                     	inc += "<div class='contenedor-general-notificaciones' id='contenedor-notificacion'>";    
-		                inc += "<div class='fecha-notificacion'>Aviso de Encuentro</div>";
+		                inc += "<div class='fecha-notificacion "+clase+"'>Aviso de Encuentro</div>";
 		                inc += "<a onclick='redirectAsistencia("+json[i].id_notificacion+")' class='link-color'>";
 		                inc += "<div class='contenedor-fechas-notificacion'>";
 		                inc += "<div class='centrado-fechas-notificacion'>";
