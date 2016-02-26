@@ -511,7 +511,11 @@ div.boton-participar a {margin-top:0px; margin-bottom:0px;}
 .nombre-equipo-notificacion {margin: 5px 0 5px 0;font-size:12px; font-weight:bold; text-align:center;}
 .nombre-equipo-notificacion-con {margin: 5px 0 5px 0;font-size:18px; font-weight:bold; text-align:center; color: royalblue;}
 .nombre-equipo-notificacion-in {margin: 5px 0 5px 0;font-size:18px; font-weight:bold; text-align:center; color: tomato;}
-.fecha-notificacion { font-size: 12px;text-align: center;font-weight: bold;color: #FFF; background:#5C5C5C; padding:5px; text-shadow:none;}
+
+/* === #5C5C5C === */
+.fecha-notificacion { font-size: 12px;text-align: center;font-weight: bold;color: #FFF; padding:5px; text-shadow:none;}
+.fecha-notificacion.leido { background:#5C5C5C; }
+.fecha-notificacion.no-leido { background:firebrick; }
 .block-notificacion-invitacion { float:left;}
 /*botones notificacion*/
 a.color-boton-notificacion, a.color-boton-notificacion:hover {
