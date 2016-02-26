@@ -296,3 +296,10 @@ function setMorePro(){
     delete partidos;
 }
 
+function setMoreNot(){
+    var notifica = new notificaciones();
+    notifica.bool = false;
+	notifica.getNotificaciones();
+    delete notifica;
+}
+
