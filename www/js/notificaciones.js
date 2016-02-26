@@ -63,7 +63,7 @@ function notificaciones(){
                         }
 
                     	inc += "<div class='contenedor-general-notificaciones' id='contenedor-notificacion'>";    
-		                inc += "<div class='fecha-notificacion "+clase+"'>Aviso de Encuentro</div>";
+		                inc += "<div id='notificacion_"+json[i].id_notificacion+"' class='fecha-notificacion "+clase+"'>Aviso de Encuentro</div>";
 		                inc += "<a onclick='redirectAsistencia("+json[i].id_notificacion+")' class='link-color'>";
 		                inc += "<div class='contenedor-fechas-notificacion'>";
 		                inc += "<div class='centrado-fechas-notificacion'>";
@@ -113,7 +113,7 @@ function notificaciones(){
 
         xhr.onload = function(e){  
             if(this.status == 200){
-                if(this.response && JSON.parse(this.response)){
+                if(this.response){
                     if(this.response > 0){
                         document.getElementById('globo').innerHTML = this.response;
                         document.getElementById('globo').style.display = "block";
@@ -132,6 +132,7 @@ function notificaciones(){
         var send = new FormData();
 
         send.append('id_notificacion',sessionStorage.getItem('id_notifica'));
+        send.append('id_usuario',localStorage.getItem('id'));
 
         xhr.open('POST', path + 'app/getAsistencia');
         xhr.setRequestHeader('Cache-Control', 'no-cache');
@@ -249,6 +250,8 @@ function setAsistencia(tipo,notifica,id){
         };
 
         xhr.onload = function(e){
+            $("#notificacion_"+notifica).removeClass("no-leido");
+            $("#notificacion_"+notifica).addClass("leido");
             if(tipo == 1){
                 $("#notifica-con"+notifica).slideDown(500);
                 $("#notifica-no"+notifica).slideUp(500);
