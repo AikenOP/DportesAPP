@@ -33,6 +33,7 @@ function notificaciones(){
         };
 
         xhr.onload = function(e){
+            //alert(this.response);
         	//alert(localStorage.getItem('id'));
             if(this.status == 200){
                 if(this.response && JSON.parse(this.response)){
@@ -42,6 +43,7 @@ function notificaciones(){
                     var hora = '';
                     var asistir= 'none;';
                     var no_asistir = 'none;';
+                    var no_confirma = 'none;';
                     var clase = '';
                     for(var i = 0; i < json.length; i++ ){ 
                     	fecha = getFecha(json[i].fecha_evento);
@@ -49,9 +51,15 @@ function notificaciones(){
                         if(json[i].tipos_asistencias_id_tipo_asistencia == 1){
                             asistir = 'block;';
                             no_asistir = 'none;';
+                            no_confirma = 'none;';
                         } else if(json[i].tipos_asistencias_id_tipo_asistencia == 2){
                             no_asistir = 'block;';
                             asistir = 'none;';
+                            no_confirma = 'none;';
+                        } else if(json[i].tipos_asistencias_id_tipo_asistencia == 3 && json[i].bool_fecha == 1){
+                            no_asistir = 'none;';
+                            asistir = 'none;';
+                            no_confirma = 'block;';
                         } else {
                             no_asistir = 'none;';
                             asistir = 'none;';
@@ -73,12 +81,15 @@ function notificaciones(){
 		                inc += "<div class='block-notificacion'><p class='nombre-equipo-notificacion'>"+fecha+" - "+hora+"hrs</p></div>";
 		                inc += "<div class='block-notificacion'><p id='notifica-con"+json[i].id_notificacion+"' class='nombre-equipo-notificacion-con' style='display:"+asistir+"'>Asistencia confirmada</p></div>";
 		                inc += "<div class='block-notificacion'><p id='notifica-no"+json[i].id_notificacion+"' class='nombre-equipo-notificacion-in' style='display:"+no_asistir+"'>Inasistencia confirmada</p></div>";
+                        inc += "<div class='block-notificacion'><p id='notifica-no"+json[i].id_notificacion+"' class='nombre-equipo-notificacion-in' style='display:"+no_confirma+"'>No Respondido</p></div>";
 		                inc += "</div>";
 		                inc += "</div>";
 		                inc += "</a>";
-		                inc += "<div class='boton-participar'><a onclick='setAsistencia(1,"+json[i].id_notificacion+","+localStorage.getItem('id')+")' href='#ventana-asistira' data-rel='popup' data-position-to='window' class='ui-btn color-boton-notificacion' id='boton-asistere' data-transition='pop'>Asistiré</a></div>";
-		                inc += "<div class='boton-participar'><a onclick='setAsistencia(2,"+json[i].id_notificacion+","+localStorage.getItem('id')+")' href='#ventana-no-asistira' data-rel='popup' data-position-to='window' class='ui-btn color-boton-notificacion-2' id='boton-no-asistere' data-transition='pop'>No Asistiré</a></div>";
-		                inc += "</div>";
+                        if(json[i].bool_fecha != 1){
+		                  inc += "<div class='boton-participar'><a onclick='setAsistencia(1,"+json[i].id_notificacion+","+localStorage.getItem('id')+")' href='#ventana-asistira' data-rel='popup' data-position-to='window' class='ui-btn color-boton-notificacion' id='boton-asistere' data-transition='pop'>Asistiré</a></div>";
+		                  inc += "<div class='boton-participar'><a onclick='setAsistencia(2,"+json[i].id_notificacion+","+localStorage.getItem('id')+")' href='#ventana-no-asistira' data-rel='popup' data-position-to='window' class='ui-btn color-boton-notificacion-2' id='boton-no-asistere' data-transition='pop'>No Asistiré</a></div>";
+		                }
+                        inc += "</div>";
                     }
                 }
             }
