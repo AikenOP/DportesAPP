@@ -5,6 +5,7 @@
             document.addEventListener("deviceready", onDeviceReady, false);
 
             function onDeviceReady(){
+                try{
                 var push = PushNotification.init({
                     android: {
                         senderID: "941293805259"
@@ -36,6 +37,9 @@
                 push.on('error', function(e) {
                 console.log(e.message);
                 });
+                } catch(err){
+                    alert(err);
+                }
                 Chart.defaults.global.responsive = false;
                 setTimeout(function(){ 
                     if(localStorage.getItem('login')){
