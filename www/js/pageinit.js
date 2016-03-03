@@ -5,7 +5,17 @@
             document.addEventListener("deviceready", onDeviceReady, false);
 
             function onDeviceReady(){
-
+                var push = PushNotification.init({
+                    android: {
+                        senderID: "941293805259"
+                    },
+                    ios: {
+                        alert: "true",
+                        badge: "true",
+                        sound: "true"
+                    },
+                    windows: {}
+                });
                 Chart.defaults.global.responsive = false;
                 setTimeout(function(){ 
                     if(localStorage.getItem('login')){
