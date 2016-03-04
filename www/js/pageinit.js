@@ -1,5 +1,3 @@
-var pushNotification;
-    
     $(document).on('pagecontainerbeforeshow', function (e, ui) {
 
         var activePage = $(':mobile-pagecontainer').pagecontainer('getActivePage').attr('id');
@@ -20,7 +18,7 @@ var pushNotification;
 
         if(activePage === 'home'){
                 try{
-                    pushNotification = window.plugins.pushNotification;
+                    var PN = window.plugins.pushNotification;
                 } catch(err){
                     alert(err);
                 }
