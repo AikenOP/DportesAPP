@@ -26,8 +26,7 @@
     <preference name="Orientation" value="portrait" />
   </platform>
 
-  <preference name="android-build-tool" value="gradle" />
-  <plugin name="phonegap-plugin-push" source="npm" />
+  <plugin name="com.phonegap.plugins.pushplugin" spec="2.5.0" source="pgb" />
 
   <plugin name="cordova-plugin-whitelist" spec="1.0.0" />
   <plugin name="org.apache.cordova.battery-status" source="pgb" spec="0.2.12" />
