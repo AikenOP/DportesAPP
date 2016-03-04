@@ -1,3 +1,5 @@
+var pushNotification;
+    
     $(document).on('pagecontainerbeforeshow', function (e, ui) {
 
         var activePage = $(':mobile-pagecontainer').pagecontainer('getActivePage').attr('id');
@@ -18,37 +20,7 @@
 
         if(activePage === 'home'){
                 try{
-                var push = PushNotification.init({
-                    android: {
-                        senderID: "941293805259"
-                    },
-                    ios: {
-                        alert: "true",
-                        badge: "true",
-                        sound: "true"
-                    },
-                    windows: {}
-                });
-
-                push.on('registration', function(data) {
-                console.log(data.registrationId);
-                alert(data.registrationId);
-                //$("#gcm_id").html(data.registrationId);
-                });
-
-                push.on('notification', function(data) {
-                console.log(data.message);
-                alert(data.title+" Message: " +data.message);
-                // data.title,
-                // data.count,
-                // data.sound,
-                // data.image,
-                // data.additionalData
-                });
-
-                push.on('error', function(e) {
-                console.log(e.message);
-                });
+                    pushNotification = window.plugins.pushNotification;
                 } catch(err){
                     alert(err);
                 }
