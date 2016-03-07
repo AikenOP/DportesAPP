@@ -5,7 +5,7 @@
   <author href="http://ilia.cl" email="savendano@ilia.cl">Sergio Avendaño</author>
   <content src="index.html"/>
   <platform name="android">
-    <preference name="permissions" value="none"/>
+
     <preference name="orientation" value="portrait"/>
     <preference name="target-device" value="universal"/>
     <preference name="fullscreen" value="false"/>
@@ -18,14 +18,17 @@
     <preference name="show-splash-screen-spinner" value="true"/>
     <preference name="auto-hide-splash-screen" value="true"/>
     <preference name="disable-cursor" value="false"/>
-    <preference name="android-minSdkVersion" value="14"/>
+
     <preference name="android-installLocation" value="auto"/>
+    
   </platform>
   <platform name="ios">
     <preference name="Orientation" value="portrait" />
   </platform>
 
-  <plugin name="cordova-plugin-whitelist" spec="1.0.0" />
+  <preference name="android-build-tool" value="gradle" />
+  <plugin name="phonegap-plugin-push" source="npm" />
+
   <plugin name="cordova-plugin-whitelist" spec="1.0.0" />
   <plugin name="org.apache.cordova.battery-status" source="pgb" spec="0.2.12" />
   <plugin name="org.apache.cordova.camera" source="pgb" spec="0.3.6" />
@@ -46,6 +49,7 @@
   <plugin name="org.apache.cordova.splashscreen" source="pgb" spec="1.0.0" />
   <plugin name="org.apache.cordova.statusbar" source="pgb" spec="0.1.4" />
   <plugin name="org.apache.cordova.vibration" source="pgb" spec="0.3.13" />
+
 
   <feature name="http://api.phonegap.com/1.0/network" />
 
@@ -74,7 +78,7 @@
   <gap:splash src="www/res/screen/ios/screen-ipad-portrait.png" gap:platform="ios" width="768" height="1024"/>
   <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
-  <gap:plugin name="cordova-plugin-whitelist" source="npm" />
+
   <access origin="*" />
   <allow-intent href="*" />
   <allow-navigation href="*" />

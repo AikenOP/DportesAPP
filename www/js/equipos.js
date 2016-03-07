@@ -42,11 +42,12 @@ function equipos(){
         xhr.timeout = 10000;
         xhr.onprogress = function(e){
             $.mobile.loading('show');
-        }
+        }	
         xhr.ontimeout = function(e){
             navigator.notification.alert('Se detecto un problema, intentelo nuevamente',function(){},'Atención','OK');   
         }
         xhr.onload = function(e){
+        	alert(this.response);
         	$.mobile.loading('hide');
         	if(this.status == 200){
 	    		if(this.response && JSON.parse(this.response)){
@@ -213,6 +214,7 @@ function setEquipo(){
 	var eq = new equipos();
 	eq.nombre = document.getElementById('edit-eq-nombre').value;
 	eq.setEquipo();
+	delete eq;
 }
 
 function redirectEquipo(eq){

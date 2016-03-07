@@ -108,6 +108,12 @@ function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+function getHora(hora){
+	var hor = hora.split(" ");
+	var arr = hor[1].split(":");
+	return arr[0] + ":" + arr[1];
+}
+
 function getFecha(fecha) {
 	var fech = fecha.split(" ");
 	var arr = fech[0].split("-");
@@ -227,13 +233,18 @@ function checkAmarilla(){
 }
 
 function checkAmarillaRoja(id){
-	var arr = JSON.parse(sessionStorage.getItem('amarillas'));
-	for(var i = 0 ; i <= arr.length ; i++){
-		if(id == arr[i]){
-			return true
+	if(sessionStorage.getItem('amarillas')){
+		var arr = JSON.parse(sessionStorage.getItem('amarillas'));
+		for(var i = 0 ; i <= arr.length ; i++){
+			if(id == arr[i]){
+				return true
+			}
 		}
+		return false;		
+	} else {
+		return false;
 	}
-	return false;
+
 }
 
 function dropAmarilla(id){
@@ -283,5 +294,12 @@ function setMorePro(){
     partidos.bool = false;
 	partidos.getProgramados();
     delete partidos;
+}
+
+function setMoreNot(){
+    var notifica = new notificaciones();
+    notifica.bool = false;
+	notifica.getNotificaciones();
+    delete notifica;
 }
 

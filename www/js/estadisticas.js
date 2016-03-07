@@ -233,7 +233,6 @@ function setGol(id){
 }
 
 function setAccion(tipo,accion){
-
     if(tipo == 1 && accion == 1){
         var id = sessionStorage.getItem('accIDTitular');
         var marcador = document.getElementById('acc-marc-favor').innerHTML;
@@ -286,6 +285,7 @@ function setAccion(tipo,accion){
         $.mobile.loading('show');
     }
     xhr.onload = function(e){
+        //alert(this.response);
         if(tipo == 1 && accion == 1){
             sessionStorage.setItem('accion',this.response);
             document.getElementById('acc-tipo-stat').style.display = "none";

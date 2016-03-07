@@ -500,13 +500,22 @@ li.li-padding div.ui-radio label { border-top:hidden; border-left:hidden; border
 /* Notificaciones, afecta NOTIFICACIONES.HTML */
 .boton-participar {width:50%; float:left;}
 .contenedor-general-notificaciones {overflow:auto; margin-bottom:15px; background:#FFF;}
+.contenedor-general-notificaciones2 {overflow:auto; margin-bottom:0px; background:#FFF;}
+.contenedor-general-notificaciones2 hr {opacity: 0.6;}
 div.boton-participar a {margin-top:0px; margin-bottom:0px;}
 .contenedor-fechas-notificacion { padding-top:15px; padding-bottom:10px; text-align:center;width:100%;}
-.centrado-fechas-notificacion {display:inline-block;width:230px;}
-.block-notificacion { display:inline-block;}
+.centrado-fechas-notificacion {display:inline-block;width:278px;}
+.block-notificacion { display:inline-block; vertical-align:top;}
+.block-notificacion2 { display:block; width:100%; text-align:center;}
 .vs-notificacion { font-size:18px; margin-left:15px; margin-right:15px; font-weight:bold; display:inline-block; vertical-align: top; margin-top:35px;  }
 .nombre-equipo-notificacion {margin: 5px 0 5px 0;font-size:12px; font-weight:bold; text-align:center;}
-.fecha-notificacion { font-size: 12px;text-align: center;font-weight: bold;color: #FFF; background:#5C5C5C; padding:5px; text-shadow:none;}
+.nombre-equipo-notificacion-con {margin: 5px 0 5px 0;font-size:18px; font-weight:bold; text-align:center; color: royalblue;}
+.nombre-equipo-notificacion-in {margin: 5px 0 5px 0;font-size:18px; font-weight:bold; text-align:center; color: tomato;}
+
+/* === #5C5C5C === */
+.fecha-notificacion { font-size: 12px;text-align: center;font-weight: bold;color: #FFF; padding:5px; text-shadow:none;}
+.fecha-notificacion.leido { background:#5C5C5C; }
+.fecha-notificacion.no-leido { background:firebrick; }
 .block-notificacion-invitacion { float:left;}
 /*botones notificacion*/
 a.color-boton-notificacion, a.color-boton-notificacion:hover {
@@ -553,6 +562,14 @@ a.color-boton-notificacion-2:focus { box-shadow:none !important; padding-top: 0.
 	width: 50px;
 	height: 50px;
 	background-image: url("img-dportes/iconos/agregar.svg");
+	z-index: 3; }
+.orden_cancha {
+	position: fixed;
+	bottom: 15px;
+	right: 15px;
+	width: 50px;
+	height: 50px;
+	background-image: url("img-dportes/iconos/orden_cancha.png");
 	z-index: 3; }
 /* Afecta a PENALES.HTML */
 .contenedor-penales { margin-bottom:10px; text-align:center;}
@@ -609,9 +626,9 @@ a.color-boton-notificacion-2:focus { box-shadow:none !important; padding-top: 0.
 	float: right;
 	margin-left:5px; }
 /*asistencia*/
-.asistencia-asistira {color:#090 !important; background:none; border:none; border-style:none;}
-.asistencia-no-asistira {color:#900!important; background:none; border:none; border-style:none;}
-.asistencia-sin-responder {color:#333 !important; background:none; border:none; border-style:none;}
+.asistencia-asistira {color:#090 !important; background:none; border:none; border-style:none; margin-top:20px;}
+.asistencia-no-asistira {color:#900!important; background:none; border:none; border-style:none; margin-top:20px;}
+.asistencia-sin-responder {color:#333 !important; background:none; border:none; border-style:none; margin-top:20px;}
 .contenedor_iconos_jugadas {position: absolute; bottom: 5%; left: 5%; width: 1.25rem;}
 .agregar_nuevo_juego {
 	position: fixed;
@@ -873,21 +890,21 @@ a.color-boton-presionado {
     background-image:url("img-dportes/iconos/icono_nuevo_equipo.svg");
     z-index: 3; }
 .deporte-baloncesto { 
-	background-image:url(img-dportes/iconos_de_deportes/baloncesto.svg); 
+	background-image:url(img-dportes/iconos_de_deportes/baloncesto-copia.svg); 
 	width:40px; 
 	height:30px; 
 	display:inline-block;
 	background-size:contain;
 	background-repeat:no-repeat; }
 .deporte-rugby { 
-	background-image:url(img-dportes/iconos_de_deportes/rugby.svg); 
+	background-image:url(img-dportes/iconos_de_deportes/rugby-copia.svg); 
 	width:40px; 
 	height:30px;
 	display:inline-block; 
 	background-size:contain;
 	background-repeat:no-repeat; }
 .deporte-voleyball {
-	background-image:url(img-dportes/iconos_de_deportes/voleyball.svg); 
+	background-image:url(img-dportes/iconos_de_deportes/voleyball-copia.svg); 
 	width:40px; 
 	height:30px;
 	display:inline-block;
@@ -915,15 +932,16 @@ a.color-boton-presionado {
 	background-size:contain;
 	background-repeat:no-repeat; }
 .texto-deportes-inicio-inferior {
-	font-size: 12px;
-	text-transform: uppercase;
-	color: #FFF;
-	text-decoration: none;
-	text-align: center;
-	margin-top: 5px;
-	margin-bottom: 10px;
-	text-shadow: 1px 1px 0px #666;
-	letter-spacing: 2px; }
+                font-size: 15px;
+                color: #008000;
+                text-decoration: none;
+                text-align: center;
+                margin-top: 5px;
+                margin-bottom: 10px;
+                text-shadow: none;
+                letter-spacing: 1px;
+}
+
 [data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}
 
 .seccion-general {display:block; width:100%;margin-bottom: 0px;margin-bottom: -46px;float: left;}
@@ -1031,3 +1049,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbc01', end
 
 }
 canvas { width: 100% !important; max-width: 800px; height: auto !important;}
+.chartjs-tooltip {opacity: 1;background:none;color: #666666;padding: 3px;border-radius: 3px;pointer-events: none;}
+.chartjs-tooltip-section {margin: 0 auto;}
+.chartjs-tooltip-key {display:inline-block; width:10px; height:10px;}
+.jug-cancha {}
+.jug-cancha li {background-color: tomato !important;float: left;width: 15%;}
+.jug-cancha li:first-child {margin:100px;}
+/* === seccion de Drag&Drop ===*/
+.draggable {width:13%;padding:0.1em;margin:0.5em;color:white;font-size:bold;float:left;}
+.draggable img {max-width:100%;}
+.draggable p {font-size:10px;text-align:center;}
+/* === Notificaciones === */
+.contenedor-globo {
+	position: relative; }
+.globo {
+	background-color: red;
+	border:1px solid firebrick;
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	color: white;
+	border-radius: 0.75rem 0.75rem 0.75rem 0;
+	font-weight: normal;
+	text-decoration: none;
+	padding: 0.5rem 0.5rem 0.5rem 0.5rem; }
